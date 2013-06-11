@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/FrameLayout1"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="109dp"
+			android:background="@drawable/channelactivity_headerbackground"
+			android:gravity="center_vertical">
+			<ImageView
+				android:id="@+id/channelicon"
+				android:layout_width="100dp"
+				android:layout_height="fill_parent"
+				android:layout_marginLeft="6dp"
+				android:padding="10dp"
+				android:scaleType="fitCenter"
+				android:src="@android:drawable/sym_def_app_icon"
+				binding:source="logo" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:gravity="center_vertical"
+				android:orientation="vertical">
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+					<TextView
+						android:id="@+id/channeltitle"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Selector"
+						android:textSize="24sp"
+						android:textStyle="bold"
+						binding:text="title"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+					<TextView
+						android:id="@+id/TextView05"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" by "
+						android:textSize="24sp"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+						binding:visibility="IS_NOT_NULL(publisher)" />
+					<TextView
+						android:id="@+id/channelPublisher"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Pitchfork Media"
+						android:textSize="24sp"
+						binding:text="publisher"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+						binding:visibility="IS_NOT_NULL(publisher)" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/ll1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content">
+					<ImageView
+						android:id="@+id/imageView2"
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						binding:source="parentalGuidanceResourceId"
+						android:src="@drawable/xf_store_ratings_nr" />
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" | "
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						binding:text="numberOfVideos"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+					<TextView
+						android:id="@+id/channelSummary"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" EPISODES"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+					<TextView
+						android:id="@+id/channelSummary"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" | EDITOR'S PICK"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+						binding:visibility="isEditorsPick" />
+					<TextView
+						android:id="@+id/channelSummary"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" | TRENDING"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+						binding:visibility="isTrending" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<LinearLayout
+			android:id="@+id/content"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingLeft="34dp"
+			android:paddingRight="34dp">
+			<LinearLayout
+				android:id="@+id/LinearLayout1"
+				style="@style/sorting_bar">
+				<Button
+					style="@style/blackbuttonstyle1"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					android:onClick="onClick"
+					android:padding="10px"
+					android:text="@string/back"
+					android:textSize="12sp"
+					binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+				<View
+					android:id="@+id/view1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1" />
+				<com.goldengate.ui.BindableLinearLayout
+					android:id="@+id/sortbuttoncontainer"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					binding:itemSource="sortButtons"
+					binding:itemLayout="@layout/sortbutton" />
+				<Button
+					style="@style/blackbuttonstyle1"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					android:text="@string/channel_info"
+					binding:onClick="ARG(setMode,'channel-info')"
+					binding:selected="isChannelInfoVisible"
+					android:textSize="12sp"
+					binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+			</LinearLayout>
+			<View
+				android:id="@+id/view2"
+				android:layout_width="wrap_content"
+				android:layout_height="18dp" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="fill_parent"
+				android:layout_marginBottom="30dp">
+				<LinearLayout
+					android:layout_width="250dp"
+					android:layout_height="fill_parent"
+					android:orientation="vertical">
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="#ff424242"
+						android:orientation="vertical"
+						android:padding="6dp">
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="@dimen/left_channel_list_item_size"
+							android:background="#000000"
+							android:paddingLeft="6dp"
+							android:paddingRight="6dp"
+							binding:visibility="AND(showSubscribed,IS_NOT_NULL(price))">
+							<TextView
+								android:id="@+id/textView2"
+								android:layout_width="wrap_content"
+								android:layout_height="@dimen/left_channel_list_item_size"
+								android:layout_gravity="center_vertical"
+								android:gravity="center"
+								android:singleLine="true"
+								android:text="No price"
+								android:textColor="@color/text1"
+								android:textSize="@dimen/big_text_size"
+								binding:text="price"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+						</LinearLayout>
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="@dimen/left_channel_list_item_size"
+							android:layout_marginBottom="3dp"
+							android:layout_marginTop="3dp"
+							android:background="#000000"
+							android:gravity="center_vertical"
+							android:orientation="horizontal"
+							android:paddingLeft="5dp">
+							<ImageView
+								android:layout_width="wrap_content"
+								android:layout_height="fill_parent"
+								android:layout_margin="5dp"
+								android:src="@drawable/xf_store_icon_like_large" />
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="fill_parent"
+								android:gravity="center_vertical"
+								android:singleLine="true"
+								android:textColor="@color/text1"
+								android:textSize="@dimen/big_text_size"
+								binding:text="numberOfLikes"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="fill_parent"
+								android:layout_marginLeft="2dp"
+								android:gravity="center_vertical"
+								android:singleLine="true"
+								android:text="likes"
+								android:textColor="@color/text1"
+								android:textSize="@dimen/big_text_size"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+						</LinearLayout>
+						<LinearLayout
+							android:layout_width="fill_parent"
+							android:layout_height="fill_parent"
+							android:animateLayoutChanges="true"
+							android:orientation="vertical">
+							<Button
+								android:id="@+id/menu_subscribe"
+								style="@style/blackbuttonstyle1"
+								android:layout_width="match_parent"
+								android:layout_height="@dimen/left_channel_list_item_size"
+								android:layout_marginBottom="3dp"
+								android:layout_marginTop="3dp"
+								android:gravity="center_vertical"
+								android:text="@string/subscribe"
+								android:textColor="@drawable/focusable_text"
+								android:onClick="onSubClick"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+								binding:visibility="showSubscribed" />
+							<Button
+								android:id="@+id/menu_like"
+								style="@style/blackbuttonstyle1"
+								android:layout_width="match_parent"
+								android:layout_height="@dimen/left_channel_list_item_size"
+								android:layout_marginBottom="3dp"
+								android:layout_marginTop="3dp"
+								android:drawableRight="@drawable/store_icon_like"
+								android:gravity="center_vertical"
+								android:text="@string/like"
+								android:textColor="@drawable/focusable_text"
+								binding:onClick="like"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+								binding:visibility="NOT(hasLiked)" />
+							<Button
+								android:id="@+id/menu_more_from_publisher"
+								style="@style/blackbuttonstyle1"
+								android:layout_width="match_parent"
+								android:layout_height="@dimen/left_channel_list_item_size"
+								android:layout_marginBottom="3dp"
+								android:layout_marginTop="3dp"
+								android:gravity="center_vertical"
+								android:text="@string/from_this_publisher"
+								android:textColor="@drawable/focusable_text"
+								binding:onClick="showMoreFromPublisher"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+							<Button
+								android:id="@+id/menu_related_channels"
+								style="@style/blackbuttonstyle1"
+								android:layout_width="match_parent"
+								android:layout_height="@dimen/left_channel_list_item_size"
+								android:layout_marginBottom="3dp"
+								android:layout_marginTop="3dp"
+								android:gravity="center_vertical"
+								android:text="@string/related_channels"
+								android:textColor="@drawable/focusable_text"
+								binding:visibility="IS_NOT_NULL(category)"
+								binding:onClick="ARG(showRelatedChannels,category)"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+							<Button
+								android:id="@+id/menu_unsubscribe"
+								style="@style/blackbuttonstyle1"
+								android:layout_width="match_parent"
+								android:layout_height="@dimen/left_channel_list_item_size"
+								android:layout_marginBottom="3dp"
+								android:layout_marginTop="3dp"
+								android:gravity="center_vertical"
+								android:text="@string/unsubscribe"
+								android:textColor="@drawable/focusable_text"
+								binding:onClick="unsubscribe"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+								binding:visibility="showUnsubscribe" />
+							<TextView
+								android:layout_width="match_parent"
+								android:layout_height="@dimen/left_channel_list_item_size"
+								android:background="#000000"
+								android:gravity="center_vertical"
+								android:padding="5dp"
+								android:text="Your access expires at 4/5/13"
+								android:textColor="@drawable/focusable_text"
+								android:textSize="@dimen/big_text_size"
+								binding:text="expires"
+								binding:visibility="showSubscribeText" />
+						</LinearLayout>
+					</LinearLayout>
+				</LinearLayout>
+				<FrameLayout
+					android:id="@+id/maincontent"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="32dp">
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:orientation="vertical"
+						binding:visibility="isVideoListVisible">
+						<LinearLayout
+							android:layout_width="fill_parent"
+							android:layout_height="fill_parent"
+							android:layout_gravity="center"
+							android:gravity="center"
+							android:visibility="gone"
+							binding:visibility="AND(loadingVideos,NOT(isLoading))">
+							<ProgressBar
+								style="?android:attr/progressBarStyleLarge"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content" />
+						</LinearLayout>
+						<HorizontalScrollView
+							android:id="@+id/horizontalScrollView1"
+							android:focusable="false"
+							android:layout_width="wrap_content"
+							android:layout_height="@dimen/channel_button_height"
+							binding:visibility="NOT(loadingVideos)">
+							<com.goldengate.ui.BindableLinearLayout
+								android:id="@+id/videocontainer"
+								android:layout_width="wrap_content"
+								android:layout_height="match_parent"
+								android:orientation="horizontal"
+								binding:itemLayout="@layout/videobutton"
+								binding:itemSource="videos">
+<!-- 								<include layout="@layout/videobutton" /> -->
+<!-- 								<include layout="@layout/videobutton" /> -->
+<!-- 								<include layout="@layout/videobutton" /> -->
+<!-- 								<include layout="@layout/videobutton" /> -->
+							</com.goldengate.ui.BindableLinearLayout>
+						</HorizontalScrollView>
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:orientation="vertical">
+							<TextView
+								android:id="@+id/TextView01"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Take Away Show"
+								android:textColor="#e6e6e6"
+								android:textSize="24sp"
+								android:textStyle="bold"
+								binding:text="selectedVideo.title" />
+							<TextView
+								android:id="@+id/textView1"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								binding:text="selectedVideo.date" />
+							<TextView
+								android:id="@+id/TextView02"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								binding:text="selectedVideo.duration" />
+							<ScrollView
+								android:id="@+id/ScrollView1"
+								android:layout_width="wrap_content"
+								android:layout_height="0dp"
+								android:layout_weight="1.0">
+								<TextView
+									android:id="@+id/TextView03"
+									android:layout_width="fill_parent"
+									android:layout_height="wrap_content"
+									android:text="@string/lorem_ipsum"
+									android:textColor="#e6e6e6"
+									binding:text="selectedVideo.description" />
+							</ScrollView>
+							<TextView
+								android:id="@+id/videopager"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="1 OF 12"
+								android:textSize="11sp"
+								binding:text="CONCAT(selectedIndex,' OF ',numberOfVideos)"
+								binding:visibility="IS_NOT_NULL(selectedIndex)" />
+						</LinearLayout>
+					</LinearLayout>
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+						<RelativeLayout
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:visibility="gone"
+							binding:visibility="isChannelInfoVisible">
+							<ImageView
+								android:id="@+id/ImageView01"
+								android:layout_width="320px"
+								android:layout_height="180px"
+								android:layout_alignParentLeft="true"
+								android:layout_alignParentTop="true"
+								android:scaleType="fitCenter"
+								binding:source="logoBig"
+								android:src="@android:drawable/sym_def_app_icon" />
+							<LinearLayout
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_alignBottom="@+id/ImageView01"
+								android:layout_alignParentRight="true"
+								android:layout_alignParentTop="true"
+								android:layout_toRightOf="@+id/ImageView01"
+								android:layout_marginLeft="20px"
+								android:gravity="center_vertical"
+								android:orientation="vertical">
+								<LinearLayout
+									android:layout_width="match_parent"
+									android:layout_height="wrap_content">
+									<TextView
+										android:id="@+id/TextView06"
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text="Selector"
+										binding:text="title"
+										android:textSize="24sp"
+										android:textStyle="bold"
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+									<TextView
+										android:id="@+id/TextView08"
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text=" by "
+										android:textSize="24sp"
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+										binding:visibility="IS_NOT_NULL(publisher)" />
+									<TextView
+										android:id="@+id/TextView04"
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text="Pitchfork Media"
+										binding:text="publisher"
+										android:textSize="24sp"
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+										binding:visibility="IS_NOT_NULL(publisher)" />
+								</LinearLayout>
+								<LinearLayout
+									android:id="@+id/LinearLayout01"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content">
+									<ImageView
+										android:id="@+id/ImageView02"
+										android:layout_width="wrap_content"
+										android:layout_height="match_parent"
+										binding:source="parentalGuidanceResourceId"
+										android:src="@drawable/xf_store_ratings_nr" />
+									<TextView
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text=" | "
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+									<TextView
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										binding:text="numberOfVideos"
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+									<TextView
+										android:id="@+id/TextView07"
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text=" EPISODES"
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+									<TextView
+										android:id="@+id/TextView07"
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text=" | EDITOR'S PICK"
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+										binding:visibility="isEditorsPick" />
+									<TextView
+										android:id="@+id/TextView07"
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text=" | TRENDING"
+										binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+										binding:visibility="isTrending" />
+								</LinearLayout>
+							</LinearLayout>
+							<TextView
+								android:id="@+id/channeldescription"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_alignParentBottom="true"
+								android:layout_alignParentLeft="true"
+								android:layout_alignParentRight="true"
+								android:layout_below="@+id/ImageView01"
+								android:text="A show about music, for the people, from Pitchfork."
+								binding:text="description"
+								binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+						</RelativeLayout>
+					</LinearLayout>
+				</FrameLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+	<include layout="@layout/loadingoverlay" />
+</FrameLayout>

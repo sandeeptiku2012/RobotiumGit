@@ -1,0 +1,22 @@
+<resources>
+    <color name="blue">#0000ff</color>
+    <color name="black">#000000</color>
+    <color name="dark_grey">#101010</color>
+    <color name="light_grey">#202020</color>
+    <color name="lighter_grey">#303030</color>
+    <color name="almost_white">#dddddd</color>
+    <color name="blue_bright">#ff00ddff</color>
+    <color name="blue_light">#ff33b5e5</color>
+    <color name="blue_dark">#ff0099cc</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black">#AA000000</color>
+    <color name="control_bar_cc_on">#FFFFFFFF</color>
+    <color name="control_bar_cc_off">#AAFFFFFF</color>
+    <color name="control_bar_aa_on">#FFFFFFFF</color>
+    <color name="control_bar_aa_off">#AAFFFFFF</color>
+
+    <color name="log_error">#ffc86d5e</color>
+    <color name="log_info">#ffffffff</color>
+    <color name="log_warn">#ffc88724</color>
+    <color name="log_debug">#ff95898e</color>
+</resources>

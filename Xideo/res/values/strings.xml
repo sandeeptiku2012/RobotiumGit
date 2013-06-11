@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+
+    <string name="app_name">Xidio</string>
+    <string name="menuitem_mychannels">My Channels</string>
+    <string name="my_channels">My Channels</string>
+    <string name="like">Like</string>
+    <string name="gift_this_channel">Gift this Channel</string>
+    <string name="share">Share</string>
+    <string name="from_this_publisher">From this Publisher</string>
+    <string name="related_channels">Related Channels</string>
+    <string name="unsubscribe">Unsubscribe</string>
+
+    <plurals name="number_of_episodes">
+        <item quantity="one">1 EPISODE</item>
+        <item quantity="other">%d EPISODES</item>
+    </plurals>
+    <plurals name="number_of_channels">
+        <item quantity="one">1 channel.</item>
+        <item quantity="other">%d channels.</item>
+    </plurals>
+
+    <string name="new_videos_from_your_subscriptions">New Videos From Your Subscriptions</string>
+    <string name="you_haven_t_subscribed_to_any_channels_yet_">There are no new videos from your subscriptions.</string>
+    <string name="find_video_channels_about_any_topic_in_the_comcast_channel_store">Find video channels in the Comcast Channel Store</string>
+    <string name="your_favorite_videos">Your Favorite Videos</string>
+    <string name="you_haven_t_favorited_any_videos_yet_">You haven\'t favorited any videos yet.</string>
+    <string name="mark_videos_as_favorites_so_you_can_watch_them_again_">Mark videos as favorites so you can watch them again.</string>
+    <string name="see_all">SEE ALL</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tortor nec risus pharetra sagittis. Quisque et malesuada urna. Vivamus pretium metus at turpis venenatis convallis. Donec placerat dolor est, eu condimentum eros. Ut sed congue dolor. Suspendisse euismod, tortor id vestibulum posuere, enim nulla porta odio, a suscipit leo lacus sit amet nulla. Proin ornare facilisis lorem id placerat. Nulla facilisi.\n\nEtiam magna mauris, ultrices eget rutrum eu, ultricies eu felis. Duis a varius augue. Vivamus lobortis ante ipsum. Aliquam metus mauris, molestie non placerat vitae, sodales vel diam. Mauris dictum mi consectetur justo mattis malesuada. Quisque facilisis egestas auctor. Nam quis enim orci, nec tristique justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet nibh sit amet lectus sodales placerat tristique non justo. Nunc justo
+		lacus, pretium luctus ultrices sit amet, dapibus ut neque. Curabitur at vulputate nulla. In imperdiet purus sem, at vulputate quam. Aenean ultricies odio ac nunc hendrerit sit amet ultrices ligula sollicitudin.</string>
+    <string name="no_search_results">No search results</string>
+    <string name="channels">Channels</string>
+    <string name="videos">Videos</string>
+    <string name="search">Search</string>
+    <string name="noteworthy">NOTEWORTHY</string>
+    <string name="popular">POPULAR</string>
+    <string name="newest">Newest</string>
+    <string name="back_to_technology">Back to Technology</string>
+    <string name="back_to_my_channels">Back to My Channels</string>
+    <string name="most_viewed">Most Viewed</string>
+    <string name="most_popular">Most Popular</string>
+    <string name="recently_updated">Recently Updated</string>
+    <string name="back">Back</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login">Login</string>
+    <string name="episodes"> EPISODES</string>
+    <string name="_videos">" videos"</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="you_have_already_liked_this_channel">You have already liked this channel</string>
+    <string name="unsubscribed">unsubscribed</string>
+    <string name="please_enter_your_pin_">Please enter your pin.</string>
+    <string name="subscription_failed_please_try_again_later">Subscription failed, please try again later</string>
+    <string name="was_not_able_to_unsubscribe_please_try_again_later">Was not able to unsubscribe, please try again later</string>
+    <string name="you_are_now_subscribed_to_this_channel">You are now subscribed to this channel</string>
+    <string name="you_have_already_unliked_this_channel">You have already unliked this channel</string>
+    <string name="unlike">Unlike</string>
+    <string name="your_access_expires_at_">"Access expires "</string>
+    <string name="no_expiration_">No expiration.</string>
+    <string name="login_failed_">Login failed.</string>
+    <string name="you_need_to_log_in_">You need to log in.</string>
+    <string name="enter_your_pin_">Enter your pin:</string>
+    <string name="error_subscribing_did_you_enter_the_wrong_pin_">Error subscribing, did you enter the wrong pin?</string>
+    <string name="could_not_find_new_videos_">Could not find new videos.</string>
+    <string name="could_not_find_favorite_videos_">Could not find favorite videos.</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="new_videos">New Videos</string>
+    <string name="error_logging_in_please_check_your_username_and_password_">Error logging in, please check your username and password.</string>
+    <string name="loading">Loading...</string>
+    <string name="title_activity_network_error">NetworkErrorActivity</string>
+    <string name="a_to_z">A - Z</string>
+    <string name="channel_info">Channel Info</string>
+    <string name="next_up">Next Up:</string>
+    <string name="new_header">NEW</string>
+    <string name="noteworthy_channels_in_">"Noteworthy channels in "</string>
+    <string name="no_next_up">Press up for more channels</string>
+    <string name="title_activity_xideo_home">Xidio Home</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_detail">Details</string>
+
+</resources>

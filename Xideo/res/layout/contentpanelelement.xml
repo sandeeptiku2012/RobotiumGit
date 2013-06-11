@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_margin="0px"
+	android:focusable="true"
+	android:focusableInTouchMode="true"
+	binding:onGainFocus="onGainFocus"
+	binding:onLostFocus="onLostFocus"
+	android:padding="0px"
+	binding:onClick="click">
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:scaleType="fitXY"
+		android:src="@drawable/sample_screenshot"
+		binding:source="logo" />
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Loading..."
+		binding:visibility="ISNULL(logo)" />
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:duplicateParentState="true"
+		android:background="#80000000"
+		android:gravity="right"
+		android:padding="5px"
+		android:textColor="#ffffff"
+		binding:text="title"
+		binding:visibility="isFocused" />
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@drawable/focused_border"
+		android:duplicateParentState="true" />
+</FrameLayout>

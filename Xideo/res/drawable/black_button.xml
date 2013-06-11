@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_focused="true">
+		<layer-list>
+			<item>
+				<shape>
+					<gradient
+						android:angle="270"
+						android:startColor="#202020"
+						android:centerColor="#242424"
+						android:endColor="#202020">
+					</gradient>
+				</shape>
+			</item>
+			<item>
+				<nine-patch android:src="@drawable/xf_store_sub_nav_highlight_border" />
+			</item>
+		</layer-list>
+	</item>
+	<item>
+		<shape>
+			<gradient
+				android:angle="270"
+				android:startColor="#202020"
+				android:centerColor="#242424"
+				android:endColor="#202020">
+			</gradient>
+		</shape>
+	</item>
+</selector>

@@ -1,0 +1,76 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="400dp"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	android:gravity="center_horizontal"
+	android:orientation="vertical">
+	<TextView
+		android:id="@+id/textView1"
+		style="@drawable/focusable_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10dp"
+		android:text="@string/username"
+		android:textSize="@dimen/big_text_size"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	<EditText
+		android:id="@+id/editUser"
+		android:layout_width="380dp"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:ems="10"
+		android:maxLength="30"
+		android:scrollHorizontally="true"
+		android:singleLine="true"
+		android:textSize="@dimen/big_text_size"
+		binding:text="username"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	<TextView
+		android:id="@+id/textView2"
+		style="@drawable/focusable_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10dp"
+		android:text="@string/password"
+		android:textSize="@dimen/big_text_size"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	<EditText
+		android:id="@+id/editPass"
+		android:layout_width="380dp"
+		android:textSize="@dimen/big_text_size"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="20dp"
+		android:ems="10"
+		android:inputType="textPassword"
+		android:maxLength="30"
+		android:scrollHorizontally="true"
+		android:singleLine="true"
+		binding:text="password" />
+	<TextView
+		android:id="@+id/login_error"
+		style="@drawable/focusable_text"
+		android:layout_width="400dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginBottom="20dp"
+		android:gravity="center"
+		android:visibility="gone"
+		android:textSize="@dimen/big_text_size"
+		binding:text="message"
+		binding:visibility="IS_NOT_NULL(message)"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	<Button
+		style="@style/blackbuttonstyle1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_marginBottom="3dp"
+		android:layout_marginTop="3dp"
+		binding:onClick="login"
+		android:text="@string/login" />
+</LinearLayout>

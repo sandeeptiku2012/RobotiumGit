@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lblActivitySettings">Settings</string>
+
+    <!-- Player control bar string resources -->
+    <string name="PlayerControlPlay">Play</string>
+    <string name="PlayerControlStop">Stop</string>
+    <string name="PlayerControlPause">Pause</string>
+    <string name="PlayerControlCC">CC</string>
+    <string name="PlayerControlCCDialogTitle">Select Closed Captions</string>
+    <string name="PlayerControlCCDialogCancel">Cancel</string>
+    <string name="PlayerControlAA">AA</string>
+    <string name="PlayerControlAADialogTitle">Select Alternate Audio Track</string>
+    <string name="PlayerControlAADialogCancel">Cancel</string>
+
+    <!-- Pub overlay bar string resources -->
+    <string name="PubOverlay">Pub overlay</string>
+
+    <!-- Catalog activity string resources -->
+    <string name="LoadInProgress">Loading content…</string>
+    <string name="ErrorLoadingContent">Error loading content. Try again.</string>
+    <string name="ButtonRefreshContent">Refresh content</string>
+
+    <!-- Settings activity string resources -->
+    <string name="settingsCatalogContentUrl">Content URL</string>
+    <string name="settingsCatalogContentUrlItemDescription">
+        The URL providing the information necessary to fill in the content catalog. Change this URL to load different content in the catalog view.
+    </string>
+
+    <string name="settingsLogItemsCount">Log entry count</string>
+    <string name="settingsLogItemsCountDescription">
+        The maximum number of log/tracing entries to be stored in the logging database. When this value is reached, logging will start discarding the oldest entries.
+    </string>
+    <string name="settingsLogMaxCount">1000</string>
+
+    <string name="settingsControlBarAutohideDescription">
+        The player auto-hides the control bar after 5 sec. If this option is disabled, the control bar will also be visible during ad-break playback.
+    </string>
+    <string name="settingsControlBarAutohideLabel">Enable</string>
+
+    <string name="settingsClosedCaptionsVisibility">Closed captions visibility</string>
+    <string name="settingsClosedCaptionsVisibilityDescription">
+        The visibility specifies if the player will display closed captions (if they are present in the media).
+    </string>
+    
+    <string name="settingsReturnOnPlaybackComplete">Return home when playback finishes</string>
+    <string name="settingsReturnOnPlaybackCompleteDescription">
+        The application will automatically return to the catalog view when playback finishes. If this option is disabled, the application will remain in the player view. 
+    </string>
+    
+    <string name="settingsDisplayQos">QoS parameters visibility</string>
+    <string name="settingsDisplayQosDescription">
+        The player will display QoS information specific to the current item that is being played. 
+    </string>
+
+    <string name="drmAuthenticationError">Authentication for protected content failed. Canceling playback of selected content.</string>
+    <string name="drmAuthenticationLoading">Please wait while authenticating …</string>
+
+    <string name="settingsAbrControl">ABR controls</string>
+    <string name="settingsAbrControlEnable">Enable ABR Controls</string>
+    <string name="settingsAbrControlDescription">
+        Set the paramters that control the rendition of ABR content.
+    </string>
+
+    <string name="settingsAbrInitialBitRate">Initial bit-rate</string>
+    <string name="settingsAbrInitialBitRateDescription">
+        ABR initial bit-rate
+    </string>
+
+    <string name="settingsAbrMinBitRate">Minimum bit-rate</string>
+    <string name="settingsAbrMinBitRateDescription">
+        ABR minimum bit-rate
+    </string>
+
+    <string name="settingsAbrDisabledMessage">Enable the ABR controls in the settings panel if you want to change the ABR parameter values.</string>
+
+    <string name="settingsAbrMaxBitRate">Maximum bit-rate</string>
+    <string name="settingsAbrMaxBitRateDescription">
+        ABR maximum bit-rate
+    </string>
+
+    <string name="settingsAbrPolicy">Switch policy</string>
+    <string name="settingsAbrPolicyDescription">
+        Bit-rate switch policy for ABR content
+    </string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="settingsPlayback">Playback options</string>
+    <string name="settingsAbr">ABR settings</string>
+    
+    <string name="settingsCCStyle">Closed Captions style</string>
+    <string name="settingsCCFont">Font</string>
+    <string name="settingsCCFontColor">Font color</string>
+    <string name="settingsCCBackgroundColor">Background color</string>
+    <string name="settingsCCEdgeColor">Edge color</string>
+    <string name="settingsCCSize">Size</string>
+    <string name="settingsCCFontEdge">Font edge</string>
+    <string name="settingsCCFontOpacity">Font opacity</string>
+    <string name="settingsCCBackgroundOpacity">Background opacity</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="enable">Enable</string>
+    <string name="settings_saved">Your settings are saved.</string>
+    <string name="close">Close</string>
+    
+    <string name="aboutTitle">About</string>
+    <string name="aboutPsdkVersion">Player SDK version: </string>
+    <string name="aboutPsdkBuild">Player SDK build: </string>
+    <string name="aboutAveVersion">AVE version: </string>
+    <string name="aboutDeviceModel">Model: </string>
+    <string name="aboutDeviceSoftware">OS: </string>
+    <string name="aboutDeviceResolution">Resolution: </string>
+
+    <string name="qosResolution">Resolution</string>
+</resources>

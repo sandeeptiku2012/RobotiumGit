@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/LinearLayout1"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginBottom="5dp"
+	android:layout_marginTop="5dp"
+	android:orientation="horizontal">
+	<Button
+		android:id="@+id/title"
+		android:nextFocusLeft="@id/title"
+		style="@style/black_button_style"
+		android:layout_width="@dimen/channel_button_width"
+		android:layout_height="@dimen/channel_button_height"
+		android:layout_marginRight="5px"
+		android:padding="5dp"
+		android:text="Channel Name"
+		android:textColor="@color/text1"
+		android:textSize="@dimen/big_text_size"
+		binding:onClick="showCategory"
+		binding:text="title"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	<com.goldengate.ui.BindableLinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1.0"
+		android:animateLayoutChanges="true"
+		binding:itemLayout="@layout/channelbutton"
+		binding:itemSource="channels" />
+	<Button
+		android:id="@+id/seeAllButton"
+		android:nextFocusRight="@id/seeAllButton"
+		android:layout_width="@dimen/channel_button_width"
+		android:layout_height="@dimen/channel_button_height"
+		android:layout_marginLeft="5px"
+		android:textSize="@dimen/big_text_size"
+		android:text="@string/see_all"
+		binding:onClick="showCategory"
+		style="@style/arrow_button"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+</LinearLayout>

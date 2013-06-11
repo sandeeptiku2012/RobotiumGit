@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/viewflipper1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_horizontal|bottom"
+	android:layout_marginRight="6dp"
+	android:adjustViewBounds="true"
+	android:background="@android:color/transparent"
+	android:measureAllChildren="false"
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:id="@+id/view1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:background="@android:color/transparent">
+
+		<ImageView
+			android:id="@+id/image0"
+			android:layout_width="@dimen/subs_icon_thumb_width_height_no_focus"
+			android:layout_height="@dimen/subs_icon_thumb_width_height_no_focus"
+			android:adjustViewBounds="true"
+			android:cropToPadding="false"
+			android:scaleType="fitXY"
+			android:src="@drawable/xf_store_icon_film"
+			binding:visibility="ISNULL(logo)" />
+
+		<ImageView
+			android:id="@+id/imageview1"
+			android:layout_width="@dimen/subs_icon_thumb_width_height_no_focus"
+			android:layout_height="@dimen/subs_icon_thumb_width_height_no_focus"
+			android:layout_gravity="center_horizontal"
+			android:adjustViewBounds="true"
+			android:scaleType="fitXY"
+			binding:source="logo" />
+	</FrameLayout>
+
+	<LinearLayout
+		android:id="@+id/view2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal|bottom"
+		android:orientation="vertical">
+
+		<FrameLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center">
+
+			<ImageView
+				android:id="@+id/imageview0"
+				android:layout_width="@dimen/subs_icon_thumb_width_height"
+				android:layout_height="@dimen/subs_icon_thumb_width_height"
+				android:adjustViewBounds="true"
+				android:scaleType="fitXY"
+				android:src="@drawable/xf_store_icon_film"
+				binding:visibility="ISNULL(logo)" />
+			<ImageView
+				android:id="@+id/imageview1"
+				android:layout_width="@dimen/subs_icon_thumb_width_height"
+				android:layout_height="@dimen/subs_icon_thumb_width_height"
+				android:adjustViewBounds="true"
+				android:scaleType="fitXY"
+				binding:source="logo" />
+		</FrameLayout>
+		<TextView
+			android:id="@+id/text1"
+			android:layout_width="@dimen/subs_icon_thumb_width_height"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:ellipsize="end"
+			android:gravity="left"
+			android:lines="1"
+			android:maxLines="1"
+			android:text="Blip.tv"
+			android:textColor="#ffffff"
+			android:textSize="14sp"
+			binding:text="title"
+			binding:typeface="TYPEFACE_FROM_ASSET(&apos;fonts/Flama-Basic.otf&apos;)" />
+	</LinearLayout>
+
+</ViewFlipper>

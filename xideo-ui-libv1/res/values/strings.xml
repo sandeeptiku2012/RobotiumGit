@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">user-libv1</string>
+    <string name="title_activity_video_strip_test">VideoStripTestActivity</string>
+    <string name="title_activity_menu_layout">MenuLayoutActivity</string>
+
+</resources>

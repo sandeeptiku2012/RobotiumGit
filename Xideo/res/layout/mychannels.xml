@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:orientation="vertical"
+	android:paddingTop="10px"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	binding:visibility="isVisible">
+	<TextView
+		android:id="@+id/textView1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10px"
+		android:layout_marginBottom="0px"
+		android:text="@string/new_videos_from_your_subscriptions"
+		android:textSize="18sp"
+		android:textStyle="bold" />
+	<gueei.binding.widgets.BindableFrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10px"
+		binding:layoutId="@layout/videorow"
+		binding:dataSource="myNewVideos" />
+	<TextView
+		android:id="@+id/TextView04"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10px"
+		android:layout_marginBottom="0px"
+		android:text="@string/your_favorite_videos"
+		android:textSize="18sp"
+		android:textStyle="bold" />
+	<gueei.binding.widgets.BindableFrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10px"
+		binding:layoutId="@layout/videorow"
+		binding:dataSource="myFavoriteVideos" />
+	<com.goldengate.ui.BindableLinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_marginBottom="@dimen/horizontal_overscan"
+		binding:itemSource="channels"
+		binding:itemLayout="@layout/channelrow" />
+</LinearLayout>

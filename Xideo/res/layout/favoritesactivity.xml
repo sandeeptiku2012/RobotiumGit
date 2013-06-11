@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="109dp"
+		android:background="@drawable/channelactivity_headerbackground"
+		android:gravity="center_vertical"
+		android:paddingLeft="50px"
+		android:paddingRight="50px">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginRight="50px"
+			android:gravity="center_vertical"
+			android:orientation="vertical">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/my_favorites"
+				android:textSize="24sp"
+				android:textStyle="bold" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="25 VIDEOS"
+				binding:text="CONCAT(itemCount, ' VIDEOS')"
+				binding:visibility="IS_POSITIVE(itemCount)" />
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout
+		android:id="@+id/content"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:animateLayoutChanges="true"
+		android:orientation="vertical"
+		android:paddingLeft="50px"
+		android:paddingRight="50px">
+		<LinearLayout
+			style="@style/sorting_bar"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_marginBottom="20dp"
+			android:layout_marginTop="10dp">
+			<Button
+				android:id="@+id/back_button"
+				style="@style/blackbuttonstyle1"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentTop="true"
+				android:onClick="onBackButtonClicked"
+				android:padding="10px"
+				android:text="@string/back"
+				android:textSize="12sp" />
+		</LinearLayout>
+		<View
+			android:id="@+id/view2"
+			android:layout_width="wrap_content"
+			android:layout_height="18dp" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="30dp"
+			binding:visibility="NOT(isLoading)">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:layout_gravity="center"
+					android:gravity="center"
+					android:visibility="gone"
+					binding:visibility="AND(loadingVideos,NOT(isLoading))">
+					<ProgressBar
+						style="?android:attr/progressBarStyleLarge"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+				</LinearLayout>
+				<HorizontalScrollView
+					android:id="@+id/horizontalScrollView1"
+					android:layout_width="wrap_content"
+					android:layout_height="@dimen/channel_button_height"
+					binding:visibility="showvideos">
+					<com.goldengate.ui.BindableLinearLayout
+						android:id="@+id/videocontainer"
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:orientation="horizontal"
+						binding:itemLayout="@layout/videobutton"
+						binding:itemSource="videos">
+						<!-- <include layout="@layout/videobutton" /> -->
+						<!-- <include layout="@layout/videobutton" /> -->
+						<!-- <include layout="@layout/videobutton" /> -->
+						<!-- <include layout="@layout/videobutton" /> -->
+					</com.goldengate.ui.BindableLinearLayout>
+				</HorizontalScrollView>
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/TextView01"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Take Away Show"
+						android:textColor="#e6e6e6"
+						android:textSize="24sp"
+						android:textStyle="bold"
+						binding:text="selected.title" />
+					<TextView
+						android:id="@+id/textView1"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						binding:text="selected.date" />
+					<TextView
+						android:id="@+id/TextView02"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						binding:text="CONCAT('by ',selected.publisher)"
+						binding:visibility="IS_NOT_NULL(selected.publisher)" />
+					<ScrollView
+						android:id="@+id/ScrollView1"
+						android:layout_width="wrap_content"
+						android:layout_height="0dp"
+						android:layout_weight="1.0">
+						<TextView
+							android:id="@+id/TextView03"
+							android:layout_width="fill_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/lorem_ipsum"
+							android:textColor="#e6e6e6"
+							binding:text="selected.description" />
+					</ScrollView>
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="bottom"
+						android:text="1 OF 12"
+						android:textSize="11sp"
+						binding:text="CONCAT(selectedIndex, ' OF ', itemCount)"
+						binding:visibility="AND(IS_NOT_NULL(selectedIndex),IS_NOT_NULL(itemCount))" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+	<include layout="@layout/loadingoverlay" />
+</LinearLayout>

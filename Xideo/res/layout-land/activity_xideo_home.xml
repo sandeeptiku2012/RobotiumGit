@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:comcastui="http://schemas.android.com/apk/res-auto"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@android:color/transparent"
+	android:gravity="top|center_horizontal"
+	tools:context=".MenuLayoutActivity">
+
+	<FrameLayout
+		android:id="@+id/bkgContent"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@drawable/background"
+		/>
+
+	<com.comcast.xideo.customview.ExtViewPager
+	    android:id="@+id/viewpager1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="0dp"
+		 />
+
+	<com.comcast.ui.libv1.widget.AnimatedFocusHopperView
+		android:id="@+id/blobvw1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@android:color/transparent"
+		android:visibility="gone"
+		/>
+
+	<com.comcast.xideo.customview.XidioMenuLayout
+		android:id="@+id/menuEx1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		comcastui:pinnedXPosition="200dp"
+		android:layout_marginLeft="60dp"
+		android:layout_marginTop="20dp"
+		/>
+</FrameLayout>

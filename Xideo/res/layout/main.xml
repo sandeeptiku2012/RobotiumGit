@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="fill_parent"
+		android:layout_gravity="center_horizontal"
+		android:orientation="vertical"
+		android:visibility="visible">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="73dp"
+			android:layout_marginBottom="2dp"
+			android:background="@drawable/top_gray_background"
+			android:paddingLeft="@dimen/horizontal_overscan"
+			android:paddingRight="@dimen/horizontal_overscan">
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginTop="2.5dp"
+				android:src="@drawable/logo" />
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:src="@drawable/header_vertical_bar" />
+			<TextView
+				android:id="@+id/main_title"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_margin="5dp"
+				android:layout_weight="1.0"
+				android:text=""
+				android:textSize="30sp"
+				android:textStyle="bold"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Bold.otf')" />
+			<ImageButton
+				android:layout_width="50px"
+				android:layout_height="50px"
+				android:layout_gravity="center_vertical|right"
+				android:background="@drawable/focused_border"
+				android:onClick="onSearchClicked"
+				android:padding="10px"
+				android:src="@drawable/xf_store_icon_search"
+				android:scaleType="fitCenter"
+				android:layout_margin="5px" />
+			<ImageButton
+				android:id="@+id/imageButton3"
+				android:layout_width="50px"
+				android:layout_height="50px"
+				android:layout_gravity="center_vertical|right"
+				android:background="@drawable/focused_border"
+				android:onClick="onSettingsClicked"
+				android:padding="10px"
+				android:src="@drawable/xf_store_icon_settings"
+				android:scaleType="fitCenter"
+				android:layout_margin="5px" />
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="52px"
+			android:padding="0px"
+			android:background="@drawable/mainmenu_background">
+			<HorizontalScrollView
+				android:id="@+id/horizontalScrollView1"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:scrollbars="none"
+				android:paddingLeft="@dimen/horizontal_overscan"
+				android:paddingRight="@dimen/horizontal_overscan"
+				android:clipToPadding="false">
+				<gueei.binding.widgets.BindableLinearLayout
+					android:id="@+id/mainmenu_container"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					binding:itemLayout="@layout/mainmenu_button"
+					binding:itemSource="mainMenuItems" />
+			</HorizontalScrollView>
+		</LinearLayout>
+		<FrameLayout
+			style="@style/fadedBackground"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_gravity="center"
+			android:gravity="center"
+			binding:visibility="mychannels.isLoading">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:drawablePadding="15dp"
+				android:drawableTop="@drawable/logo"
+				android:gravity="center"
+				android:text="@string/loading"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Bold.otf')" />
+		</FrameLayout>
+		<ScrollView
+			android:id="@+id/scrollView1"
+			android:layout_width="match_parent"
+			android:layout_height="fill_parent"
+			android:fillViewport="true"
+			android:paddingLeft="@dimen/horizontal_overscan"
+			android:paddingRight="@dimen/horizontal_overscan_half"
+			binding:visibility="OR(AND(mychannels.isVisible,NOT(mychannels.isLoading)), AND(NOT(mychannels.isVisible),NOT(isLoading)))">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginRight="@dimen/horizontal_overscan_half"
+				android:orientation="vertical">
+				<LinearLayout
+					android:id="@+id/mychannels"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					binding:visibility="AND(mychannels.isVisible,NOT(mychannels.isLoading))">
+					<gueei.binding.widgets.BindableFrameLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						binding:dataSource="mychannels"
+						binding:layoutId="@layout/mychannels" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/pl"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					binding:visibility="NOT(mychannels.isVisible)">
+					<gueei.binding.widgets.BindableFrameLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						binding:dataSource="contentPanel"
+						binding:layoutId="@layout/featuredcontentpanel" />
+					<gueei.binding.widgets.BindableFrameLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						binding:dataSource="popularContentPanel"
+						binding:layoutId="@layout/contentpanel" />
+					<gueei.binding.widgets.BindableFrameLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						binding:dataSource="noteworthyContentPanel"
+						binding:layoutId="@layout/contentpanel" />
+					<com.goldengate.ui.BindableLinearLayout
+						android:id="@+id/subchannels_container"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						binding:itemLayout="@layout/subcategoryrow"
+						binding:itemSource="subCategories"
+						android:orientation="vertical"
+						android:paddingBottom="10dp" />
+				</LinearLayout>
+			</LinearLayout>
+		</ScrollView>
+		<include layout="@layout/loadingoverlay" />
+	</LinearLayout>
+</FrameLayout>

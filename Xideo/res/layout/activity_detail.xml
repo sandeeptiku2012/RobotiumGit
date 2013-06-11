@@ -1,0 +1,34 @@
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:comcastui="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/bkgContent"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:paddingTop="40dp"
+	android:paddingLeft="40dp"
+	android:background="@drawable/background"
+	tools:context=".DetailActivity">
+
+	<com.comcast.ui.libv1.widget.BindableVideoStripContainerLayout
+		android:id="@+id/details_video_row_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		comcastui:offsetTop="180dp"
+		android:background="@android:color/transparent"
+		android:nextFocusUp="@+id/details1"
+		binding:itemLayout="@layout/details_activity_row"
+		binding:itemSource="shows">
+	</com.comcast.ui.libv1.widget.BindableVideoStripContainerLayout>
+	<com.comcast.xideo.customview.DetailsHeaderView
+		android:id="@+id/details1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:nextFocusDown="@+id/details_video_row_container"
+		android:paddingRight="40dp"
+		android:focusable="true"
+		binding:dataSource="headerDetails" />
+
+</FrameLayout>

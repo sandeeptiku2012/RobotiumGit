@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#88000000"
+	android:visibility="gone"
+	binding:visibility="isLoading">
+
+    <!-- <ProgressBar -->
+    <!-- android:id="@+id/progressBar1" -->
+    <!-- style="?android:attr/progressBarStyleLarge" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_gravity="center" /> -->
+
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:drawableTop="@drawable/logo"
+		android:drawablePadding="15dp"
+		android:text="Loading..."
+		android:gravity="center"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Bold.otf')" />
+
+
+</FrameLayout>

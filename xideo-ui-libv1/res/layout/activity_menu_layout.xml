@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:comcastui="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:padding="20dp"
+    android:gravity="top|center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MenuLayoutActivity" >
+
+	<com.comcast.ui.libv1.widget.MenuLayout
+	    android:id="@+id/menu1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    />
+
+	<com.comcast.ui.libv1.widget.MenuLayout
+	    android:id="@+id/menu2"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    />
+
+</LinearLayout>

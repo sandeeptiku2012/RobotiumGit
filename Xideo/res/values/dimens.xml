@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="channel_see_more_button_width">140px</dimen>
+	<dimen name="channel_button_width">192px</dimen>
+	<dimen name="channel_button_height">108px</dimen>
+	<dimen name="channel_button_width_minus_border">186px</dimen>
+	<dimen name="channel_button_height_minus_border">100px</dimen>
+	<dimen name="channel_button_width_plus_border">200px</dimen>
+	<dimen name="channel_button_height_plus_border">116px</dimen>
+	<dimen name="horizontal_overscan">39px</dimen>
+	<dimen name="horizontal_overscan_half">20px</dimen>
+	<!-- Banners -->
+	<dimen name="banner_double_width">798px</dimen>
+	<dimen name="banner_single_width">394px</dimen>
+	<dimen name="banner_height">274px</dimen>
+	<!-- Misc -->
+	<dimen name="featured_width">382px</dimen>
+	<dimen name="featured_height">274px</dimen>
+	<dimen name="big_text_size">20px</dimen>
+	<dimen name="left_channel_list_item_size">54px</dimen>
+	
+	 <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="activity_top_margin">8dp</dimen>
+    <dimen name="activity_left_margin">8dp</dimen>
+    
+    <!--  new entries -->
+    <dimen  name="subs_icon_thumb_width_height">180px</dimen>
+    <dimen  name="subs_video_thumb_width">320px</dimen>
+    <dimen  name="subs_video_thumb_height">180px</dimen>
+    <dimen  name="subs_video_status_icon_width_height">40px</dimen>
+
+    <dimen  name="subs_icon_thumb_width_height_no_focus">134px</dimen>
+    <dimen  name="subs_video_thumb_width_no_focus">237px</dimen>
+    <dimen  name="subs_video_thumb_height_no_focus">134px</dimen>
+    <dimen  name="subs_video_thumb_title_width">200px</dimen>
+    
+    <dimen name="menu_label_font_size">60px</dimen>
+
+    <dimen  name="details_header_image_thumb_width">160dp</dimen>
+    <dimen  name="details_header_image_thumb_height">140dp</dimen>
+
+    <dimen  name="details_header_image_thumb_width_no_focus">100dp</dimen>
+    <dimen  name="details_header_image_thumb_height_no_focus">80dp</dimen>
+</resources>

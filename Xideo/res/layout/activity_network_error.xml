@@ -1,0 +1,51 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="400dp"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	android:gravity="center_horizontal"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/textView1"
+		style="@drawable/focusable_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10dp"
+		android:text="No connection, are you connected to your network?"
+		android:textSize="@dimen/big_text_size"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<Button
+			android:id="@+id/tryagain_network"
+			style="@style/blackbuttonstyle1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+
+			android:layout_margin="10dp"
+			android:layout_marginBottom="3dp"
+			android:layout_marginTop="3dp"
+			android:onClick="tryAgainClick"
+			android:text="Try again" />
+
+		<Button
+			android:id="@+id/gotonetwork_network"
+			style="@style/blackbuttonstyle1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:layout_marginBottom="3dp"
+			android:layout_marginTop="3dp"
+			android:onClick="settingsClick"
+			android:text="Go to network-settings" />
+	</LinearLayout>
+
+</LinearLayout>

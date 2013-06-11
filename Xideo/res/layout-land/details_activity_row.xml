@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://www.gueei.com/android-binding/"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:clipChildren="false"
+    android:gravity="bottom|left"
+    android:layoutAnimation="@anim/layout_animation_channel_row"
+    android:orientation="vertical"
+     >
+
+    <com.comcast.xideo.customview.BindableVideoStripLayoutEx
+        android:id="@+id/home_channel_row_video_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="bottom"
+        binding:itemLayout="@layout/detail_row_item"
+        binding:itemSource="videos" >
+    </com.comcast.xideo.customview.BindableVideoStripLayoutEx>
+
+</LinearLayout>

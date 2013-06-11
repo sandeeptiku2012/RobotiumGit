@@ -1,0 +1,9 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/qosTopLayout"
+    style="@style/FragmentPlayerQos" >
+
+    <TextView
+        android:id="@+id/qosTextView"
+        style="@style/FragmentPlayerQosText" />
+
+</LinearLayout>

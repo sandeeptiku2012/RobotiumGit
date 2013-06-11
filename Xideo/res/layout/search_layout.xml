@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/rootframe"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="73dp"
+		android:layout_marginBottom="2dp"
+		android:background="@drawable/top_gray_background"
+		android:paddingLeft="19dp"
+		android:paddingRight="19dp">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginTop="2.5dp"
+			android:src="@drawable/xfinity_logo" />
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:src="@drawable/header_vertical_bar" />
+
+		<TextView
+			android:id="@+id/main_title"
+			style="@style/header1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_margin="5dp"
+			android:layout_weight="1.0"
+			android:text=""
+			binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Bold.otf')" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<no.knowit.misc.InstantAutoComplete
+			android:id="@+id/autoComplete"
+			android:layout_width="0dip"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="5dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginTop="5dp"
+			android:layout_weight="1"
+			android:completionThreshold="2"
+			android:ems="10"
+			android:imeOptions="actionSearch"
+			android:inputType="textNoSuggestions">
+
+			<requestFocus />
+		</no.knowit.misc.InstantAutoComplete>
+
+		<ImageButton
+			android:id="@+id/searchButton"
+			android:layout_width="50dp"
+			android:layout_height="fill_parent"
+			android:layout_marginLeft="5dp"
+			android:layout_marginRight="5dp"
+			android:background="@android:color/transparent"
+			android:contentDescription="@string/search"
+			android:src="@drawable/store_icon_search"
+			android:textSize="10sp" />
+	</LinearLayout>
+
+	<TextView
+		style="@style/header2"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:gravity="center"
+		android:text="@string/no_search_results"
+		android:visibility="gone"
+		binding:visibility="AND(NOT(showChannels),NOT(showVideos),NOT(loadingChannels),NOT(loadingVideos))" />
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_gravity="center"
+		android:gravity="center"
+		android:visibility="gone"
+		binding:visibility="AND(loadingChannels,loadingVideos)">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:text="Loading..." />
+
+<!--         <ProgressBar -->
+<!--             style="?android:attr/progressBarStyleLarge" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" /> -->
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="fill_parent"
+		android:animateLayoutChanges="true"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:id="@+id/channelLayout"
+			android:layout_width="match_parent"
+			android:layout_height="200dp"
+			android:orientation="vertical"
+			binding:visibility="showChannels">
+
+			<LinearLayout
+				style="@style/title_container"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical">
+
+				<TextView
+					android:id="@+id/textView2"
+					style="@style/header2"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					android:gravity="center_vertical"
+					android:text="@string/channels" />
+			</LinearLayout>
+
+			<HorizontalScrollView
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginBottom="2dp"
+				android:layout_marginTop="2dp"
+				binding:visibility="showChannels">
+
+				<com.goldengate.ui.BindableLinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:padding="5dp"
+					binding:itemLayout="@layout/channelbutton"
+					binding:itemSource="categories">
+				</com.goldengate.ui.BindableLinearLayout>
+			</HorizontalScrollView>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/videoLayout"
+			android:layout_width="match_parent"
+			android:layout_height="200dp"
+			android:orientation="vertical"
+			binding:visibility="showVideos">
+
+			<LinearLayout
+				style="@style/title_container"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical">
+
+				<TextView
+					style="@style/header2"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					android:gravity="center_vertical"
+					android:text="@string/videos" />
+			</LinearLayout>
+
+			<HorizontalScrollView
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginBottom="2dp"
+				android:layout_marginTop="2dp"
+				binding:visibility="showVideos">
+
+				<com.goldengate.ui.BindableLinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:padding="5dp"
+					binding:itemLayout="@layout/videobutton"
+					binding:itemSource="videos">
+				</com.goldengate.ui.BindableLinearLayout>
+			</HorizontalScrollView>
+		</LinearLayout>
+	</LinearLayout>
+
+</LinearLayout>

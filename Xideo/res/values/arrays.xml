@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="catalog_urls">
+        <item>-= Select standard catalog =-</item>
+        <item>http://cim-trial.bdn.lab.xcal.tv/Opus_Video_Engineering/337/439/15385155739_1359571554944_5157610/15385155739_1359571554944_5157610.m3u8</item>
+        <item>http://odol-atsec-bos-26.cdvr-beta-live-hls.xcr.comcast.net/hlsl/1/FNC_HD_5210984292804101117_HLS/FNC_HD_5210984292804101117_HLS.m3u8</item>
+        <item>http://odol-atsec-bad-06.cdvr-beta-cisco.xcr.comcast.net/43566309.m3u8</item>
+        <item>http://odol-atsec-pan-02.cdvr-beta-cisco.xcr.comcast.net/43887693.m3u8</item>
+        <item>http://odol-atsec-bad-03.cdvr-beta-moto.xcr.comcast.net/42767646.m3u8</item>
+        <item>http://23.21.150.16/live_10/sample/livestream.m3u8</item>
+        <item>http://odol-atsec-pan-02.cdvr-beta-moto.xcr.comcast.net/42026111.m3u8</item>
+        <item>http://devimages.apple.com.edgekey.net/resources/http-streaming/examples/bipbop_4x3/bipbop_4x3_variant.m3u8</item>
+        <item>http://devimages.apple.com.edgekey.net/resources/http-streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8</item>
+        <item>http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8</item>
+        <item>http://odol-atsec-bad-03.cdvr-beta-moto.xcr.comcast.net/40622238.m3u8</item>
+        <item>http://odol-atsec-bad-03.cdvr-beta-cisco.xcr.comcast.net/35156611.m3u8</item>
+        <item>http://cim-dev.bdn.lab.xcal.tv/Opus_Video_Engineering/98/827/a6e69766-e8bc-4429-8dc9-7dc9853120b6/a6e69766-e8bc-4429-8dc9-7dc9853120b6.m3u8</item>
+        <item>http://cim-dev.bdn.lab.xcal.tv/Opus_Video_Engineering/680/695/1786435893_1349625960709.m3u8</item>
+        <item>http://odol-atsec-bad-02.cdvr-beta-cisco.xcr.comcast.net/34651494.m3u8</item>
+        <item>http://10.253.19.231/webdav/espn/index.m3u8</item>
+        <item>http://10.253.19.231/webdav/weather/index.m3u8</item>
+        <item>nh.lab.xcal.tv/rus/catalog.json</item>
+        <item>http://nh.lab.xcal.tv/rus/paukCatalot.json</item>
+    </string-array>
+    <string-array name="log_verbosity">
+        <item>None</item>
+        <item>Error</item>
+        <item>Warn</item>
+        <item>Info</item>
+        <item>Debug</item>
+    </string-array>
+    <string-array name="log_verbosity_int">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="abr_policies">
+        <item>CONSERVATIVE</item>
+        <item>MODERATE</item>
+        <item>AGGRESSIVE</item>
+    </string-array>
+    <string-array name="abr_policies_int">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

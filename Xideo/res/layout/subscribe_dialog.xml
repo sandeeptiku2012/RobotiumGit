@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/root_view"
+	android:layout_width="wrap_content"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_width="350dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10dp"
+		android:gravity="center"
+		android:text="@string/enter_your_pin_"
+		android:textSize="@dimen/big_text_size"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+
+	<EditText
+		android:id="@+id/pinsubedit"
+		android:layout_width="250dp"
+		android:layout_height="wrap_content"
+
+		android:textSize="@dimen/big_text_size"
+		android:layout_gravity="center"
+		android:layout_marginBottom="20dp"
+		android:layout_marginTop="20dp"
+		android:ems="10"
+		android:inputType="numberPassword">
+
+		<requestFocus />
+	</EditText>
+
+	<TextView
+		android:id="@+id/subscribe_error"
+		android:layout_width="350dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginBottom="20dp"
+		android:gravity="center"
+		android:textSize="@dimen/big_text_size"
+		android:visibility="gone"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+
+		<Button
+			android:id="@+id/menu_subscribe"
+			style="@style/blackbuttonstyle1"
+			android:layout_width="300dp"
+			android:layout_height="50dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginBottom="3dp"
+			android:layout_marginTop="3dp"
+			android:gravity="center"
+			android:text="@string/subscribe"
+			binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="VideoStripLayout">
+        <attr name="icon_widthOnFocus" format="reference|dimension"/>
+        <attr name="icon_widthOnNonFocus" format="reference|dimension"/>
+        <attr name="icon_layoutMargin" format="reference|dimension"/>
+        <attr name="isIconVisible" format="reference|boolean"/>
+        <attr name="videoFrame_widthOnFocus" format="reference|dimension"/>
+        <attr name="videoFrame_heightOnFocus" format="reference|dimension"/>
+        <attr name="videoFrame_widthOnNonFocus" format="reference|dimension"/>
+        <attr name="videoFrame_heightOnNonFocus" format="reference|dimension"/>
+        <attr name="videoFrame_layoutMargin" format="reference|dimension"/>
+        <attr name="videoFrame_moveUpDown" format="reference|dimension"/>
+        <attr name="videoFrame_onNonFocusWidth" format="reference|dimension"/>
+        <attr name="videoFrame_onNonFocusHeight" format="reference|dimension"/>
+
+        <attr name="textFont_channelTitle" format="reference|string" />
+        <attr name="textFont_videoTitle" format="reference|string" />
+        <attr name="textFont_videoDesc" format="reference|string" />
+        <attr name="textFont_videoMaturity" format="reference|string" />
+    </declare-styleable>
+
+    <declare-styleable name="MenuLayout">
+        <attr name="menu_icon_width" format="reference|dimension"/>
+        <attr name="menu_labelFont" format="reference|string" />
+        <attr name="menu_labelFontSize" format="reference|dimension" />
+        <attr name="menu_labelColor" format="reference|color" />
+        <attr name="menu_pinnedXPosition" format="reference|integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MenuLayoutEx">
+        <attr name="pinnedXPosition" format="reference|dimension" />
+    </declare-styleable>
+    <declare-styleable name="BindableVideoStripContainerLayout">
+        <attr name="offsetTop" format="reference|dimension" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	<FrameLayout
+		android:id="@+id/videobutton"
+		android:layout_width="@dimen/channel_button_width"
+		android:layout_height="@dimen/channel_button_height"
+		android:descendantFocusability="blocksDescendants"
+		android:focusable="true"
+		android:layout_marginLeft="6dp"
+		android:layout_marginRight="6dp"
+		binding:onClick="openVideo"
+		binding:onGainFocus="ARG(onFocusChanged,TRUE())"
+		binding:onLostFocus="ARG(onFocusChanged,FALSE())">
+		<ImageView
+			android:layout_width="@dimen/channel_button_width"
+			android:layout_height="@dimen/channel_button_height"
+			android:background="@color/gray_border_color"
+			android:padding="3px"
+			android:duplicateParentState="true"
+			android:focusable="false"
+			android:scaleType="fitXY"
+			android:src="@drawable/sample_screenshot"
+			binding:source="image" />
+		<com.goldengate.ui.StaticNoiseView
+			android:layout_width="@dimen/channel_button_width_minus_border"
+			android:layout_height="@dimen/channel_button_height_minus_border"
+			android:layout_margin="3px"
+			binding:visibility="ISNULL(image)" />
+		<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#88000000"
+			binding:visibility="isFocused" />
+		<LinearLayout
+			android:layout_width="@dimen/channel_button_width"
+			android:layout_height="@dimen/channel_button_height"
+			android:layout_gravity="center"
+			android:duplicateParentState="true"
+			android:orientation="vertical"
+			android:padding="3px">
+			<TextView
+				android:id="@+id/publisher"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#80000000"
+				android:duplicateParentState="true"
+				android:ellipsize="marquee"
+				android:focusable="true"
+				android:gravity="right"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:maxLines="1"
+				android:paddingLeft="3dp"
+				android:paddingRight="3dp"
+				android:scrollHorizontally="true"
+				android:text="The Verge"
+				android:textColor="@android:color/white"
+				android:textSize="20px"
+				binding:text="IF(IS_NOT_NULL(publisher),publisher,@string/new_header)"
+				binding:visibility="OR(IS_NOT_NULL(publisher),isNew)"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+			<TextView
+				android:id="@+id/date"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:duplicateParentState="true"
+				android:ellipsize="marquee"
+				android:focusable="true"
+				android:gravity="right"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:maxLines="1"
+				android:paddingLeft="3dp"
+				android:paddingRight="3dp"
+				android:paddingTop="1px"
+				android:scrollHorizontally="true"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')"
+				android:text="12/03/12"
+				android:textColor="@android:color/white"
+				android:textSize="15px"
+				binding:text="date"
+				binding:visibility="AND(IS_NOT_NULL(title), IS_NOT_NULL(image), isFocused)" />
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="@dimen/channel_button_width_minus_border"
+				android:layout_height="wrap_content"
+				android:duplicateParentState="true"
+				android:ellipsize="marquee"
+				android:gravity="left|top"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:scrollHorizontally="true"
+				android:maxWidth="@dimen/channel_button_width"
+				android:paddingLeft="2dp"
+				android:paddingRight="5dp"
+				android:singleLine="true"
+				android:text="A title"
+				android:textSize="25px"
+				android:textColor="@android:color/white"
+				android:visibility="visible"
+				binding:text="title"
+				binding:selected="isFocused"
+				binding:visibility="AND(IS_NOT_NULL(title), IS_NOT_NULL(image), isFocused)" />
+		</LinearLayout>
+		<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/xf_store_sub_nav_highlight_border"
+			binding:visibility="isFocused" />
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom|left"
+			android:background="#40404040"
+			android:drawableRight="@drawable/xf_store_icon_like_small"
+			android:drawablePadding="4dp"
+			android:paddingTop="8px"
+			android:paddingBottom="8px"
+			android:paddingLeft="10px"
+			android:paddingRight="10px"
+			android:layout_marginBottom="0dp"
+			android:duplicateParentState="true"
+			android:text="1234"
+			binding:text="likes"
+			binding:visibility="IS_POSITIVE(likes)" />
+	</FrameLayout>
+	<FrameLayout
+		android:layout_width="@dimen/channel_button_width"
+		android:layout_height="8dp"
+		android:layout_marginLeft="6dp"
+		android:layout_marginRight="6dp"
+		android:layout_marginTop="6dp">
+		<ProgressBar
+			style="@style/progess"
+			android:layout_width="@dimen/channel_button_width"
+			android:layout_height="8dp"
+			android:duplicateParentState="true"
+			binding:progress="videoProgress"
+			binding:visibility="IS_POSITIVE(videoProgress)" />
+	</FrameLayout>
+</LinearLayout>

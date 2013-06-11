@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/framelayout"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/play_menu_background"
+	android:descendantFocusability="blocksDescendants"
+	android:focusable="true"
+	binding:onClick="onClick">
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/focused_border"
+		android:duplicateParentState="true"
+		android:gravity="center_vertical"
+		android:padding="4px">
+		<ImageView
+			android:id="@+id/logoView"
+			android:layout_width="100dp"
+			android:layout_height="?android:attr/listPreferredItemHeight"
+			android:scaleType="fitXY"
+			android:src="@drawable/sample_logo"
+			binding:source="channelLogo" />
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="3px"
+			android:layout_marginRight="3px"
+			android:layout_weight="1.0"
+			android:duplicateParentState="true"
+			android:orientation="vertical">
+			<TextView
+				style="@style/header2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:duplicateParentState="true"
+				android:ellipsize="marquee"
+				android:gravity="center_vertical"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:singleLine="true"
+				android:text="Music News"
+				android:textColor="@android:color/white"
+				android:textSize="16sp"
+				binding:text="channelTitle" />
+			<TextView
+				style="@style/header2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:duplicateParentState="true"
+				android:ellipsize="marquee"
+				android:gravity="center_vertical"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:singleLine="true"
+				android:text="Latest Releases"
+				android:textColor="@android:color/white"
+				android:textSize="20sp"
+				binding:text="videoTitle" />
+		</LinearLayout>
+		<ImageView
+			android:layout_width="100dp"
+			android:layout_height="fill_parent"
+			android:src="@drawable/sample_screenshot"
+			binding:source="videoImage" />
+	</LinearLayout>
+</FrameLayout>

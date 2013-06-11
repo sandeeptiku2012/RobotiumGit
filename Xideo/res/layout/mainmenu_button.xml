@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/button"
+	style="@style/mainmenuitem"
+	android:layout_width="wrap_content"
+	android:layout_height="fill_parent"
+	binding:onClick="ARG(click,.)"
+	binding:text="title"
+	binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />

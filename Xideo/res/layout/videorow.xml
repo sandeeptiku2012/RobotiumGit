@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/LinearLayout1"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+	<FrameLayout
+		android:id="@+id/fl"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<ImageButton
+			android:id="@+id/leftMostButton"
+			android:nextFocusLeft="@id/leftMostButton"
+			android:layout_width="@dimen/channel_button_width_minus_border"
+			android:layout_height="@dimen/channel_button_height"
+			android:background="@drawable/blackbutton_background"
+			android:scaleType="center"
+			binding:onClick="seeall"
+			binding:source="icon" />
+		<TextView
+			android:id="@+id/textView4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="right"
+			android:background="@drawable/badgebackground"
+			android:gravity="center"
+			android:minWidth="25px"
+			android:padding="3dp"
+			android:text="1"
+			android:textColor="#fff"
+			android:textSize="12sp"
+			binding:text="badgecount"
+			binding:visibility="IS_NOT_NULL(badgecount)" />
+	</FrameLayout>
+	<LinearLayout
+		android:id="@+id/horizontalScrollView1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="9px"
+		android:layout_marginRight="9px"
+		android:layout_weight="1.0"
+		android:orientation="horizontal">
+		<com.goldengate.ui.BindableLinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:animateLayoutChanges="true"
+			binding:itemLayout="@layout/videobutton"
+			binding:itemSource="videos">
+<!-- 			<include layout="@layout/videobutton" /> -->
+<!-- 			<include layout="@layout/videobutton" /> -->
+<!-- 			<include layout="@layout/videobutton" /> -->
+<!-- 			<include layout="@layout/videobutton" /> -->
+		</com.goldengate.ui.BindableLinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/channel_button_height"
+			android:layout_marginLeft="9px"
+			android:layout_marginRight="9px"
+			android:layout_weight="1.0"
+			android:background="@drawable/section_header_background"
+			android:gravity="center_vertical"
+			android:orientation="vertical"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:visibility="gone"
+			binding:visibility="IS_NOT_NULL(toptext)">
+			<TextView
+				android:id="@+id/textView2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/you_haven_t_subscribed_to_any_channels_yet_"
+				binding:text="toptext"
+				android:textSize="24sp"
+				android:textStyle="bold" />
+			<TextView
+				android:id="@+id/textView3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/find_video_channels_about_any_topic_in_the_comcast_channel_store"
+				binding:text="bottomtext"
+				android:textSize="24sp" />
+		</LinearLayout>
+	</LinearLayout>
+	<FrameLayout
+		android:id="@+id/FrameLayout01"
+		android:layout_width="@dimen/channel_button_width_minus_border"
+		android:layout_height="@dimen/channel_button_height"
+		android:layout_weight="0.0">
+		<Button
+			android:id="@+id/seeAllButton"
+			android:nextFocusRight="@id/seeAllButton"
+			android:layout_width="@dimen/channel_button_width_minus_border"
+			android:layout_height="@dimen/channel_button_height"
+			android:layout_gravity="center"
+			style="@style/arrow_button"
+			android:text="@string/see_all"
+			android:textSize="18sp"
+			binding:onClick="seeall"
+			binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	</FrameLayout>
+</LinearLayout>

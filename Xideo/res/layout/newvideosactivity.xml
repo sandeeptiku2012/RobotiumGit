@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="109dp"
+		android:background="@drawable/channelactivity_headerbackground"
+		android:gravity="center_vertical">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" android:layout_marginLeft="50px" android:layout_marginRight="50px" android:gravity="center_vertical" android:orientation="vertical">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/new_videos"
+				android:textSize="24sp"
+				android:textStyle="bold" />
+			<TextView
+				android:id="@+id/channelSummary"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="25 VIDEOS"
+				binding:text="CONCAT(SIZE(videos), ' VIDEOS')"
+				binding:visibility="IS_POSITIVE(SIZE(videos))" />
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout
+		android:id="@+id/content"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:animateLayoutChanges="true"
+		android:orientation="vertical"
+		android:paddingLeft="50px" android:paddingRight="50px">
+		<LinearLayout
+			android:id="@+id/LinearLayout1"
+			style="@style/sorting_bar">
+			<Button
+				android:id="@+id/back_button"
+				style="@style/blackbuttonstyle1"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:onClick="onBackButtonClicked"
+				android:padding="10px"
+				android:text="@string/back"
+				android:textSize="12sp" />
+			<View
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1.0" />
+			<Button
+				android:id="@+id/button3"
+				style="@style/blackbuttonstyle1"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:layout_marginRight="1px"
+				binding:onClick="ARG(sort,'newest')"
+				android:padding="10px"
+				binding:selected="EQUAL(currentSortKey,'newest')"
+				android:text="@string/newest"
+				android:textSize="12sp" />
+			<Button
+				android:id="@+id/button4"
+				style="@style/blackbuttonstyle1"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:layout_marginRight="1px"
+				android:padding="10px"
+				android:text="@string/a_to_z"
+				android:textSize="12sp"
+				binding:onClick="ARG(sort,'title')"
+				binding:selected="EQUAL(currentSortKey,'title')" />
+			<Button
+				android:id="@+id/button5"
+				style="@style/blackbuttonstyle1"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				binding:onClick="ARG(sort,'popular')"
+				android:paddingLeft="12dp"
+				android:paddingRight="12dp"
+				binding:selected="EQUAL(currentSortKey,'popular')"
+				android:text="@string/most_popular"
+				android:textSize="12sp" />
+		</LinearLayout>
+		<View
+			android:layout_width="wrap_content"
+			android:layout_height="18dp" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="30dp"
+			binding:visibility="NOT(isLoading)">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:layout_gravity="center"
+					android:gravity="center"
+					android:visibility="gone"
+					binding:visibility="AND(loadingVideos,NOT(isLoading))">
+					<ProgressBar
+						style="?android:attr/progressBarStyleLarge"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+				</LinearLayout>
+				<HorizontalScrollView
+					android:id="@+id/horizontalScrollView1"
+					android:layout_width="wrap_content"
+					android:layout_height="@dimen/channel_button_height">
+					<com.goldengate.ui.BindableLinearLayout
+	android:id="@+id/videocontainer"
+	android:layout_width="wrap_content"
+	android:layout_height="match_parent"
+	android:orientation="horizontal"
+	binding:itemLayout="@layout/videobutton"
+	binding:itemSource="videos" />
+				</HorizontalScrollView>
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/TextView01"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Take Away Show"
+						android:textColor="#e6e6e6"
+						android:textSize="24sp"
+						android:textStyle="bold"
+						binding:text="selected.title" />
+					<TextView
+						android:id="@+id/textView1"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="9/13/12"
+						binding:text="selected.date" />
+					<TextView
+						android:id="@+id/TextView02"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="by Norcal"
+						binding:text="CONCAT('by ',selected.publisher)"
+						binding:visibility="IS_NOT_NULL(selected.publisher)" />
+					<FrameLayout
+						android:id="@+id/ScrollView1"
+						android:layout_width="fill_parent"
+						android:layout_height="0dp"
+						android:background="@drawable/focused_border"
+						android:layout_weight="1.0">
+						<TextView
+							android:id="@+id/TextView03"
+							android:layout_width="fill_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/lorem_ipsum"
+							android:textColor="#e6e6e6"
+							binding:text="selected.description" />
+					</FrameLayout>
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="bottom"
+						android:text="1 OF 12"
+						android:textSize="11sp"
+						binding:text="CONCAT(selectedIndex, ' OF ', SIZE(videos))"
+						binding:visibility="AND(IS_NOT_NULL(selectedIndex), IS_POSITIVE(SIZE(videos)))" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+	<include layout="@layout/loadingoverlay" />
+</LinearLayout>

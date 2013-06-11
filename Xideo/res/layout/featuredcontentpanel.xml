@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	android:id="@+id/featuredpanel_fragment"
+	android:layout_width="match_parent"
+	android:layout_height="@dimen/featured_height"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:orientation="vertical"
+	binding:visibility="isVisible">
+	<LinearLayout
+		android:id="@+id/f1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		binding:visibility="IS_NOT_NULL(element3)">
+		<gueei.binding.widgets.BindableFrameLayout
+			android:id="@+id/leftMostElement2"
+			android:nextFocusLeft="@id/leftMostElement2"
+			android:layout_width="@dimen/banner_single_width"
+			android:layout_height="@dimen/banner_height"
+			android:layout_weight="1"
+			binding:layoutId="@layout/contentpanelelement"
+			binding:dataSource="element1" />
+		<View
+			android:layout_width="10px"
+			android:layout_height="1px" />
+		<gueei.binding.widgets.BindableFrameLayout
+			android:layout_width="@dimen/banner_single_width"
+			android:layout_height="@dimen/banner_height"
+			android:layout_weight="1"
+			binding:layoutId="@layout/contentpanelelement"
+			binding:dataSource="element2" />
+		<View
+			android:layout_width="10px"
+			android:layout_height="1px" />
+		<gueei.binding.widgets.BindableFrameLayout
+			android:id="@+id/rightMostElement2"
+			android:nextFocusRight="@id/rightMostElement2"
+			android:layout_width="@dimen/banner_single_width"
+			android:layout_height="@dimen/banner_height"
+			android:layout_weight="1"
+			binding:layoutId="@layout/contentpanelelement"
+			binding:dataSource="element3" />
+	</LinearLayout>
+	<LinearLayout
+		android:id="@+id/f2"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		binding:visibility="ISNULL(element3)"
+		android:baselineAligned="false">
+		<gueei.binding.widgets.BindableFrameLayout
+			android:id="@+id/leftMostElement3"
+			android:nextFocusLeft="@id/leftMostElement3"
+			android:layout_width="@dimen/banner_double_width"
+			android:layout_height="@dimen/banner_height"
+			binding:layoutId="@layout/contentpanelelement"
+			binding:dataSource="element1" />
+		<View
+			android:layout_width="10px"
+			android:layout_height="1px" />
+		<gueei.binding.widgets.BindableFrameLayout
+			android:id="@+id/rightMostElement3"
+			android:nextFocusRight="@id/rightMostElement3"
+			android:layout_width="@dimen/banner_single_width"
+			android:layout_height="@dimen/banner_height"
+			binding:layoutId="@layout/contentpanelelement"
+			binding:dataSource="element2" />
+	</LinearLayout>
+</LinearLayout>

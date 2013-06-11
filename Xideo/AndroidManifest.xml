@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.comcast.xideo"
+    android:versionCode="16"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:maxSdkVersion="17"
+        android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <application
+        android:name="com.comcast.xideo.XideoApplication"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen"
+        >
+        <activity
+            android:name="com.comcast.xideo.activity.XideoSplashActivity"
+            android:label="@string/title_activity_xideo_home"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/xidioTransparentWindow"
+             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.HOME" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.MONKEY"/>
+			</intent-filter>
+        </activity>
+        <activity
+            android:name="com.comcast.xideo.activity.XideoHomeActivity"
+            android:label="@string/title_activity_xideo_home"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.comcast.videoplayer.ui.PlayerActivity"
+            android:label="@string/title_activity_xideo_home"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.comcast.xideo.DetailActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
+        <!-- old activities -->
+        <activity
+            android:name="com.comcast.xideo.FrontPageActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/goldenGateTheme" >
+        </activity>
+        <activity
+            android:name="com.comcast.xideo.SearchActivity"
+            android:theme="@style/goldenGateTheme" />
+        <activity
+            android:name="com.comcast.xideo.SettingsActivity"
+            android:theme="@style/FullHeightDialog" />
+        <activity
+            android:name="com.comcast.xideo.VideoPlayerActivity"
+            android:theme="@style/goldenGateTheme" />
+        <activity
+            android:name="com.comcast.xideo.CategoryActivity"
+            android:theme="@style/goldenGateTheme" />
+        <activity
+            android:name="com.comcast.xideo.ChannelActivity"
+            android:theme="@style/goldenGateTheme" />
+        <activity
+            android:name="com.comcast.xideo.activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/FullHeightDialog" />
+        <activity
+            android:name="com.comcast.xideo.activity.NetworkErrorActivity"
+            android:label="@string/title_activity_network_error"
+            android:theme="@style/FullHeightDialog" />
+        <activity android:name="com.comcast.xideo.favorites.FavoritesActivity" />
+        <activity android:name="com.goldengate.newvideos.NewVideosActivity" />
+        <activity android:name="com.goldengate.publisher.PublisherActivity" />
+        <activity android:name="com.comcast.xideo.contentpanel.NoteworthyActivity" />
+        <activity android:name="com.comcast.xideo.contentpanel.PopularActivity" />
+        <activity
+            android:name="com.comcast.xideo.authentication.ActivationCodeDialog"
+            android:theme="@style/FullHeightDialog" />
+        <activity
+            android:name="com.comcast.xideo.activity.AboutList"
+            android:theme="@style/FullHeightDialog" >
+        </activity>
+    </application>
+
+</manifest>

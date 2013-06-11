@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="/Users/ankitvyaseng85/Downloads/CILAndroidUILib-master 3/XideoTest/libs/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="/Users/ankitvyaseng85/Downloads/CILAndroidUILib-master 3/XideoTest/libs/robotium-solo-3.6.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Xideo"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

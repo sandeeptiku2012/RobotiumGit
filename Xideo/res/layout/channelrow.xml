@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/ll"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	<TextView
+		android:id="@+id/channelName"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10px"
+		android:layout_marginBottom="0px"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		binding:text="title"
+		binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Bold.otf')" />
+	<LinearLayout
+		android:id="@+id/LinearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10px"
+		android:layout_marginBottom="10px">
+		<FrameLayout
+			android:id="@+id/channelLogo"
+			android:nextFocusLeft="@id/channelLogo"
+			android:layout_width="@dimen/channel_button_width_minus_border"
+			android:layout_height="@dimen/channel_button_height"
+			android:background="@drawable/channelbutton_background"
+			android:focusable="true"
+			binding:onClick="openChannel">
+			<TextView
+				android:id="@+id/title"
+				style="@style/black_button_style"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:text="Popular"
+				binding:text="title"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Bold.otf')"
+				binding:visibility="ISNULL(logo)" />
+			<ImageView
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:src="@android:drawable/sym_def_app_icon"
+				binding:source="logo" />
+			<TextView
+				android:id="@+id/textView4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="right"
+				android:background="@drawable/badgebackground"
+				android:gravity="center"
+				android:minWidth="25px"
+				android:padding="3dp"
+				android:text="150"
+				android:textColor="#fff"
+				android:textSize="12sp"
+				binding:text="badgeCount"
+				binding:visibility="IS_POSITIVE(badgeCount)" />
+		</FrameLayout>
+		<LinearLayout
+			android:id="@+id/horizontalScrollView1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="9px"
+			android:layout_marginRight="9px"
+			android:layout_weight="1.0"
+			android:orientation="horizontal">
+			<com.goldengate.ui.BindableLinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:animateLayoutChanges="true"
+				binding:itemLayout="@layout/videobutton"
+				binding:itemSource="videos" />
+		</LinearLayout>
+		<Button
+			style="@style/arrow_button"
+			android:id="@+id/seeAllButton"
+			android:nextFocusRight="@id/seeAllButton"
+			android:layout_width="@dimen/channel_button_width_minus_border"
+			android:layout_height="@dimen/channel_button_height"
+			android:text="@string/see_all"
+			binding:onClick="openChannel"
+			binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+	</LinearLayout>
+</LinearLayout>

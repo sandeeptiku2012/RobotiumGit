@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    android:animateLayoutChanges="false"
+    android:background="@android:color/transparent"
+    android:gravity="center" >
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="0px"
+        android:layout_marginRight="0px"
+        android:scaleType="fitCenter"
+        android:src="@drawable/menu_selector_white_bkng"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="0px"
+        android:layout_marginRight="0px"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        android:src="@drawable/ic_launcher" />
+
+</merge>

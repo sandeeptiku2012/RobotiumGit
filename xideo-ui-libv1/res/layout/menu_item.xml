@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/menuContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_margin="0dp"
+    android:background="@android:color/transparent"
+    android:gravity="left|center_vertical"
+    android:animateLayoutChanges="true"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:id="@+id/imageframe1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+         >
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            android:src="@drawable/menu_selector_black_bkng" />
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#ffffff"
+        android:gravity="center_vertical|left"
+        android:textSize="75sp"
+        android:layout_marginLeft="15px"
+        android:layout_marginRight="15px"
+        android:visibility="gone"
+         />
+
+</LinearLayout>

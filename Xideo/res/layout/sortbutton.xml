@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:id="@+id/button3"
+	style="@style/blackbuttonstyle1"
+	android:layout_width="wrap_content"
+	android:layout_height="fill_parent"
+	android:padding="10px"
+	android:text="@string/newest"
+	binding:text="RESOURCE_STRING(titleResourceId)"
+	android:textSize="12sp"
+	binding:onClick="ARG(click,.)"
+	binding:selected="selected" />

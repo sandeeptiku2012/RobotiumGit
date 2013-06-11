@@ -1,0 +1,71 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:comcastui="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="top|center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MenuLayoutActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical"
+        >
+
+        <com.comcast.ui.libv1.widget.MenuLayout
+            android:id="@+id/menu1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_gravity="top" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:context=".VideoStripTestActivity" >
+
+                <com.comcast.ui.libv1.widget.VideoStripLayout
+                    android:id="@+id/vs1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="top|left"
+                    android:layout_margin="0dp"
+                    android:visibility="visible"
+                    comcastui:isIconVisible="true"
+                    comcastui:textFont_videoTitle="fonts/Flama-Book.otf" />
+
+                <com.comcast.ui.libv1.widget.VideoStripLayout
+                    android:id="@+id/vs2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/transparent"
+                    android:visibility="visible"
+                    comcastui:isIconVisible="true" />
+
+                <com.comcast.ui.libv1.widget.VideoStripLayout
+                    android:id="@+id/vs3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/transparent"
+                    comcastui:icon_widthOnNonFocus="120dp"
+                    comcastui:isIconVisible="true" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <com.comcast.ui.libv1.widget.AnimatedFocusHopperView
+        android:id="@+id/blobvw1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</FrameLayout>

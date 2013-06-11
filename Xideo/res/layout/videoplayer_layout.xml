@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:binding="http://www.gueei.com/android-binding/"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<SurfaceView
+		android:id="@+id/videoSurface"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+	<include layout="@layout/loadingoverlay" />
+	<FrameLayout
+		android:id="@+id/control_and_info_container"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="@drawable/faded_video_overlay"
+		binding:visibility="NOT(isLoading)">
+		<RelativeLayout
+			android:id="@+id/playerControlsContainer"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_gravity="bottom">
+			<LinearLayout
+				android:id="@+id/vc"
+				android:layout_width="fill_parent"
+				android:layout_height="80dp"
+				android:layout_alignParentBottom="true"
+				android:layout_marginBottom="50dp"
+				android:background="@drawable/play_menu_background"
+				android:gravity="center_vertical"
+				android:orientation="vertical">
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="60px"
+					android:layout_marginRight="60px"
+					android:gravity="center_vertical">
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="50px"
+						android:layout_weight="0.0"
+						android:background="@drawable/focused_border"
+						android:focusable="true"
+						android:gravity="center"
+						android:minHeight="50px"
+						android:minWidth="50px"
+						binding:onClick="openMyChannels"
+						android:text="@string/my_channels"
+						android:textColor="@drawable/focusable_text"
+						android:textSize="23px"
+						binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Bold.otf')"
+						binding:enabled="showingPlayerControls" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="2px"
+						android:layout_weight="0.0"
+						android:src="@drawable/xf_store_conttrols_row_vertical_divider" />
+					<ImageButton
+						android:layout_width="wrap_content"
+						android:layout_height="50px"
+						android:layout_weight="0.0"
+						android:background="@drawable/focused_border"
+						android:minHeight="50px"
+						android:minWidth="50px"
+						binding:onClick="addFavorite"
+						binding:selected="isFavorite"
+						binding:source="IF(isFavorite,@drawable/xf_store_icon_star_highlight,@drawable/xf_store_icon_star_unselected)"
+						android:src="@drawable/xf_store_icon_star_unselected"
+						binding:enabled="showingPlayerControls" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="2px"
+						android:layout_weight="0.0"
+						android:src="@drawable/xf_store_conttrols_row_vertical_divider" />
+					<ImageButton
+						android:layout_width="wrap_content"
+						android:layout_height="50px"
+						android:layout_weight="0.0"
+						android:background="@drawable/focused_border"
+						android:minHeight="50px"
+						android:minWidth="50px"
+						binding:onClick="rewindVideo"
+						android:src="@drawable/xf_store_rewind_icon_unselected"
+						binding:enabled="showingPlayerControls" />
+					<ImageButton
+						android:layout_width="wrap_content"
+						android:layout_height="50px"
+						android:layout_weight="0.0"
+						android:background="@drawable/focused_border"
+						android:minHeight="50px"
+						android:minWidth="50px"
+						binding:onClick="playOrPauseVideo"
+						binding:source="IF(isPlaying, @drawable/xf_store_pause_icon_unselected, @drawable/xf_store_play_icon_unselected)"
+						android:src="@drawable/xf_store_play_icon_unselected"
+						binding:enabled="showingPlayerControls" />
+					<ImageButton
+						android:layout_width="wrap_content"
+						android:layout_height="50px"
+						android:layout_weight="0.0"
+						android:background="@drawable/focused_border"
+						android:minHeight="50px"
+						android:minWidth="50px"
+						binding:onClick="forwardVideo"
+						android:src="@drawable/xf_store_fast_forward_icon_unselected"
+						binding:enabled="showingPlayerControls" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="2px"
+						android:layout_weight="0.0"
+						android:src="@drawable/xf_store_conttrols_row_vertical_divider" />
+					<ToggleButton
+						android:id="@+id/ToggleButton01"
+						android:layout_width="wrap_content"
+						android:layout_height="50px"
+						android:layout_margin="2px"
+						android:layout_weight="0.0"
+						android:background="@drawable/focused_border"
+						binding:checked="isLiked"
+						android:drawablePadding="5dp"
+						android:drawableRight="@drawable/checkable_like"
+						binding:enabled="AND(showingPlayerControls,NOT(isLiked))"
+						binding:focusable="NOT(isLiked)"
+						android:minHeight="50px"
+						android:minWidth="50px"
+						binding:onClick="addLike"
+						android:textColor="@drawable/checkable_text"
+						android:textOff="@string/like"
+						android:textOn="@string/like"
+						android:textSize="23px" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="2px"
+						android:layout_weight="0.0"
+						android:src="@drawable/xf_store_conttrols_row_vertical_divider" />
+					<View
+						android:id="@+id/view1"
+						android:layout_width="wrap_content"
+						android:layout_height="1px"
+						android:layout_weight="1.0" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="2px"
+						android:layout_weight="0.0"
+						android:src="@drawable/xf_store_conttrols_row_vertical_divider" />
+					<LinearLayout
+						android:id="@+id/nextUpContainer"
+						android:layout_width="500dp"
+						android:layout_height="wrap_content"
+						android:background="@drawable/focused_border"
+						android:focusable="true"
+						android:gravity="center_vertical"
+						android:layout_weight="0.0"
+						binding:onClick="playNext"
+						binding:enabled="showingPlayerControls">
+						<ImageView
+							android:id="@+id/logoView"
+							android:layout_width="100dp"
+							android:layout_height="?android:attr/listPreferredItemHeight"
+							android:layout_alignParentLeft="true"
+							android:scaleType="fitXY"
+							android:src="@drawable/sample_logo"
+							binding:source="nextVideoChannelLogo" />
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_centerVertical="true"
+							android:layout_marginLeft="3px"
+							android:layout_marginRight="3px"
+							android:layout_toLeftOf="@+id/imageView1"
+							android:layout_toRightOf="@+id/logoView"
+							android:layout_weight="1.0"
+							android:duplicateParentState="true"
+							android:orientation="vertical">
+							<TextView
+								style="@style/header2"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:duplicateParentState="true"
+								android:ellipsize="marquee"
+								android:gravity="center_vertical"
+								android:marqueeRepeatLimit="marquee_forever"
+								android:singleLine="true"
+								android:text="@string/next_up"
+								android:textColor="@android:color/white"
+								android:textSize="16sp"
+								binding:text="title"
+								binding:visibility="showNextVideo" />
+							<TextView
+								style="@style/header2"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:duplicateParentState="true"
+								android:ellipsize="marquee"
+								android:gravity="center_vertical"
+								android:marqueeRepeatLimit="marquee_forever"
+								android:singleLine="true"
+								android:text="@string/no_next_up"
+								android:textColor="@android:color/white"
+								android:textSize="16sp"
+								binding:text="title"
+								binding:visibility="NOT(showNextVideo)" />
+							<TextView
+								style="@style/header2"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:duplicateParentState="true"
+								android:ellipsize="marquee"
+								android:gravity="center_vertical"
+								android:marqueeRepeatLimit="marquee_forever"
+								android:singleLine="true"
+								android:text="Latest Releases"
+								android:textColor="@android:color/white"
+								android:textSize="20sp"
+								binding:text="nextVideotitle" />
+						</LinearLayout>
+						<ImageView
+							android:layout_width="100dp"
+							android:layout_height="fill_parent"
+							android:layout_alignParentRight="true"
+							android:src="@drawable/sample_screenshot"
+							binding:source="nextNewestVideoImage" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+			<RelativeLayout
+				android:id="@+id/timelinecontainer"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_above="@id/vc"
+				android:layout_marginLeft="60px"
+				android:layout_marginRight="60px"
+				android:gravity="center_vertical">
+				<SeekBar
+					android:id="@+id/seekBar1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_toLeftOf="@+id/TextView02"
+					android:layout_toRightOf="@+id/TextView01"
+					android:focusable="false"
+					binding:progress="currentVideoProgress"
+					android:progressDrawable="@drawable/progress_horizontal_holo_dark"
+					binding:secondaryProgress="mediaPlayerViewModel.currentBufferProgress"
+					android:thumb="@drawable/scrubber_control_normal_holo" />
+				<TextView
+					android:id="@+id/TextView01"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_centerVertical="true"
+					android:layout_marginRight="20px"
+					android:text="00:02:31"
+					binding:text="currentPosition"
+					android:textAppearance="?android:attr/textAppearanceMedium" />
+				<TextView
+					android:id="@+id/TextView02"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:layout_marginLeft="20px"
+					android:text="01:43:17"
+					binding:text="currentDuration"
+					android:textAppearance="?android:attr/textAppearanceMedium" />
+			</RelativeLayout>
+			<ScrollView
+				android:layout_width="500dp"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="60px"
+				android:layout_above="@id/vc"
+				android:visibility="gone"
+				binding:visibility="channelSelector.isVisible">
+				<com.goldengate.ui.BindableLinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					binding:onLostFocus="channelSelectorLostFocus"
+					binding:itemLayout="@layout/channel_spinner_template"
+					binding:itemSource="channelSelector.channels">
+					<include layout="@layout/channel_spinner_template" />
+					<include layout="@layout/channel_spinner_template" />
+					<include layout="@layout/channel_spinner_template" />
+					<include layout="@layout/channel_spinner_template" />
+				</com.goldengate.ui.BindableLinearLayout>
+			</ScrollView>
+		</RelativeLayout>
+	</FrameLayout>
+	<FrameLayout
+		android:id="@+id/videoInfoOverlay"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="50px"
+		android:layout_marginRight="50px"
+		android:layout_marginTop="50px"
+		android:padding="10px"
+		android:background="#80000000">
+		<LinearLayout
+			android:id="@+id/now_playing_view"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/now_playing"
+				android:textColor="#ffffff"
+				android:textSize="24px"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="9/5/12"
+				binding:text="currentVideoDate"
+				android:textColor="#ffffff"
+				android:textSize="37px"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Lgt.otf')" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Crazy Stupid Love"
+				android:textColor="#ffffff"
+				android:textSize="50px"
+				binding:text="currentVideoTitle"
+				binding:typeface="TYPEFACE_FROM_ASSET('fonts/XFINITYSans-Med.otf')" />
+		</LinearLayout>
+	</FrameLayout>
+</FrameLayout>

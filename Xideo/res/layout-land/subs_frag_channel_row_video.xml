@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://www.gueei.com/android-binding/"
+    android:id="@+id/viewflipper1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:clipChildren="false"
+    android:gravity="bottom"
+    android:measureAllChildren="false"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:animateLayoutChanges="false"
+        android:gravity="bottom" >
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="@dimen/subs_video_thumb_width_no_focus"
+            android:layout_height="@dimen/subs_video_thumb_height_no_focus"
+            android:layout_margin="1dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:visibility="visible"
+            binding:source="image" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="false"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="@dimen/subs_video_thumb_width"
+                android:layout_height="@dimen/subs_video_thumb_height"
+                android:layout_margin="1dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                binding:source="image" />
+
+            <TextView
+                android:id="@+id/videonum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:text="#1"
+                android:textColor="#ff0000"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/videoinfoContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:animateLayoutChanges="false"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <ViewSwitcher
+                android:id="@+id/viewSwitcher1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:inAnimation="@android:anim/slide_in_left"
+                android:outAnimation="@android:anim/slide_out_right" >
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="@dimen/subs_video_status_icon_width_height"
+                    android:layout_height="@dimen/subs_video_status_icon_width_height"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/unwatched" />
+
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="@dimen/subs_video_status_icon_width_height"
+                    android:layout_height="@dimen/subs_video_status_icon_width_height"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/play_icon" />
+            </ViewSwitcher>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:animateLayoutChanges="false"
+                android:gravity="top"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="@dimen/subs_video_thumb_title_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:gravity="left"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="WHY ARE WE HERE ?"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    binding:text="title"
+                    binding:typeface="TYPEFACE_FROM_ASSET(&apos;fonts/Flama-Basic.otf&apos;)" />
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="@dimen/subs_video_thumb_title_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:gravity="left"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="SEASONS 1 EPISODES 1"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    binding:text="description"
+                    binding:typeface="TYPEFACE_FROM_ASSET(&apos;fonts/Flama-Basic.otf&apos;)" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:layout_margin="4dp"
+                android:gravity="right|top"
+                android:text="TV"
+                android:textColor="#c0ffffff"
+                android:textSize="12sp"
+                android:visibility="gone"
+                binding:typeface="TYPEFACE_FROM_ASSET(&apos;fonts/Flama-Semibold.otf&apos;)" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ViewFlipper>

@@ -1,0 +1,17 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    -->
+    <dimen  name="subs_icon_thumb_width_height">150px</dimen>
+    <dimen  name="subs_video_thumb_width">266px</dimen>
+    <dimen  name="subs_video_thumb_height">150px</dimen>
+    <dimen  name="subs_video_status_icon_width_height">16px</dimen>
+
+    <dimen  name="subs_icon_thumb_width_height_no_focus">104px</dimen>
+    <dimen  name="subs_video_thumb_width_no_focus">185px</dimen>
+    <dimen  name="subs_video_thumb_height_no_focus">104px</dimen>
+    <dimen  name="subs_video_thumb_title_width">160px</dimen>
+    
+</resources>

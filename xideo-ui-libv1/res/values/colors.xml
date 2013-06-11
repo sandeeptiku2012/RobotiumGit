@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="row_selected">#ff191919</color>
+	<color name="row_unselected">#333d3d3d</color>
+	<color name="text1">#ffcccccc</color>
+	<color name="text2">#ff9c9c9c</color>
+	<color name="golden_orange">#E2B02A</color>
+	<color name="gray_border_color">#383838</color>
+</resources> 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:state_selected="true"
+		android:state_focused="true">
+		<layer-list>
+			<item>
+				<shape android:shape="rectangle">
+					<gradient
+						android:startColor="#c0c0c0"
+						android:endColor="#c0c0c0"
+						android:angle="270" />
+					<corners android:radius="0dp" />
+				</shape>
+			</item>
+			<item>
+				<nine-patch android:src="@drawable/xf_store_sub_nav_highlight_border" />
+			</item>
+		</layer-list>
+	</item>
+	<item android:state_selected="true">
+		<shape android:shape="rectangle">
+			<gradient
+				android:startColor="#c0c0c0"
+				android:endColor="#c0c0c0"
+				android:angle="270" />
+			<stroke
+				android:width="1px"
+				android:color="#000" />
+			<corners android:radius="0dp" />
+			<padding
+				android:left="16dp"
+				android:right="16dp" />
+		</shape>
+	</item>
+	<item android:state_pressed="true">
+		<shape android:shape="rectangle">
+			<gradient
+				android:startColor="#c0c0c0"
+				android:endColor="#c0c0c0"
+				android:angle="270" />
+			<stroke
+				android:width="2dp"
+				android:color="#ffffc0" />
+			<corners android:radius="0dp" />
+			<padding
+				android:left="16dp"
+				android:right="16dp" />
+		</shape>
+	</item>
+	<item android:state_focused="true">
+		<layer-list>
+			<item>
+				<nine-patch android:src="@drawable/xf_store_sub_nav_highlight_border" />
+			</item>
+		</layer-list>
+	</item>
+	<item android:drawable="@drawable/mainmenu_background">
+		<shape android:shape="rectangle">
+			<gradient
+				android:endColor="#343434"
+				android:startColor="#3c3c3c"
+				android:angle="270" />
+			<stroke
+				android:width="1px"
+				android:color="#000" />
+			<corners android:radius="0dp" />
+			<padding
+				android:left="16dp"
+				android:right="16dp" />
+		</shape>
+	</item>
+</selector>

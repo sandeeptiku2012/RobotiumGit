@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:id="@+id/header"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/channelactivity_headerbackground"
+		android:orientation="vertical">
+		<TextView
+			android:id="@+id/textView1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_margin="10px"
+			android:text="Settings"
+			android:textAppearance="?android:attr/textAppearanceLarge" />
+	</LinearLayout>
+	<Button
+		style="@style/blackbuttonstyle1"
+		android:id="@+id/openNetworkSettingsButton"
+		android:layout_width="200px"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10px"
+		android:padding="10px"
+		android:onClick="onOpenNetworkSettingsClick"
+		android:text="Network" />
+	
+	<Button
+		style="@style/blackbuttonstyle1"
+		android:id="@+id/openDisplaySettingsButton"
+		android:layout_width="200px"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10px"
+		android:padding="10px"
+		android:onClick="onOpenDisplaySettings"
+		android:text="Display" />
+	
+	<Button
+		style="@style/blackbuttonstyle1"
+		android:id="@+id/openDisplayAboutButton"
+		android:layout_width="200px"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10px"
+		android:padding="10px"
+		android:onClick="onOpenAboutSettings"
+		android:text="About" />
+	
+	
+	<!-- <TextView
+		android:id="@+id/versionTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:text="Small Text"
+		android:textAppearance="?android:attr/textAppearanceSmall" /> -->
+</LinearLayout>
