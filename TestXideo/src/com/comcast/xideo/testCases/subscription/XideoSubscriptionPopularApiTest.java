@@ -10,20 +10,18 @@ import android.view.KeyEvent;
 
 import com.comcast.xideo.core.common.GetSolo;
 import com.comcast.xideo.core.constant.TestConstants;
-import com.comcast.xideo.model.GetFeaturedList;
 import com.comcast.xideo.model.GetLoginResponse;
 import com.comcast.xideo.model.GetPopularList;
 import com.comcast.xideo.model.GetSubscriptionList;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
 
-public class XideoSubscriptionPopularApiTest extends ActivityInstrumentationTestCase2<MainActivity> {
+public class XideoSubscriptionPopularApiTest extends ActivityInstrumentationTestCase2<MainActivity>
+{
 	private Solo solo;
-	boolean loggedIn=false;
-	private	String userId=null;
-	
-	
-	public XideoSubscriptionPopularApiTest() {
+
+	public XideoSubscriptionPopularApiTest() 
+	{
 		super(MainActivity.class);
 	}
 
@@ -32,15 +30,14 @@ public class XideoSubscriptionPopularApiTest extends ActivityInstrumentationTest
 
 		GetSolo.getInstance().setUpSolo(getInstrumentation(),getActivity());
 		solo=GetSolo.getInstance().getSoloObject();
-		//GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(),getActivity().getSessionId());
 		super.setUp();
 	}
 
-	public void test_Subscrption_Title() 
+	public void testSubscrptionPopularApi() 
 	{
 		solo.sleep(2000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse("test_151","Demo1111");
+		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME,TestConstants.PASSWORD);
 		JSONArray channels = null; 
 		solo.sleep(2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
@@ -51,67 +48,67 @@ public class XideoSubscriptionPopularApiTest extends ActivityInstrumentationTest
 		solo.sleep(2000);
 		
 		JSONObject channelToCheck=null;
-		try {
-		JSONArray popularList=GetPopularList.getInstance().getPopularList();
-		
-		for(int i=0;i<popularList.length();i++)
+		try 
 		{
-			
-				JSONObject currChoice=popularList.getJSONObject(i);
-				if(currChoice.has("category"))
-					if(currChoice.getJSONObject("category").has("level"))
-						if(currChoice.getJSONObject("category").getString("level").trim().contentEquals("SHOW"))
-						{
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-							solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
-							solo.sleep(1000);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-							solo.sleep(1000);
-							solo.sendKey(KeyEvent.KEYCODE_BACK);
-							solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-							solo.sleep(1000);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-							
-							channelToCheck=currChoice;
-							break;
-							
-						}
-				if(!currChoice.has("productGroup"))
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+		
+			JSONArray popularList=GetPopularList.getInstance().getPopularList();
+		
+			for(int i=0;i<popularList.length();i++)
+			{
+				
+					JSONObject currChoice=popularList.getJSONObject(i);
+					if(currChoice.has("category"))
+						if(currChoice.getJSONObject("category").has("level"))
+							if(currChoice.getJSONObject("category").getString("level").trim().contentEquals("SHOW"))
+							{
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+								solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
+								solo.sleep(1000);
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+								solo.sleep(1000);
+								solo.sendKey(KeyEvent.KEYCODE_BACK);
+								solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+								solo.sleep(1000);
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+								
+								channelToCheck=currChoice;
+								break;
+								
+							}
+					if(!currChoice.has("productGroup"))
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+			}	
+		
 		}
-
-		
-		
-		
-		
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (JSONException e)
+		{
+			Log.e("Exception:", "Exception occured in testSubscrptionPopularApi test case.", e);
 		}
 		
-		
-	//	solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 		solo.sleep(2000);
 		JSONObject response;
 		
 		if(loginResponse.has("response"))
-		try {
+		try 
+		{
 				response=loginResponse.getJSONObject("response");
 			
 			if(response.has("code"))
 			if(response.getString("code").equalsIgnoreCase("AUTHENTICATION_OK"))
 				{
-					userId=response.getString("userId");
+					String userId=response.getString("userId");
 					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId,getActivity().getApplicationContext());
 				}
-			} catch (JSONException e) {
-				Log.e("test_Subscrption_Title", e.getLocalizedMessage());
-			}
+			} 
+		catch (JSONException e) 
+		{
+				Log.e("Exception occured in testSubscrptionPopularApi", e.getLocalizedMessage());
+		}
 			
 		JSONObject currChannel;
 		
@@ -122,22 +119,25 @@ public class XideoSubscriptionPopularApiTest extends ActivityInstrumentationTest
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sleep(1000);
 		boolean foundChannel = false;
-		try {
-		for(int i=0;i<channels.length();i++)
+		try
+		{
+			for(int i=0;i<channels.length();i++)
+			{
+				
+					currChannel = channels.getJSONObject(i);
+				
+				if(currChannel.getString("title").trim().contentEquals(channelToCheck.getString("title").trim()))
+				{
+					foundChannel=true;
+					break;
+				}
+				
+			}
+		} 
+		catch (JSONException e)
 		{
 			
-				currChannel = channels.getJSONObject(i);
-			
-			if(currChannel.getString("title").trim().contentEquals(channelToCheck.getString("title").trim()))
-			{
-				foundChannel=true;
-				break;
-			}
-			
-		}
-		} catch (JSONException e) {
-			
-			e.printStackTrace();
+			Log.e("Exception occured in testSubscrptionPopularApi in get Title of the chennel", e.getLocalizedMessage());
 		}
 		
 		assertTrue(foundChannel);

@@ -15,7 +15,6 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.comcast.xideo.model.GetEpisodeSearchList;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
-import com.xfinity.xidio.views.MultiStateEditTextView;
 
 public class XideoSearchActivityNegativeSearch extends ActivityInstrumentationTestCase2<MainActivity>
 {

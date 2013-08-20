@@ -1,6 +1,5 @@
 package com.comcast.xideo.testCases.Authentication;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.test.ActivityInstrumentationTestCase2;
@@ -19,10 +18,9 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 import com.xfinity.xidio.core.URLFactory;
-import com.xfinity.xidio.core.XidioApplication;
 
-public class XideoAuthenticationPositiveTesting extends
-		ActivityInstrumentationTestCase2<FirstRun> {
+public class XideoAuthenticationPositiveTesting extends ActivityInstrumentationTestCase2<FirstRun>
+{
 	private Solo solo;
 	private StringPostRequest loginRequest;
 
@@ -64,16 +62,17 @@ public class XideoAuthenticationPositiveTesting extends
 			}
 
 		} catch (Exception e) {
-			Log.e(this.getClass().getCanonicalName(),
-					"Failed to complete the tset XideoDetailsActivityFeaturedEpisodeActivityChange ",e);
+			Log.e(this.getClass().getCanonicalName(),"Failed to complete the tset XideoDetailsActivityFeaturedEpisodeActivityChange ",e);
 		}
 
 	}
 
-	private void login() {
-		loginRequest = new StringPostRequest(Method.POST,
-				"username=test_151&password=Demo1111",
-				URLFactory.getLoginUrl(), new Listener<String>() {
+	private void login() 
+	{
+		StringBuilder login = new StringBuilder();
+		login.append("username=").append(TestConstants.USERNAME).append("&password=").append(TestConstants.PASSWORD);
+		loginRequest = new StringPostRequest(Method.POST,login.toString(),URLFactory.getLoginUrl(), new Listener<String>()
+				{
 
 					@Override
 					public void onResponse(String arg0) {

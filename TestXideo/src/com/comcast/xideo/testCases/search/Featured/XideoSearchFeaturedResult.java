@@ -34,7 +34,7 @@ public class XideoSearchFeaturedResult extends ActivityInstrumentationTestCase2<
 		super.setUp();
 	}
 
-	public void test_search_D() {
+	public void testSearchFeatured() {
 		
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sleep(2000);

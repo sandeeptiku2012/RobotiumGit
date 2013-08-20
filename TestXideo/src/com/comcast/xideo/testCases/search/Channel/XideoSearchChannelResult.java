@@ -16,7 +16,6 @@ import com.comcast.xideo.core.utils.JsonArrayToArrayList;
 import com.comcast.xideo.model.GetChannelSearchList;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
-import com.xfinity.xidio.views.MultiStateEditTextView;
 
 public class XideoSearchChannelResult extends ActivityInstrumentationTestCase2<MainActivity> {
 	private Solo solo;
@@ -35,7 +34,7 @@ public class XideoSearchChannelResult extends ActivityInstrumentationTestCase2<M
 		super.setUp();
 	}
 
-	public void test_Search_Channel() {
+	public void testSearchChannelResult() {
 		solo.sleep(5000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sleep(2000);

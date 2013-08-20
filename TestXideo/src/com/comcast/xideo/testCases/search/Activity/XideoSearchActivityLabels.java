@@ -14,7 +14,6 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.comcast.xideo.model.GetEpisodeSearchList;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
-import com.xfinity.xidio.views.MultiStateEditTextView;
 
 public class XideoSearchActivityLabels extends ActivityInstrumentationTestCase2<MainActivity> 
 {
@@ -33,7 +32,7 @@ public class XideoSearchActivityLabels extends ActivityInstrumentationTestCase2<
 		super.setUp();
 	}
 
-	public void test_search_B() {
+	public void testSearchLabels() {
 
 		ArrayList<JSONObject> episodeSearchItems, featuredSearchItems, upnextSearchItems, popularSearchItems;
 		String filterText = "abr";
@@ -58,7 +57,8 @@ public class XideoSearchActivityLabels extends ActivityInstrumentationTestCase2<
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sleep(500);
 		
-		if (upnextSearchItems.size() != 0) {
+		if (upnextSearchItems.size() != 0)
+		{
 			assertTrue(solo.waitForText(TestConstants.UP_NEXT));
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		}

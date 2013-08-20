@@ -49,8 +49,7 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 				{
 					Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset testHomeActivityChangeTitle " , e);
 				}
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-				
+				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);				
 				assertTrue(solo.searchText(Title));
 				solo.sleep(500);
 				solo.sendKey(KeyEvent.KEYCODE_BACK);

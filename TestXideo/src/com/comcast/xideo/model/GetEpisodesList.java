@@ -12,7 +12,7 @@ import com.xfinity.xidio.vimond.models.BaseObject;
 public class GetEpisodesList {
 	private static GetEpisodesList instance;
 
-	public static GetEpisodesList getInstance() {
+	public static synchronized GetEpisodesList getInstance() {
 		if (instance == null)
 			instance = new GetEpisodesList();
 		return instance;

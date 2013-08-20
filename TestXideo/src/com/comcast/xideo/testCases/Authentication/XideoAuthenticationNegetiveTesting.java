@@ -1,6 +1,5 @@
 package com.comcast.xideo.testCases.Authentication;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.test.ActivityInstrumentationTestCase2;
@@ -18,10 +17,9 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 import com.xfinity.xidio.core.URLFactory;
-import com.xfinity.xidio.core.XidioApplication;
 
-public class XideoAuthenticationNegetiveTesting extends
-		ActivityInstrumentationTestCase2<FirstRun> {
+public class XideoAuthenticationNegetiveTesting extends ActivityInstrumentationTestCase2<FirstRun>
+{
 	private Solo solo;
 	private StringPostRequest loginRequest;
 
@@ -68,11 +66,12 @@ public class XideoAuthenticationNegetiveTesting extends
 
 	}
 
-	private void login() {
-		loginRequest = new StringPostRequest(Method.POST,
-				"username=test_151&password=Demo1112",
-				URLFactory.getLoginUrl(), new Listener<String>() {
-
+	private void login()
+	{
+		StringBuilder login = new StringBuilder();
+		login.append("username=").append(TestConstants.USERNAME).append("&password=").append("Demo1112");
+		loginRequest = new StringPostRequest(Method.POST,login.toString() ,URLFactory.getLoginUrl(), new Listener<String>() 
+				{
 					@Override
 					public void onResponse(String arg0) {
 						response = arg0;

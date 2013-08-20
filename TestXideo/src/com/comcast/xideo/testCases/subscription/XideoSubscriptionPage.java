@@ -16,10 +16,9 @@ import com.comcast.xideo.model.GetSubscriptionList;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
 
-public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<MainActivity> {
+public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<MainActivity>
+{
 	private Solo solo;
-	boolean loggedIn=false;
-	private	String userId=null;
 	
 	
 	public XideoSubscriptionPage() {
@@ -31,15 +30,14 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Main
 
 		GetSolo.getInstance().setUpSolo(getInstrumentation(),getActivity());
 		solo=GetSolo.getInstance().getSoloObject();
-		//GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(),getActivity().getSessionId());
 		super.setUp();
 	}
 
-	public void test_Subscrption_Title() 
+	public void testSubscrptionDetails() 
 	{
 		solo.sleep(2000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse("test_151","Demo1111");
+		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME,TestConstants.PASSWORD);
 		solo.sleep(2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sleep(2000);
@@ -54,13 +52,14 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Main
 			if(response.has("code"))
 			if(response.getString("code").equalsIgnoreCase("AUTHENTICATION_OK"))
 				{
-					userId=response.getString("userId");
+					String userId=response.getString("userId");
 					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId,getActivity().getApplicationContext());
 				}
-			} catch (JSONException e) {
-				Log.e("test_Subscrption_Title", e.getLocalizedMessage());
-			}
-			
+			} 
+			catch (JSONException e) 
+			{
+				Log.e("Exception:", "Exception occured in testSubscrptionDetails test case.", e);
+			}			
 		
 		solo.sleep(2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
@@ -68,36 +67,40 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Main
 		solo.sleep(1000);
 		
 		for(int i=0;i<channels.length();i++)
-		{solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		JSONObject currChannel;
-		try {
-			currChannel = channels.getJSONObject(i);
-			solo.sleep(500);
-			String currChannelId;
-			assertTrue(solo.searchText(currChannel.getString("title")));
-			solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-			currChannelId=currChannel.getString("@id");
-			JSONArray showContent=GetShowContent.getInstance().getShowContent(currChannelId);
-			if(showContent!=null)
-			for(int j=0;j<showContent.length();j++)
-			{solo.sleep(500);
-				try {
-					JSONObject show=showContent.getJSONObject(j);
-					assertTrue(solo.searchText(show.getString("title")));
+		{
+			solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+			solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+			JSONObject currChannel;
+			try {
+					currChannel = channels.getJSONObject(i);
+					solo.sleep(500);
+					String currChannelId;
+					assertTrue(solo.searchText(currChannel.getString("title")));
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-					} catch (JSONException e) {
-					Log.e("test_Subscrption_Title", e.getLocalizedMessage());
-					e.printStackTrace();
+					currChannelId=currChannel.getString("@id");
+					JSONArray showContent=GetShowContent.getInstance().getShowContent(currChannelId);
+					if(showContent!=null)
+					for(int j=0;j<showContent.length();j++)
+					{solo.sleep(500);
+						try {
+								JSONObject show=showContent.getJSONObject(j);
+								assertTrue(solo.searchText(show.getString("title")));
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+							}
+							catch (JSONException e)
+							{
+								Log.e("Exception in testSubscrptionDetails", e.getLocalizedMessage());
+							
+							}
+					}
 				}
-			}
-		} catch (JSONException e1) {
-			Log.e("test_Subscrption_Title", e1.getLocalizedMessage());
-		}
+				catch (JSONException exe)
+				{
+					Log.e("Exception:", "Exception occured in testSubscrptionDetails test case.", exe);
+				}
 			
 		}
-		//"1792275"
-		//1792276
+		
 	}
 	
 }

@@ -16,7 +16,7 @@ public class TestConstants
 	public static final String DETAILS_ACTIVITY ="DetailsActivity";
 	public static final String TITLE ="title";
 	public static final String FIRST_RUN ="FirstRun";
-	public static final String USERNAME ="test_115";
+	public static final String USERNAME ="test_151";
 	public static final String PASSWORD="Demo1111";
 	
 	public static String userId = null;

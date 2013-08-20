@@ -27,7 +27,7 @@ public class XideoSearchActivityText extends ActivityInstrumentationTestCase2<Ma
 		super.setUp();
 	}
 
-	public void test_search_H() 
+	public void testSearchText() 
 	{
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sleep(2000);

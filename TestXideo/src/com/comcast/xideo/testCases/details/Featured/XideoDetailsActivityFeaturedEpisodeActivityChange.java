@@ -73,7 +73,7 @@ public class XideoDetailsActivityFeaturedEpisodeActivityChange  extends Activity
 									.getJSONObject(k);
 						
 							String EpisodeTitle = currentEpisode.getString(TestConstants.TITLE);
-							//assertTrue(solo.searchText(EpisodeTitle, 1, true, true));
+							assertTrue(solo.searchText(EpisodeTitle, 1, true, true));
 							solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 							assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
 							solo.sleep(500);
@@ -85,7 +85,7 @@ public class XideoDetailsActivityFeaturedEpisodeActivityChange  extends Activity
 
 						}
 						solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-						// solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+						solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 
 					}
 

@@ -8,10 +8,11 @@ import android.util.Log;
 import com.comcast.xideo.core.common.XideoAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 
-public class GetEpisodeSearchList {
+public class GetEpisodeSearchList 
+{
 	private static GetEpisodeSearchList instance;
 
-	public static GetEpisodeSearchList getInstance() {
+	public static synchronized GetEpisodeSearchList getInstance() {
 		return (instance == null) ? new GetEpisodeSearchList() : instance;
 	}
 

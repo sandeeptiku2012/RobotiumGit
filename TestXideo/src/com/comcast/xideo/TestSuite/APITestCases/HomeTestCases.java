@@ -5,17 +5,9 @@ import junit.framework.TestSuite;
 import android.test.suitebuilder.TestSuiteBuilder;
 
 public class HomeTestCases extends TestSuite {
-	public static Test suite() {
-
-		// Class[]
-		// apiTest={XideoDetailsActivityChange.class,XideoDetailsActivityChangeTitle.class,XideoHomeActivityFeaturedListTitle.class};
-		// TestSuite suite = new TestSuite();
-
-		return new TestSuiteBuilder(HomeTestCases.class).includePackages(
-				new String[] { "com.comcast.xideo.testCases.home" }).build();
+	public static Test suite()
+	{
+		return new TestSuiteBuilder(HomeTestCases.class).includePackages(new String[] { "com.comcast.xideo.testCases.home" }).build();
 		
-		
-		// suite.addTest(new XideoDetailsActivityChange());
-		// return suite;
 	}
 }

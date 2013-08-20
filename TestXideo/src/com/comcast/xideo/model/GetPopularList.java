@@ -8,10 +8,11 @@ import android.util.Log;
 import com.comcast.xideo.core.common.XideoAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 
-public class GetPopularList {
+public class GetPopularList 
+{
 	private static GetPopularList instance;
 
-	public static GetPopularList getInstance() {
+	public static synchronized GetPopularList getInstance() {
 		if (instance == null)
 			instance = new GetPopularList();
 		return instance;

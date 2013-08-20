@@ -30,8 +30,8 @@ public class XideoLoginActivityChangeNeg extends ActivityInstrumentationTestCase
 	}
 
 
-	public void testXideoLoginActivityChangeNeg() {
-	
+	public void testXideoLoginActivityChangeNeg()
+	{
 		assertTrue(solo.waitForActivity(TestConstants.FIRST_RUN));
 		solo.sleep(1000);
 	

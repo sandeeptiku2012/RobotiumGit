@@ -9,8 +9,8 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
 
-public class XideoNavigationLeftToRight extends
-		ActivityInstrumentationTestCase2<MainActivity> {
+public class XideoNavigationLeftToRight extends ActivityInstrumentationTestCase2<MainActivity>
+{
 	private Solo solo;
 
 	public XideoNavigationLeftToRight() {
@@ -21,12 +21,12 @@ public class XideoNavigationLeftToRight extends
 	protected void setUp() throws Exception {
 		GetSolo.getInstance().setUpSolo(getInstrumentation(), getActivity());
 		solo = GetSolo.getInstance().getSoloObject();
-		GetCatagoryLists.getInstance().storeBasicLists(
-				getActivity().getSessionId(), getActivity().getSessionId());
+		GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(), getActivity().getSessionId());
 		super.setUp();
 	}
 
-	public void testNavigationLeftToRight() {
+	public void testNavigationLeftToRight()
+	{
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sleep(200);
@@ -39,7 +39,6 @@ public class XideoNavigationLeftToRight extends
 		assertTrue(solo.waitForText("SUBSCRIPTIONS"));
 		solo.sleep(2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-
 		assertTrue(solo.waitForText(TestConstants.SETTINGS));
 		solo.sleep(500);
 	}

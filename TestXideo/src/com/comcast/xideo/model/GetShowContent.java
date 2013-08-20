@@ -13,7 +13,7 @@ public class GetShowContent
 {
 	private static GetShowContent instance;
 
-	public static GetShowContent getInstance()
+	public static synchronized GetShowContent getInstance()
 	{
 		if (instance == null)
 			instance = new GetShowContent();

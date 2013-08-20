@@ -16,10 +16,9 @@ import com.comcast.xideo.model.GetSubscriptionList;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
 
-public class XideoSubscriptionFeaturedUITest extends ActivityInstrumentationTestCase2<MainActivity>{
+public class XideoSubscriptionFeaturedUITest extends ActivityInstrumentationTestCase2<MainActivity>
+{
 	private Solo solo;
-	boolean loggedIn=false;
-	private	String userId=null;
 	
 	
 	public XideoSubscriptionFeaturedUITest() {
@@ -31,15 +30,14 @@ public class XideoSubscriptionFeaturedUITest extends ActivityInstrumentationTest
 
 		GetSolo.getInstance().setUpSolo(getInstrumentation(),getActivity());
 		solo=GetSolo.getInstance().getSoloObject();
-		//GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(),getActivity().getSessionId());
 		super.setUp();
 	}
 
-	public void test_Subscrption_Title() 
+	public void testSubscrptionFeaturedUI() 
 	{
 		solo.sleep(2000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse("test_151","Demo1111");
+		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME,TestConstants.PASSWORD);
 		JSONArray channels = null; 
 		solo.sleep(2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
@@ -49,8 +47,7 @@ public class XideoSubscriptionFeaturedUITest extends ActivityInstrumentationTest
 		JSONArray featuredList=GetFeaturedList.getInstance().getFeaturedList();
 		
 		for(int i=0;i<featuredList.length();i++)
-		{
-			
+		{	
 				JSONObject currChoice=featuredList.getJSONObject(i);
 				if(currChoice.has("category"))
 					if(currChoice.getJSONObject("category").has("level"))
@@ -68,27 +65,20 @@ public class XideoSubscriptionFeaturedUITest extends ActivityInstrumentationTest
 							solo.sleep(1000);
 							solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 							solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-							
+							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);							
 							channelToCheck=currChoice;
 							break;
 							
 						}
 				if(!currChoice.has("productGroup"))
 							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		}
-
-		
-		
-		
-		
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}		
+		} 
+		catch (JSONException e)
+		{
+			Log.e("Exception:", "Exception occured in testSubscrptionFeaturedUI test cases.", e);
 		}
 		
-		
-	//	solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 		solo.sleep(2000);
 		JSONObject response;
 		
@@ -99,35 +89,37 @@ public class XideoSubscriptionFeaturedUITest extends ActivityInstrumentationTest
 			if(response.has("code"))
 			if(response.getString("code").equalsIgnoreCase("AUTHENTICATION_OK"))
 				{
-					userId=response.getString("userId");
+					String userId=response.getString("userId");
 					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId,getActivity().getApplicationContext());
 				}
-			} catch (JSONException e) {
-				Log.e("test_Subscrption_Title", e.getLocalizedMessage());
+			} catch (JSONException e) 
+			{
+				Log.e("Exception:", "Exception occured in testSubscrptionFeaturedUI test case get user authentication.", e);
 			}
 			
-		JSONObject currChannel;
 		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sleep(1000);
 		boolean foundChannel = false;
-		try {
-		for(int i=0;i<channels.length();i++)
+		try
 		{
-			foundChannel=solo.searchText(channelToCheck.getString("title"));
-			if(foundChannel)
-				break;
-			else
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+			for(int i=0;i<channels.length();i++)
+			{
+				foundChannel=solo.searchText(channelToCheck.getString("title"));
+				if(foundChannel)
+					break;
+				else
+					solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+				
+			}
+		} 
+		catch (JSONException e)
+		{
 			
-		}
-		} catch (JSONException e) {
-			
-			e.printStackTrace();
-		}
-		
+			Log.e("Exception:", "Exception occured in testSubscrptionFeaturedUI test case get the title of the channel.", e);
+		}		
 		assertTrue(foundChannel);
 				
 	}

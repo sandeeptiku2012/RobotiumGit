@@ -34,7 +34,7 @@ public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<M
 		super.setUp();
 	}
 
-	public void test_search_E() {
+	public void testSearchPopularResult() {
 		
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sleep(2000);

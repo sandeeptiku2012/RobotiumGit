@@ -47,7 +47,7 @@ public class XideoDetailsActivityPopularEpisodeActivityChange extends ActivityIn
 
 		try {
 			JSONArray popularJsonArray= GetCatagoryLists.getInstance().getPopularList();
-			solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);//for testing today
+			//solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);//for testing today
 			if(popularJsonArray!=null && popularJsonArray.length()>0)
 			{
 				for(int count=0;count<popularJsonArray.length();count++)

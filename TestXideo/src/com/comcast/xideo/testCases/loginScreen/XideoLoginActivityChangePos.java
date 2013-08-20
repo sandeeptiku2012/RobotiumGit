@@ -12,7 +12,8 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 
-public class XideoLoginActivityChangePos extends ActivityInstrumentationTestCase2<FirstRun> {
+public class XideoLoginActivityChangePos extends ActivityInstrumentationTestCase2<FirstRun>
+{
 	private Solo solo;
 
 	public XideoLoginActivityChangePos() {

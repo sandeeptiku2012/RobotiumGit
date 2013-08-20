@@ -35,7 +35,7 @@ public class XideoSearchEpisodesResult extends ActivityInstrumentationTestCase2<
 		super.setUp();
 	}
 
-	public void test_search_C() {
+	public void testSearchEpisode() {
 		
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sleep(2000);
