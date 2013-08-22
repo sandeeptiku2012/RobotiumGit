@@ -43,7 +43,7 @@ public class XideoDetailsActivityPopularEpisodeActivityChange extends ActivityIn
 		solo.sleep(200);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 
-		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+		//solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 
 		try {
 			JSONArray popularJsonArray= GetCatagoryLists.getInstance().getPopularList();

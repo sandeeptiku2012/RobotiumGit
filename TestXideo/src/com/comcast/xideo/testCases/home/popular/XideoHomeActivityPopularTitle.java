@@ -33,37 +33,44 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 	
 	public void testHomePopularTitle() 
 	{
-		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(200);
-		solo.sleep(200);
+		solo.sleep(500);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(200);
+		solo.sleep(2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(200);
-		
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+		solo.sleep(2000);
 		try {
-			JSONArray popularJsonArray =   GetCatagoryLists.getInstance().getPopularList();
-			
+			JSONArray popularJsonArray = GetCatagoryLists.getInstance().getPopularList();
 			if(popularJsonArray!=null && popularJsonArray.length()>0)
 			{
-				for (int size = 0; size < popularJsonArray.length(); size++) 
+			
+				for (int count = 0; count < popularJsonArray.length(); count++) 
 				{
-					JSONObject currentChannel = popularJsonArray.getJSONObject(size);
+					JSONObject currentChannel = popularJsonArray.getJSONObject(count);
 	
-					if (!currentChannel.has("category"))
-						continue;
-	
-					String ChannelTitle = currentChannel.getString(TestConstants.TITLE);
-	
-					assertTrue(solo.waitForText(ChannelTitle));
+					if (currentChannel.has("productGroup") || !currentChannel.has("category"))
+								continue;
+					String channelTitle =null;
+					if(currentChannel.has("title"))
+					{
+						channelTitle = currentChannel.getString("title");
+					}
+					if(channelTitle!=null && channelTitle.length()>0)
+					{
+						solo.sleep(50);
+						assertTrue(solo.waitForText(channelTitle));
+					}
+					
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 				}
+			
 			}
 		} catch (Exception e) 
 		{
-			Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoHomeActivityPopularTitle " , e);
+			Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoHomeActivityFeaturedListTitle " , e);
 		}
-
+		solo.sleep(5000);
 	}
 
 }

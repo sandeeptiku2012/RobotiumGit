@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import com.comcast.xideo.core.common.GetSolo;
@@ -32,36 +33,87 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 	public void testDetailsActivityChangeTitle()
 	{
 		String channelTitle = null;
-		solo.sleep(500);
-		solo.sleep(300);
-		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(200);
-		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		
+		
+		
+
+		solo.sleep(500);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+		solo.sleep(2000);
+		try{
 		JSONArray featuredJsonArray = GetCatagoryLists.getInstance().getFeaturedList();
 		if(featuredJsonArray!=null && featuredJsonArray.length()>0)
 		{
-			for (int i = 0; i < featuredJsonArray.length(); i++) 
+			
+			
+			for(int j=0;j<featuredJsonArray.length();j++)
 			{
-				JSONObject currentChannel = null;
-				try {
-					currentChannel = featuredJsonArray.getJSONObject(i);
-					channelTitle = currentChannel.getString(TestConstants.TITLE);
-				} catch (Exception e) {
-					assertTrue(false);
-				}
-				if(!currentChannel.has("category"))
+				JSONObject currElement=featuredJsonArray.getJSONObject(j);
+				if(currElement.has("category"))
+				{	if(currElement.getJSONObject("category").has("level"))
+						{
+							if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
+								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+									solo.sleep(500);
+									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
+									assertTrue(solo.searchText(currElement.getString("title").trim()));
+									solo.sleep(500);
+									solo.sendKey(KeyEvent.KEYCODE_BACK);
+									solo.sleep(500);
+									assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
+									solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+									continue;
+								}
+							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+								solo.sleep(500);
+								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
+								assertTrue(solo.searchText(currElement.getString("title").trim()));
+								solo.sleep(500);
+								solo.sendKey(KeyEvent.KEYCODE_BACK);
+								
+								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+								continue;
+								
+							}
+							}
+				
+				}			
+				else if(currElement.has("asset"))
+				{	
+					solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+					solo.sleep(500);
+					assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
+					assertTrue(solo.searchText(currElement.getString("title").trim()));
+					solo.sleep(500);
+					solo.sendKey(KeyEvent.KEYCODE_BACK);
+					solo.sleep(500);
+					assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
+					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 					continue;
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+				}
 				solo.sleep(500);
-				assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-				assertTrue(solo.waitForText(channelTitle));
-				solo.sendKey(KeyEvent.KEYCODE_BACK);
-				assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-	
 			}
-		}
+			
+			
+			
+			
+			
+			
+		}	
+
+	}
+		
+	catch(Exception e)
+	{
+		Log.d("Exception from testDetailsActivityChange = ", e.getLocalizedMessage());
+	}
+		
+		
+		
+		
 	}
 
 }

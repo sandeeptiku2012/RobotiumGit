@@ -26,9 +26,26 @@ public class GetEpisodesList {
 			String episodeUrl = URLFactory.getEpisodeContentURL(showObj);
 			Log.v("episodeUrl will be ", episodeUrl);
 			JSONObject temp=new XideoAsynTask().execute(episodeUrl).get();
-						
-			return temp.has("assets")?(temp.getJSONObject("assets").has("asset")?temp.getJSONObject("assets").getJSONArray("asset"):null):null;
-
+			JSONArray arrayToReturn = null;
+			try{
+			if(temp.has("assets"))
+				if(temp.getJSONObject("assets").has("asset"))
+				{
+					try{
+						arrayToReturn=temp.getJSONObject("assets").getJSONArray("asset");
+					}
+					catch(Exception e)
+					{
+						arrayToReturn=new JSONArray();
+						arrayToReturn.put(temp.getJSONObject("assets").getJSONObject("asset"));
+					}
+				}
+			
+			return arrayToReturn;//temp.has("assets")?(temp.getJSONObject("assets").has("asset")?{temp.getJSONObject("assets").getJSONArray("asset")}:null):null;
+			}
+			catch(Exception e)
+			{return null;
+			}
 		} catch (Exception e) {
 			throw new Exception(e.getLocalizedMessage());
 		}

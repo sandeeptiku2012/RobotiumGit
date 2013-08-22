@@ -45,51 +45,89 @@ public class XideoDetailsActivityFeaturedEpisodeActivityChange  extends Activity
 			try {
 				JSONObject currentChannel = GetCatagoryLists.getInstance().getFeaturedList().getJSONObject(1);
 
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+				JSONArray featuredArray =GetCatagoryLists.getInstance().getFeaturedList();
+				
+				for(int j=0;j<featuredArray.length();j++)
+				{
+					JSONObject currElement=featuredArray.getJSONObject(j);
+					if(currElement.has("category"))
+					{	if(currElement.getJSONObject("category").has("level"))
+							{if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
+								{solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+								continue;
+								}
+							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+								String ChannelContentKey = currElement.getString("contentKey");
+								JSONArray ShowContent = GetShowContent.getInstance().getShowContent(ChannelContentKey);
+								solo.sleep(2000);
 
-				String ChannelContentKey = currentChannel.getString("contentKey");
-				JSONArray ShowContent = GetShowContent.getInstance().getShowContent(ChannelContentKey);
-				solo.sleep(2000);
+								if (ShowContent == null) {
+									solo.sendKey(KeyEvent.KEYCODE_BACK);
+									solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+									assertTrue(false);
+									// solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 
-				if (ShowContent == null) {
-					solo.sendKey(KeyEvent.KEYCODE_BACK);
-					solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-					// solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+								} else {
+									solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+									assertTrue(solo.searchText(currElement.getString("title")));
+									solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+									
+									
+									for (int p = 0; p < ShowContent.length(); p++) {
+										solo.sleep(2000);
 
-				} else {
-					for (int j = 0; j < ShowContent.length(); j++) {
-						solo.sleep(2000);
+										JSONObject ShowsList = ShowContent.getJSONObject(p);
+										String showId = ShowsList.getString("@id");
 
-						JSONObject ShowsList = ShowContent.getJSONObject(j);
-						String showId = ShowsList.getString("@id");
+										JSONArray EpisodeListArray = GetEpisodesList.getInstance().getEpisodeList(showId);
+										if (p == 0)
+											solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 
-						JSONArray EpisodeListArray = GetEpisodesList.getInstance().getEpisodeList(showId);
-						if (j == 0)
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+										for (int k = 0; k < EpisodeListArray.length(); k++) {
+											solo.sleep(200);
+											JSONObject currentEpisode = EpisodeListArray
+													.getJSONObject(k);
+										
+											String EpisodeTitle = currentEpisode.getString(TestConstants.TITLE);
+											assertTrue(solo.searchText(EpisodeTitle));
+											solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+											assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
+											solo.sleep(500);
+											solo.sendKey(KeyEvent.KEYCODE_BACK);
+											solo.sleep(200);
+											
+											
+											solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 
-						for (int k = 0; k < EpisodeListArray.length(); k++) {
-							solo.sleep(200);
-							JSONObject currentEpisode = EpisodeListArray
-									.getJSONObject(k);
-						
-							String EpisodeTitle = currentEpisode.getString(TestConstants.TITLE);
-							assertTrue(solo.searchText(EpisodeTitle, 1, true, true));
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-							assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-							solo.sleep(500);
-							solo.sendKey(KeyEvent.KEYCODE_BACK);
-							solo.sleep(200);
+										}
+										solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+										solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+
+									}
+
+								}
+								
+								break;
+								
+							}
+							}
+					}			
 							
-							
-							solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-
-						}
-						solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-						solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-
-					}
-
+					
+					else
+					{
+						continue;}
+					
 				}
+				
+				
+				
+			
+
+				
+				
+				
 
 			} catch (Exception e) 
 			{

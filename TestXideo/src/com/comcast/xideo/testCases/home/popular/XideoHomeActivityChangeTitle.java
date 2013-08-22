@@ -34,38 +34,86 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 
 	public void testHomeActivityChangeTitle()
 	{
-		String channelTitle = null;
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+		solo.sleep(2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		
-		JSONArray popularJsonArray =   GetCatagoryLists.getInstance().getPopularList();
+		solo.sleep(2000);
+		try{
+		JSONArray popularJsonArray = GetCatagoryLists.getInstance().getPopularList();
 		if(popularJsonArray!=null && popularJsonArray.length()>0)
 		{
-			for (int i = 0; i < popularJsonArray.length(); i++)
+			
+			
+			for(int j=0;j<popularJsonArray.length();j++)
 			{
-				JSONObject currentChannel = null;
-				try {
-					currentChannel = popularJsonArray.getJSONObject(i);
-					if (!currentChannel.has("category"))
-						continue;
-					channelTitle = currentChannel.getString(TestConstants.TITLE);
-				} catch (Exception e)
-				{
-					Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoHomeActivityChangeTitle " , e);
+				JSONObject currElement=popularJsonArray.getJSONObject(j);
+				if(currElement.has("category"))
+				{	if(currElement.getJSONObject("category").has("level"))
+						{
+							if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
+								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+									solo.sleep(500);
+									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
+									assertTrue(solo.searchText(currElement.getString("title").trim()));
+									solo.sleep(500);
+									solo.sendKey(KeyEvent.KEYCODE_BACK);
+									solo.sleep(500);
+									assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
+									solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+									continue;
+								}
+							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+								solo.sleep(500);
+								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
+								assertTrue(solo.searchText(currElement.getString("title").trim()));
+								solo.sleep(500);
+								solo.sendKey(KeyEvent.KEYCODE_BACK);
+								
+								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
+								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+								continue;
+								
+							}
+							}
+				
+				}			
+				else if(currElement.has("asset"))
+				{	
+					solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+					solo.sleep(500);
+					assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
+					assertTrue(solo.searchText(currElement.getString("title").trim()));
+					solo.sleep(500);
+					solo.sendKey(KeyEvent.KEYCODE_BACK);
+					solo.sleep(500);
+					assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
+					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+					continue;
 				}
-	
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-				assertTrue(solo.waitForText(channelTitle));
-				solo.sendKey(KeyEvent.KEYCODE_BACK);
-				assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+				solo.sleep(500);
 			}
-		}
+			
+			
+			
+			
+			
+			
+		}	
+
+	}
+		
+	catch(Exception e)
+	{
+		Log.d("Exception from testDetailsActivityChange = ", e.getLocalizedMessage());
+	}
+		
+		
+		
+		
 	}
 
 }

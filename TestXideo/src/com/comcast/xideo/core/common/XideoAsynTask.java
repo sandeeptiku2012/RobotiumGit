@@ -47,9 +47,6 @@ private	JSONObject jsonObj =null;
         }
 	        return jsonObj;
 	 
-		
-		
-		
 	}
 
 }

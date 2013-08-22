@@ -46,13 +46,12 @@ public class XideoHomeActivityFeaturedListTitle extends ActivityInstrumentationT
 				{
 					JSONObject currentChannel = featuredJsonArray.getJSONObject(count);
 	
-					if (!currentChannel.has("category"))
-						if (!currentChannel.has("asset"))
+					if (currentChannel.has("productGroup"))
 							continue;
 					String channelTitle =null;
-					if(currentChannel.has(TestConstants.TITLE))
+					if(currentChannel.has("title"))
 					{
-						channelTitle = currentChannel.getString(TestConstants.TITLE);
+						channelTitle = currentChannel.getString("title");
 					}
 					if(channelTitle!=null && channelTitle.length()>0)
 					{
