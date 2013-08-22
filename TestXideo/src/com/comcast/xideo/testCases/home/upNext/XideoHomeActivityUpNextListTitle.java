@@ -32,7 +32,7 @@ public class XideoHomeActivityUpNextListTitle extends ActivityInstrumentationTes
 
  public void testHomeUpNextListTitle()
 	{
-		String ChannelTitle = null;
+		String videoTitle = null;
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 
@@ -44,13 +44,13 @@ public class XideoHomeActivityUpNextListTitle extends ActivityInstrumentationTes
 				JSONObject currentChannel = null;
 				try {
 					currentChannel = upNextArray.getJSONObject(i);
-					ChannelTitle = currentChannel.getString(TestConstants.TITLE);
+					videoTitle = currentChannel.getString(TestConstants.TITLE);
 	
 				} catch (Exception e)
 				{
 					Log.e(this.getClass().getCanonicalName(), "Failed to get title from XideoHomeActivityUpNextListTitle.java " , e);
 				}
-				assertTrue(solo.waitForText(ChannelTitle));
+				assertTrue(solo.waitForText(videoTitle));
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 				solo.sleep(500);
 	

@@ -39,9 +39,9 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Ma
 			{
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 				assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-				solo.sleep(200);
+				solo.sleep(500);
 				solo.sendKey(KeyEvent.KEYCODE_BACK);
-				solo.sleep(200);
+				solo.sleep(500);
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 				solo.sleep(500);
 	

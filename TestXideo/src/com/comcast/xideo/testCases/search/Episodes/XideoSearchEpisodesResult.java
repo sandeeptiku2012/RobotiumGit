@@ -51,6 +51,8 @@ public class XideoSearchEpisodesResult extends ActivityInstrumentationTestCase2<
 		ArrayList<JSONObject> tempItems = FilterObject.getInstance().getFilteredObjectList(GetEpisodeSearchList.getInstance().getEpisodeSearchList("abr"),"abr");
 		solo.sleep(4000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 
 		for (JSONObject currentObject : tempItems) 
 		{

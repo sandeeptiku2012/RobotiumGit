@@ -53,7 +53,7 @@ public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<M
 
 		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		//solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		for (JSONObject currentObject : tempItems) {
 			try {

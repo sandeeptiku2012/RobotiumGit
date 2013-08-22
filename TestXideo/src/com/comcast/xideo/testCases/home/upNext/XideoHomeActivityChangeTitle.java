@@ -53,7 +53,7 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 				assertTrue(solo.searchText(Title));
 				solo.sleep(500);
 				solo.sendKey(KeyEvent.KEYCODE_BACK);
-				solo.sleep(200);
+				solo.sleep(500);
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 				solo.sleep(500);
 	

@@ -8,7 +8,7 @@ public class AllApiTestCases extends TestSuite
 {
 	public static Test suite() 
 	{
-		return new TestSuiteBuilder(AllApiTestCases.class).includePackages(new String[] { "com.comcast.xideo.testCases" }).build();
+		return null;//new TestSuiteBuilder(AllApiTestCases.class).includePackages(new String[] { "com.comcast.xideo.testCases" }).build();
 		
 	}
 }

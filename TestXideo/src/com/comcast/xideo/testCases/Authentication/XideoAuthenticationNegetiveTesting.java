@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.android.volley.toolbox.custom.StringPostRequest;
 import com.comcast.xideo.core.constant.TestConstants;
+import com.comcast.xideo.model.GetLoginResponse;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 import com.xfinity.xidio.core.URLFactory;
@@ -28,7 +29,7 @@ public class XideoAuthenticationNegetiveTesting extends ActivityInstrumentationT
 
 	}
 
-	String response = null;
+	JSONObject response = null;
 	private RequestQueue mRequestQueue;
 
 	@Override
@@ -43,52 +44,24 @@ public class XideoAuthenticationNegetiveTesting extends ActivityInstrumentationT
 
 		try {
 
-			login();
+			response=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME, TestConstants.PASSWORD);
 
 			solo.sleep(5000);
 
-			if (response == null) {
-				assertTrue(false);
-
-			} else {
-				JSONObject loginObject = new JSONObject(response);
-				assertTrue(loginObject.has("response"));
-				assertTrue(!loginObject.isNull("response"));
-				assertTrue(loginObject.getJSONObject("response").has("code"));
-				assertTrue(!loginObject.getJSONObject("response").isNull("code"));
-				assertTrue(loginObject.getJSONObject("response").getString("code").contentEquals("AUTHENTICATION_OK"));
-			}
+			
+			
+				assertTrue(response.has("response"));
+				assertTrue(!response.isNull("response"));
+				assertTrue(response.getJSONObject("response").has("code"));
+				assertTrue(!response.getJSONObject("response").isNull("code"));
+				assertTrue(response.getJSONObject("response").getString("code").contentEquals("AUTHENTICATION_OK"));
+			
 
 		} catch (Exception e) {
 			Log.e(this.getClass().getCanonicalName(),
 					"Failed to complete the tset XideoDetailsActivityFeaturedEpisodeActivityChange ",e);
 		}
 
-	}
-
-	private void login()
-	{
-		StringBuilder login = new StringBuilder();
-		login.append("username=").append(TestConstants.USERNAME).append("&password=").append("Demo1112");
-		loginRequest = new StringPostRequest(Method.POST,login.toString() ,URLFactory.getLoginUrl(), new Listener<String>() 
-				{
-					@Override
-					public void onResponse(String arg0) {
-						response = arg0;
-					}
-				}, new ErrorListener() {
-
-					@Override
-					public void onErrorResponse(VolleyError arg0) {
-						arg0.printStackTrace();
-					}
-				});
-		addRequest(loginRequest);
-
-	}
-
-	private void addRequest(Request request) {
-		mRequestQueue.add(request);
 	}
 
 }

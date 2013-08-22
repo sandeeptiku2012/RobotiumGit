@@ -8,7 +8,7 @@ public class NavigationBarTestCases extends TestSuite {
 	public static Test suite() 
 	{
 
-		return new TestSuiteBuilder(NavigationBarTestCases.class).includePackages(new String[] { "com.comcast.xideo.testCases.navogationBar" }).build();
+		return null;//new TestSuiteBuilder(NavigationBarTestCases.class).includePackages(new String[] { "com.comcast.xideo.testCases.navogationBar" }).build();
 		
 	}
 }
