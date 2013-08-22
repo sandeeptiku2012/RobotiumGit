@@ -44,7 +44,7 @@ public class XideoAuthenticationNegetiveTesting extends ActivityInstrumentationT
 
 		try {
 
-			response=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME, TestConstants.PASSWORD);
+			response=GetLoginResponse.getInstance().getLoginResponse("asas", TestConstants.PASSWORD);
 
 			solo.sleep(5000);
 

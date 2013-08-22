@@ -43,7 +43,8 @@ public class XideoDetailsActivityPopularEpisodeActivityChange extends ActivityIn
 		solo.sleep(200);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 
-		//solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+		/*
+		 //solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 
 		try {
 			JSONArray popularJsonArray= GetCatagoryLists.getInstance().getPopularList();
@@ -101,7 +102,7 @@ public class XideoDetailsActivityPopularEpisodeActivityChange extends ActivityIn
 		} catch (Exception e) {
 			Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoDetailsActivityPopularEpisodeActivityChange " , e);
 		}
-
+*/
 	}
 
 }

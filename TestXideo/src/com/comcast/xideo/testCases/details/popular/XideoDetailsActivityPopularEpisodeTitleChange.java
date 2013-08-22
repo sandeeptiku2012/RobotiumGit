@@ -40,7 +40,7 @@ public class XideoDetailsActivityPopularEpisodeTitleChange extends ActivityInstr
 		solo.sleep(200);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		
+		/*
 		
 		try {
 			JSONObject currentChannel = GetCatagoryLists.getInstance().getPopularList()	.getJSONObject(0);
@@ -91,7 +91,8 @@ public class XideoDetailsActivityPopularEpisodeTitleChange extends ActivityInstr
 		{
 			Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoDetailsActivityPopularEpisodeTitleChange " , e);
 		}
-
+*/
+		
 	}
 
 }
