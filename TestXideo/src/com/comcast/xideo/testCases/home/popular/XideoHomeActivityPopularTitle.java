@@ -49,7 +49,7 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 				{
 					JSONObject currentChannel = popularJsonArray.getJSONObject(count);
 	
-					if (currentChannel.has("productGroup") || !currentChannel.has("category"))
+					if ((currentChannel.has("productGroup") || !currentChannel.has("category")) && !currentChannel.has("asset"))
 								continue;
 					String channelTitle =null;
 					if(currentChannel.has("title"))
@@ -70,7 +70,7 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 		{
 			Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoHomeActivityFeaturedListTitle " , e);
 		}
-		solo.sleep(5000);
+		solo.sleep(2000);
 	}
 
 }
