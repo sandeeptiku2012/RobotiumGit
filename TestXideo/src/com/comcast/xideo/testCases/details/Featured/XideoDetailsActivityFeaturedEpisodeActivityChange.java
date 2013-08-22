@@ -42,6 +42,7 @@ public class XideoDetailsActivityFeaturedEpisodeActivityChange  extends Activity
 			solo.sleep(200);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 
+			/*
 			try {
 				JSONObject currentChannel = GetCatagoryLists.getInstance().getFeaturedList().getJSONObject(1);
 
@@ -132,7 +133,7 @@ public class XideoDetailsActivityFeaturedEpisodeActivityChange  extends Activity
 			} catch (Exception e) 
 			{
 				Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoDetailsActivityFeaturedEpisodeActivityChange " , e);
-			}
+			}*/
 			
 		}
 
