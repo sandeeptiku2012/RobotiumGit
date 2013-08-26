@@ -52,7 +52,7 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Ma
 						{
 							if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-									solo.sleep(500);
+									solo.sleep(2500);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 									solo.sleep(500);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
@@ -63,7 +63,7 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Ma
 								}
 							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(500);
+								solo.sleep(2500);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 								solo.sleep(500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
@@ -79,7 +79,7 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Ma
 				else if(currElement.has("asset"))
 				{	
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-					solo.sleep(500);
+					solo.sleep(2500);
 					assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
 					solo.sleep(500);
 					solo.sendKey(KeyEvent.KEYCODE_BACK);

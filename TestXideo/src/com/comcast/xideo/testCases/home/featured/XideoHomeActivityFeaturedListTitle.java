@@ -30,7 +30,7 @@ public class XideoHomeActivityFeaturedListTitle extends ActivityInstrumentationT
 		
 	}
 
-	public void testHomeActivityFeaturedListTitle()
+	public void testVerifyHomeFeaturedListTitle()
 	{
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);

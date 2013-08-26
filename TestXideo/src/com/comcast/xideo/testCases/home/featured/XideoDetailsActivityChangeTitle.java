@@ -58,7 +58,7 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 									solo.sleep(500);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 									assertTrue(solo.searchText(currElement.getString("title").trim()));
-									solo.sleep(500);
+									solo.sleep(1500);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
 									solo.sleep(500);
 									assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
@@ -70,7 +70,7 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 								solo.sleep(500);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 								assertTrue(solo.searchText(currElement.getString("title").trim()));
-								solo.sleep(500);
+								solo.sleep(1500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 								
 								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
@@ -89,7 +89,7 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 					assertTrue(solo.searchText(currElement.getString("title").trim()));
 					solo.sleep(500);
 					solo.sendKey(KeyEvent.KEYCODE_BACK);
-					solo.sleep(500);
+					solo.sleep(1500);
 					assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 					continue;

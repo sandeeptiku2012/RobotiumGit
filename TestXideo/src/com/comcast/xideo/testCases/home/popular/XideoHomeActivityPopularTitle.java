@@ -31,7 +31,7 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 		super.setUp();
 	}
 	
-	public void testHomePopularTitle() 
+	public void testVerifyPopularTitle() 
 	{
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);

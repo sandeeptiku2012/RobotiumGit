@@ -52,7 +52,7 @@ public class XideoDetailsActivityChange extends ActivityInstrumentationTestCase2
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 									solo.sleep(500);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-									solo.sleep(500);
+									solo.sleep(1500);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
 									solo.sleep(500);
 									assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
@@ -63,7 +63,7 @@ public class XideoDetailsActivityChange extends ActivityInstrumentationTestCase2
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 								solo.sleep(500);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-								solo.sleep(500);
+								solo.sleep(1500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 								
 								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
@@ -81,7 +81,7 @@ public class XideoDetailsActivityChange extends ActivityInstrumentationTestCase2
 					assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
 					solo.sleep(500);
 					solo.sendKey(KeyEvent.KEYCODE_BACK);
-					solo.sleep(500);
+					solo.sleep(1500);
 					assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 					continue;

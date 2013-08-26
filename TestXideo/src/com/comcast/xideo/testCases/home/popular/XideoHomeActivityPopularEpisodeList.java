@@ -33,9 +33,9 @@ public class XideoHomeActivityPopularEpisodeList extends
 		super.setUp();
 	}
 
-	public void testHomePopularEpisode() {
+	public void testHomePopularEpisode() 
+	{
 
-		// /////////////////////////////////////////////////////////////////
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
@@ -44,17 +44,18 @@ public class XideoHomeActivityPopularEpisodeList extends
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sleep(2000);
 		try {
-			JSONArray popularJsonArray = GetCatagoryLists.getInstance()
-					.getPopularList();
-			if (popularJsonArray != null && popularJsonArray.length() > 0) {
+			JSONArray popularJsonArray = GetCatagoryLists.getInstance()	.getPopularList();
+			if (popularJsonArray != null && popularJsonArray.length() > 0) 
+			{
 
-				for (int j = 0; j < popularJsonArray.length(); j++) {
+				for (int j = 0; j < popularJsonArray.length(); j++)
+				{
 					JSONObject currElement = popularJsonArray.getJSONObject(j);
 					if (currElement.has("category")) {
 						if (currElement.getJSONObject("category").has("level")) {
 							if (currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW")) {
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(500);
+								solo.sleep(3000);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 
 								JSONArray EpisodeListArray = GetEpisodesList.getInstance().getEpisodeList(currElement.getString("contentKey"));
@@ -75,9 +76,11 @@ public class XideoHomeActivityPopularEpisodeList extends
 								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								continue;
-							} else if (currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")) {
+							}
+							else if (currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW"))
+							{
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(500);
+								solo.sleep(3000);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 
 								String ChannelContentKey = currElement.getString("contentKey");
@@ -93,15 +96,18 @@ public class XideoHomeActivityPopularEpisodeList extends
 
 								} else {
 									// solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-									for (int p = 0; p < ShowContent.length(); p++) {
+									for (int p = 0; p < ShowContent.length(); p++) 
+									{
 										solo.sleep(2000);
 
 										JSONObject currShow = ShowContent.getJSONObject(p);
+										Log.v("currShow>>>>>>>>", currShow.toString());
 										JSONArray episodeListArray = GetEpisodesList.getInstance().getEpisodeList(currShow.getString("@id"));
-										String showTitle = currShow.getString("title");
-										if(showTitle==null)
-											assertTrue(false);
-										assertTrue(solo.searchText(showTitle));
+										String	showTitle = currShow.getString("title");		
+										Log.v("showTitle>>>>>>>>", showTitle);
+										
+										assertTrue(solo.waitForText(showTitle.trim(),1, 2000));
+										
 										if(episodeListArray!=null){
 											
 										

@@ -54,7 +54,7 @@ public class XideoDetailsActivityFeaturedEpisodeList extends ActivityInstrumenta
 						{
 							if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-									solo.sleep(500);
+									solo.sleep(2000);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 									
 									JSONArray EpisodeListArray = GetEpisodesList.getInstance().getEpisodeList(currElement.getString("contentKey"));
@@ -71,7 +71,7 @@ public class XideoDetailsActivityFeaturedEpisodeList extends ActivityInstrumenta
 										solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 										}
 								}
-									solo.sleep(500);
+									solo.sleep(1500);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
 									solo.sleep(500);
 									assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
@@ -80,15 +80,11 @@ public class XideoDetailsActivityFeaturedEpisodeList extends ActivityInstrumenta
 								}
 							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(500);
-								assertTrue(solo
-										.waitForActivity(TestConstants.DETAILS_ACTIVITY));
+								solo.sleep(2000);
+								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 
-								String ChannelContentKey = currElement
-										.getString("contentKey");
-								JSONArray ShowContent = GetShowContent
-										.getInstance().getShowContent(
-												ChannelContentKey);
+								String channelContentKey = currElement.getString("contentKey");
+								JSONArray ShowContent = GetShowContent.getInstance().getShowContent(channelContentKey);
 								solo.sleep(2000);
 
 								if (ShowContent == null) {
@@ -143,7 +139,7 @@ public class XideoDetailsActivityFeaturedEpisodeList extends ActivityInstrumenta
 
 								}
 
-								solo.sleep(500);
+								solo.sleep(1500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 
 								assertTrue(solo

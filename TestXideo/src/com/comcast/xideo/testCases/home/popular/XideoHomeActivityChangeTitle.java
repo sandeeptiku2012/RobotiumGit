@@ -55,7 +55,7 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 						{
 							if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-									solo.sleep(500);
+									solo.sleep(2000);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 									assertTrue(solo.searchText(currElement.getString("title").trim()));
 									solo.sleep(500);
@@ -67,7 +67,7 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 								}
 							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(500);
+								solo.sleep(2000);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 								assertTrue(solo.searchText(currElement.getString("title").trim()));
 								solo.sleep(500);
@@ -84,7 +84,7 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 				else if(currElement.has("asset"))
 				{	
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-					solo.sleep(500);
+					solo.sleep(2000);
 					assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
 					assertTrue(solo.searchText(currElement.getString("title").trim()));
 					solo.sleep(500);
