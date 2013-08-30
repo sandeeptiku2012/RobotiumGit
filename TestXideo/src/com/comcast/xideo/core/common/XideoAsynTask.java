@@ -27,7 +27,7 @@ private	JSONObject jsonObj =null;
         	}
             catch (Exception e)
 	            {
-	               Log.e(this.getClass().getCanonicalName(), "Failed Invoking popular list " + params[0], e);
+	               Log.e(this.getClass().getCanonicalName(), "Failed : " + params[0], e);
 	               popularResponse =null;
 	
 	            }

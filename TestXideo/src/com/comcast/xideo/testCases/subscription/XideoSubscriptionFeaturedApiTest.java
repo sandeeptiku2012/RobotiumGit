@@ -14,14 +14,14 @@ import com.comcast.xideo.model.GetFeaturedList;
 import com.comcast.xideo.model.GetLoginResponse;
 import com.comcast.xideo.model.GetSubscriptionList;
 import com.jayway.android.robotium.solo.Solo;
-import com.xfinity.xidio.MainActivity;
+import com.xfinity.xidio.FirstRun;
 
-public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTestCase2<MainActivity>
+public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTestCase2<FirstRun>
 {
 	private Solo solo;	
 	
 	public XideoSubscriptionFeaturedApiTest() {
-		super(MainActivity.class);
+		super(FirstRun.class);
 	}
 
 	@Override
@@ -34,6 +34,14 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 
 	public void testSubscrptionFeaturedApi() 
 	{
+		solo.waitForActivity(TestConstants.FIRST_RUN);
+		
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(1000);
 		solo.sleep(2000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME,TestConstants.PASSWORD);

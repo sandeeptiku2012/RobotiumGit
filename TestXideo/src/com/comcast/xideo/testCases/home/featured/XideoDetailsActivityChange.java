@@ -10,29 +10,34 @@ import android.view.KeyEvent;
 import com.comcast.xideo.core.common.GetCatagoryLists;
 import com.comcast.xideo.core.common.GetSolo;
 import com.comcast.xideo.core.constant.TestConstants;
-import com.comcast.xideo.model.GetEpisodesList;
-import com.comcast.xideo.model.GetShowContent;
 import com.jayway.android.robotium.solo.Solo;
+import com.xfinity.xidio.FirstRun;
 import com.xfinity.xidio.MainActivity;
+import com.xfinity.xidio.core.XidioApplication;
 
-public class XideoDetailsActivityChange extends ActivityInstrumentationTestCase2<MainActivity> {
+public class XideoDetailsActivityChange extends ActivityInstrumentationTestCase2<FirstRun> {
 	private Solo solo;
 
 	public XideoDetailsActivityChange() {
-		super(MainActivity.class);
+		super(FirstRun.class);
 	}
 
 	@Override
 	protected void setUp() throws Exception {
 		GetSolo.getInstance().setUpSolo(getInstrumentation(),getActivity());
 		solo=GetSolo.getInstance().getSoloObject();
-		GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(), getActivity().getSessionId());
+		GetCatagoryLists.getInstance().storeBasicLists(XidioApplication.getLastLoggedInUser(), XidioApplication.getLastSessionId());
 		super.setUp();
 	}
 
 	public void testDetailsActivityChange() 
 	{
-		solo.sleep(500);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sleep(2000);

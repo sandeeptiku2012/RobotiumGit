@@ -14,6 +14,7 @@ import com.comcast.xideo.model.GetEpisodesList;
 import com.comcast.xideo.model.GetShowContent;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
+import com.xfinity.xidio.core.XidioApplication;
 
 public class XideoDetailsActivityFeaturedEpisodeTitleChange extends ActivityInstrumentationTestCase2<MainActivity> {
 	private Solo solo;
@@ -27,7 +28,8 @@ public class XideoDetailsActivityFeaturedEpisodeTitleChange extends ActivityInst
 	protected void setUp() throws Exception {
 		GetSolo.getInstance().setUpSolo(getInstrumentation(),getActivity());
 		solo=GetSolo.getInstance().getSoloObject();
-		GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(), getActivity().getSessionId());
+		GetCatagoryLists.getInstance().storeBasicLists(XidioApplication.getLastLoggedInUser(), XidioApplication.getLastSessionId()
+				);
 		super.setUp();
 	}
 	

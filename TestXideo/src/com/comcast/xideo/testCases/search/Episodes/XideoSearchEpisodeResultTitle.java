@@ -16,6 +16,7 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.comcast.xideo.model.GetEpisodeSearchList;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.MainActivity;
+import com.xfinity.xidio.core.XidioApplication;
 
 public class XideoSearchEpisodeResultTitle extends ActivityInstrumentationTestCase2<MainActivity> {
 	
@@ -31,7 +32,7 @@ public class XideoSearchEpisodeResultTitle extends ActivityInstrumentationTestCa
 
 		GetSolo.getInstance().setUpSolo(getInstrumentation(), getActivity());
 		solo = GetSolo.getInstance().getSoloObject();
-		GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(),getActivity().getSessionId());
+		GetCatagoryLists.getInstance().storeBasicLists(XidioApplication.getLastLoggedInUser(), XidioApplication.getLastSessionId());
 		super.setUp();
 	}
 

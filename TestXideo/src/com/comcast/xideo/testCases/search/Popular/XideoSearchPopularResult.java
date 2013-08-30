@@ -14,15 +14,16 @@ import com.comcast.xideo.core.common.GetCatagoryLists;
 import com.comcast.xideo.core.common.GetSolo;
 import com.comcast.xideo.core.constant.TestConstants;
 import com.jayway.android.robotium.solo.Solo;
-import com.xfinity.xidio.MainActivity;
+import com.xfinity.xidio.FirstRun;
+import com.xfinity.xidio.core.XidioApplication;
 
-public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<MainActivity> 
+public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<FirstRun> 
 {
 	private Solo solo;
 
 
 	public XideoSearchPopularResult() {
-		super(MainActivity.class);
+		super(FirstRun.class);
 	}
 
 	@Override
@@ -30,11 +31,19 @@ public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<M
 
 		GetSolo.getInstance().setUpSolo(getInstrumentation(),getActivity());
 		solo=GetSolo.getInstance().getSoloObject();
-		GetCatagoryLists.getInstance().storeBasicLists(getActivity().getSessionId(), getActivity().getSessionId());
+		GetCatagoryLists.getInstance().storeBasicLists(XidioApplication.getLastLoggedInUser(), XidioApplication.getLastSessionId());
 		super.setUp();
 	}
 
 	public void testSearchPopularResult() {
+		solo.waitForActivity(TestConstants.FIRST_RUN);
+		
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(1000);
 		
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sleep(2000);
