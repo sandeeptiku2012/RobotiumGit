@@ -18,6 +18,8 @@ public class TestConstants
 	public static final String FIRST_RUN ="FirstRun";
 	public static final String USERNAME ="test_153";
 	public static final String PASSWORD="Demo1111";
+	public static final String SUBSCRIBE="Subscribe";
+	public static final String UNSUBSCRIBE="Unsubscribe";
 	
 	public static String userId = null;
 			
