@@ -113,9 +113,13 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Fi
 	{
 		Log.d("Exception from testDetailsActivityChange = ", e.getLocalizedMessage());
 	}
-	
-
-
+		
 	}
 
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
+	
 }

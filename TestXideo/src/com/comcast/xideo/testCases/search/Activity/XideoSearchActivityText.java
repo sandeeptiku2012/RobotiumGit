@@ -51,5 +51,10 @@ public class XideoSearchActivityText extends ActivityInstrumentationTestCase2<Fi
 		solo.sleep(2000);
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

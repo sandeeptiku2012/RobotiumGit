@@ -141,4 +141,10 @@ public class XideoSubscriptionPopularUITest  extends ActivityInstrumentationTest
 		assertTrue(foundChannel);
 				
 	}
+	
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

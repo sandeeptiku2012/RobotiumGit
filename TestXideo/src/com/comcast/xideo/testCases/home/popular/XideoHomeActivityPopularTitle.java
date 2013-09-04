@@ -81,5 +81,10 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 		}
 		solo.sleep(2000);
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

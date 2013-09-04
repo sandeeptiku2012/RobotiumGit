@@ -51,5 +51,9 @@ public class XideoLoginErrorMessagePos extends ActivityInstrumentationTestCase2<
 		}
 
 	}
+	protected void tearDown() throws Exception {
 
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

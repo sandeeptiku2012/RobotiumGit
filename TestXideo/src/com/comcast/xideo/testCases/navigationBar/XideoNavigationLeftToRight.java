@@ -51,5 +51,9 @@ public class XideoNavigationLeftToRight extends ActivityInstrumentationTestCase2
 		assertTrue(solo.waitForText(TestConstants.SETTINGS));
 		solo.sleep(500);
 	}
+	protected void tearDown() throws Exception {
 
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

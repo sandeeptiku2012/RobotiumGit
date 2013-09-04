@@ -136,4 +136,9 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 		assertTrue(foundChannel);
 				
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

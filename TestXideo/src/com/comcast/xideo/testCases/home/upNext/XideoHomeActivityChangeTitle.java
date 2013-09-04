@@ -69,5 +69,10 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 			}
 		}
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

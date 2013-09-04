@@ -62,6 +62,11 @@ public class XideoAuthenticationPositiveTesting extends ActivityInstrumentationT
 		}
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 
 }

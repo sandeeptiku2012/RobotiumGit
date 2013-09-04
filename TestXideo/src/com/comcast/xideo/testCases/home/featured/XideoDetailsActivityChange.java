@@ -110,4 +110,9 @@ public class XideoDetailsActivityChange extends ActivityInstrumentationTestCase2
 	
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
 	}
+}

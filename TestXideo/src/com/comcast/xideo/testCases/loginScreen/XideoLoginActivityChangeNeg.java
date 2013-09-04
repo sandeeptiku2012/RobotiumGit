@@ -49,4 +49,9 @@ public class XideoLoginActivityChangeNeg extends ActivityInstrumentationTestCase
 		}
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

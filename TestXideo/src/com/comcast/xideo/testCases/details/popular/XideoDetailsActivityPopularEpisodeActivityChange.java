@@ -105,5 +105,10 @@ public class XideoDetailsActivityPopularEpisodeActivityChange extends ActivityIn
 		}
 */
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

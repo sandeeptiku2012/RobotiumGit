@@ -133,7 +133,11 @@ public class XideoDetailsActivityFeaturedEpisodeActivityChange  extends Activity
 			
 		}
 
-		
+	 protected void tearDown() throws Exception {
+
+			solo.finishOpenedActivities();
+			super.tearDown();
+		}
 	
 	
 }

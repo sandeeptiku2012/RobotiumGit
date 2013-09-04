@@ -27,7 +27,7 @@ public class ClearCacheButton extends ActivityInstrumentationTestCase2<FirstRun>
 		super.setUp();
 	}
 
-	public void testLabel() 
+	public void testClearCache() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
@@ -60,12 +60,13 @@ public class ClearCacheButton extends ActivityInstrumentationTestCase2<FirstRun>
 		
 		File dir = getActivity().getExternalFilesDir(null);
 		if (dir != null && dir.isDirectory()) 
-				assertTrue(dir.list().length==0);
+				assertTrue(dir.list().length==0);		
 		
 		
-		
-		
-		
+	}
+	protected void tearDown() throws Exception {
+		solo.finishOpenedActivities();
+		super.tearDown();
 	}
 
 }

@@ -187,16 +187,14 @@ public class XideoDetailsActivityFeaturedEpisodeList extends ActivityInstrumenta
 	{
 		Log.d("Exception from testDetailsActivityChange = ", e.getLocalizedMessage());
 	}
-		
-		
-		
-		
-		
-		
-		
-		
+	
 	}
+	
+	protected void tearDown() throws Exception {
 
+		solo.finishOpenedActivities();
+		super.tearDown();
 	}
+}
 
 

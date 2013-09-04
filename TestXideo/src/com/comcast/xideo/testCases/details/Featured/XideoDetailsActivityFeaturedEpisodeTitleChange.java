@@ -93,6 +93,11 @@ public class XideoDetailsActivityFeaturedEpisodeTitleChange extends ActivityInst
 		
 	}
 		
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 		
 	
 	

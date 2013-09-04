@@ -49,6 +49,10 @@ public class XideoLoginErrorMessageNeg extends ActivityInstrumentationTestCase2<
 			solo.sleep(1000);
 		}
 		}
+	protected void tearDown() throws Exception {
 
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 	}
 	

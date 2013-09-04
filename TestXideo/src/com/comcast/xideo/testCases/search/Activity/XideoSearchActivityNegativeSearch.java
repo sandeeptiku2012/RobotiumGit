@@ -87,5 +87,10 @@ public class XideoSearchActivityNegativeSearch extends ActivityInstrumentationTe
 		}
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

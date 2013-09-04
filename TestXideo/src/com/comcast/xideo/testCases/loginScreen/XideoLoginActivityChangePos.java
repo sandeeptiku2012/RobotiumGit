@@ -50,4 +50,9 @@ public class XideoLoginActivityChangePos extends ActivityInstrumentationTestCase
 		}
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 	}

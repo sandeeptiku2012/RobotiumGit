@@ -74,5 +74,10 @@ public class XideoSearchEpisodesResult extends ActivityInstrumentationTestCase2<
 		}
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

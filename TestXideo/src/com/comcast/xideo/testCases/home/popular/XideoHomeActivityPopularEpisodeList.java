@@ -189,5 +189,10 @@ public class XideoHomeActivityPopularEpisodeList extends
 		}
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

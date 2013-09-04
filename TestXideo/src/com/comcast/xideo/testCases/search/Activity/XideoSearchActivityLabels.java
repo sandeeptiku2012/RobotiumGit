@@ -89,5 +89,9 @@ public class XideoSearchActivityLabels extends ActivityInstrumentationTestCase2<
 		solo.sleep(2000);
 
 	}
+	protected void tearDown() throws Exception {
 
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

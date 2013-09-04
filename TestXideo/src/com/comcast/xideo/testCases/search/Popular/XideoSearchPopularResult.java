@@ -75,5 +75,10 @@ public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<F
 		}
 
 	}
+	
+	protected void tearDown() throws Exception {
 
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

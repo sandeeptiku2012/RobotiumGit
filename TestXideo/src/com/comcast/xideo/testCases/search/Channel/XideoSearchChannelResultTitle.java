@@ -84,4 +84,9 @@ public class XideoSearchChannelResultTitle extends	ActivityInstrumentationTestCa
 		}
 
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }

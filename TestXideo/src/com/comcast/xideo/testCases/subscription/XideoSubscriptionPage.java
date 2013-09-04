@@ -110,6 +110,11 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Firs
 		}
 		
 	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 	
 }
 

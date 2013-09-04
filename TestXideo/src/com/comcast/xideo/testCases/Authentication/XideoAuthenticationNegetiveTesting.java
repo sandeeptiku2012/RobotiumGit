@@ -63,5 +63,11 @@ public class XideoAuthenticationNegetiveTesting extends ActivityInstrumentationT
 		}
 
 	}
+	
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 
 }

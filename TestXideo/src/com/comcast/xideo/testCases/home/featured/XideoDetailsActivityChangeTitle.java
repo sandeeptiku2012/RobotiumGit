@@ -118,9 +118,11 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 		Log.d("Exception from testDetailsActivityChange = ", e.getLocalizedMessage());
 	}
 		
-		
-		
-		
+	}
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
 	}
 
 }

@@ -58,17 +58,15 @@ public class LabelCheck extends ActivityInstrumentationTestCase2<FirstRun>{
 		assertTrue(solo.searchText("CLEAR CACHE"));
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		assertTrue(solo.searchText("Information"));
+		assertTrue(solo.searchText("Information"));	
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+	}
+	
+	protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
 	}
 
 }

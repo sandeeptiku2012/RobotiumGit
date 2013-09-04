@@ -66,4 +66,9 @@ public class XideoHomeActivityUpNextListTitle extends ActivityInstrumentationTes
 			}
 		}
 	}
+ protected void tearDown() throws Exception {
+
+		solo.finishOpenedActivities();
+		super.tearDown();
+	}
 }
