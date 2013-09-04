@@ -41,7 +41,7 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(2000);
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
@@ -61,9 +61,15 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 					if ((currentChannel.has("productGroup") || !currentChannel.has("category")) && !currentChannel.has("asset"))
 								continue;
 					String channelTitle =null;
-					if(currentChannel.has("title"))
+					if(currentChannel.has("category"))
+					{	if(currentChannel.getJSONObject("category").has("title"))
+						
+						channelTitle = currentChannel.getJSONObject("category").getString("title");
+					}
+					else if(currentChannel.has("asset"))
 					{
-						channelTitle = currentChannel.getString("title");
+						if(currentChannel.getJSONObject("asset").has("title"))
+							channelTitle = currentChannel.getJSONObject("asset").getString("title");
 					}
 					if(channelTitle!=null && channelTitle.length()>0)
 					{
@@ -78,6 +84,7 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 		} catch (Exception e) 
 		{
 			Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoHomeActivityFeaturedListTitle " , e);
+			assertTrue(false);
 		}
 		solo.sleep(2000);
 	}

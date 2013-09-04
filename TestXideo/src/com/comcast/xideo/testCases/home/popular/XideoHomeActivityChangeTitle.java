@@ -50,6 +50,8 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sleep(2000);
+		
+		String currElementTitle;
 		try{
 		JSONArray popularJsonArray = GetCatagoryLists.getInstance().getPopularList();
 		if(popularJsonArray!=null && popularJsonArray.length()>0)
@@ -66,7 +68,8 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 									solo.sleep(2000);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-									assertTrue(solo.searchText(currElement.getString("title").trim()));
+									currElementTitle=currElement.getJSONObject("category").getString("title");
+									assertTrue(solo.searchText(currElementTitle.trim()));
 									solo.sleep(500);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
 									solo.sleep(500);
@@ -78,7 +81,8 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 								solo.sleep(2000);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-								assertTrue(solo.searchText(currElement.getString("title").trim()));
+								currElementTitle=currElement.getJSONObject("category").getString("title");
+								assertTrue(solo.searchText(currElementTitle.trim()));
 								solo.sleep(500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 								

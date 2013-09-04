@@ -35,15 +35,17 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 	{
 		
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
+		solo.sleep(1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(4000);
+		solo.sleep(500);
 		
-		String channelTitle = null;
+		
+		String currElementTitle = null;
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
@@ -64,7 +66,8 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 									solo.sleep(500);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-									assertTrue(solo.searchText(currElement.getString("title").trim()));
+									currElementTitle=currElement.getJSONObject("category").getString("title");
+									assertTrue(solo.searchText(currElementTitle.trim()));
 									solo.sleep(1500);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
 									solo.sleep(500);
@@ -76,7 +79,8 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 								solo.sleep(500);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-								assertTrue(solo.searchText(currElement.getString("title").trim()));
+								currElementTitle=currElement.getJSONObject("category").getString("title");
+								assertTrue(solo.searchText(currElementTitle.trim()));
 								solo.sleep(1500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 								
