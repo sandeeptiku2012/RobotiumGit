@@ -13,6 +13,7 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.android.volley.toolbox.custom.StringPostRequest;
+import com.comcast.xideo.core.common.GetSolo;
 import com.comcast.xideo.core.constant.TestConstants;
 import com.comcast.xideo.model.GetLoginResponse;
 import com.jayway.android.robotium.solo.Solo;
@@ -34,28 +35,29 @@ public class XideoAuthenticationNegetiveTesting extends ActivityInstrumentationT
 
 	@Override
 	protected void setUp() throws Exception {
-		solo = new Solo(getInstrumentation(), getActivity());
+		GetSolo.getInstance().setUpSolo(getInstrumentation(), getActivity());
+		solo = GetSolo.getInstance().getSoloObject();
 		super.setUp();
 	}
 
 	public void testXideoAuthenticationPositiveTesting() {
-		mRequestQueue = Volley.newRequestQueue(getActivity());
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-
+		solo.sleep(1000);
 		try {
 
 			response=GetLoginResponse.getInstance().getLoginResponse("asas", TestConstants.PASSWORD);
-
-			solo.sleep(5000);
-
 			
+			solo.sleep(2000);
+			if(response==null)
+				assertTrue(false);
+			else{
 			
 				assertTrue(response.has("response"));
 				assertTrue(!response.isNull("response"));
 				assertTrue(response.getJSONObject("response").has("code"));
 				assertTrue(!response.getJSONObject("response").isNull("code"));
-				assertTrue(response.getJSONObject("response").getString("code").contentEquals("AUTHENTICATION_OK"));
-			
+				assertTrue(response.getJSONObject("response").getString("code").contentEquals("AUTHENTICATION_FAILED"));
+			}
 
 		} catch (Exception e) {
 			Log.e(this.getClass().getCanonicalName(),

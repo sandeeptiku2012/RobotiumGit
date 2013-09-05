@@ -71,8 +71,7 @@ public class GetLoginResponse
 	              
 	              
 	              String text = sb.toString();
-	              JSONObject abc= new JSONObject(text);
-	              String id= abc.getJSONObject("response").getString("userId").toString();
+	            
 	              Log.d("Response", text);
 	             return text; 
 	              
