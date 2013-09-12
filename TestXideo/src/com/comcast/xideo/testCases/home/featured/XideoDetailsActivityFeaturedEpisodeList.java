@@ -111,31 +111,30 @@ public class XideoDetailsActivityFeaturedEpisodeList extends ActivityInstrumenta
 										JSONArray episodeListArray = GetEpisodesList.getInstance().getEpisodeList(currShow.getString("@id"));
 										String showTitle = currShow.getString("title");
 										assertTrue(solo.searchText(showTitle));
-										if(episodeListArray!=null){
-											
 										
-
 										if (p == 0) {
 											solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 
 										}
+																				
+										if(episodeListArray!=null){
 										
-										solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+											//solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 
 										for (int k = 0; k < episodeListArray
 												.length(); k++) {
 											solo.sleep(200);
-											JSONObject currentEpisode = episodeListArray
-													.getJSONObject(k);
-											String episodeTitle = currentEpisode
-													.getString("title");
-											assertTrue(solo
-													.searchText(episodeTitle));
-											solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+											JSONObject currentEpisode = episodeListArray.getJSONObject(k);
+											String episodeTitle = currentEpisode.getString("title");
+											assertTrue(solo.searchText(episodeTitle));
+											if(k+1!=episodeListArray.length())
+												solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+											else
+												solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 
 										}
-										solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-										solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+										//solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+										//solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 										}
 										else
 										{
@@ -149,8 +148,7 @@ public class XideoDetailsActivityFeaturedEpisodeList extends ActivityInstrumenta
 								solo.sleep(1500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 
-								assertTrue(solo
-										.waitForActivity(TestConstants.MAIN_ACTIVITY));
+								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								continue;
 

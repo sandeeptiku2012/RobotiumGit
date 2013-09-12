@@ -66,7 +66,7 @@ public class XideoSearchActivityLabels extends ActivityInstrumentationTestCase2<
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sleep(500);
 		
-		if (upnextSearchItems.size() != 0)
+		if (upnextSearchItems!=null && upnextSearchItems.size() != 0)
 		{
 			assertTrue(solo.waitForText(TestConstants.UP_NEXT));
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);

@@ -60,15 +60,17 @@ public class XideoSearchUpNextResult extends ActivityInstrumentationTestCase2<Fi
 		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sleep(500);
-		
-		for (JSONObject currentObject : tempItems) {
-			try {
-				assertTrue(solo.searchText(currentObject.getString(TestConstants.TITLE).toString()));
-				solo.sleep(200);
-				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-
-			} catch (JSONException e) {
-				Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoSearchUpNextResult " , e);
+		if(tempItems!= null && tempItems.size()>0)
+		{
+			for (JSONObject currentObject : tempItems) {
+				try {
+					assertTrue(solo.searchText(currentObject.getString(TestConstants.TITLE).toString()));
+					solo.sleep(200);
+					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+	
+				} catch (JSONException e) {
+					Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoSearchUpNextResult " , e);
+				}
 			}
 		}
 

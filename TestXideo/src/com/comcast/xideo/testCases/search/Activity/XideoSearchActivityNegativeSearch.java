@@ -70,7 +70,7 @@ public class XideoSearchActivityNegativeSearch extends ActivityInstrumentationTe
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sleep(500);
-		if (upnextSearchItems.size() != 0)
+		if (upnextSearchItems!=null && upnextSearchItems.size() != 0)
 		{
 			assertFalse(solo.waitForText(TestConstants.UP_NEXT));
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
