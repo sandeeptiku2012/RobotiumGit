@@ -45,7 +45,7 @@ public class XideoLoginErrorMessagePos extends ActivityInstrumentationTestCase2<
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 			solo.sleep(2000);
-			assertTrue(solo.searchText("Error, check username/password and try again"));
+			assertFalse(solo.searchText("Error, check username/password and try again"));
 			
 			solo.sleep(1000);
 		}
