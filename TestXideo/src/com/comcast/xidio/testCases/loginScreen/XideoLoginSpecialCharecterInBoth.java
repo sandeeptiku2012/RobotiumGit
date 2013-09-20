@@ -35,19 +35,17 @@ public class XideoLoginSpecialCharecterInBoth extends ActivityInstrumentationTes
 		
 		assertTrue(solo.waitForActivity(TestConstants.FIRST_RUN));
 		solo.sleep(1000);
-		
 		if (!Build.MODEL.toLowerCase(Locale.US).contains("comcast")) {
 			
 			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_username),"!@!$#&^%*&$%^@^(*)");
 			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_password),"^%(^)^%*&#$$%!@#$%^");
-			solo.sleep(500);
+			solo.sleep(TestConstants.SLEEP_TIME_500);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-			solo.sleep(2000);
+			solo.sleep(TestConstants.SLEEP_TIME_2000);
 			assertTrue(solo.searchText("Error, check username/password and try again"));
-			
-			solo.sleep(1000);
+			solo.sleep(TestConstants.SLEEP_TIME_1000);
 		}
 
 	}

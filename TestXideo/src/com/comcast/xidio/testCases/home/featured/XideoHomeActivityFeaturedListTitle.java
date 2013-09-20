@@ -34,17 +34,16 @@ public class XideoHomeActivityFeaturedListTitle extends ActivityInstrumentationT
 	public void testXideoHomeActivityFeaturedListTitle()
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(2000);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		try {
 			JSONArray featuredJsonArray = GetCatagoryLists.getInstance().getFeaturedList();
@@ -70,7 +69,7 @@ public class XideoHomeActivityFeaturedListTitle extends ActivityInstrumentationT
 					}
 					if(channelTitle!=null && channelTitle.length()>0)
 					{
-						solo.sleep(50);
+						solo.sleep(TestConstants.SLEEP_TIME_500);
 						assertTrue(solo.waitForText(channelTitle));
 					}
 					

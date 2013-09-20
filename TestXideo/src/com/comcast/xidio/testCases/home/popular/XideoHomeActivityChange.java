@@ -33,25 +33,22 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Fi
 	public void testXideoHomeActivityChange() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		try{
 		JSONArray popularJsonArray = GetCatagoryLists.getInstance().getPopularList();
 		if(popularJsonArray!=null && popularJsonArray.length()>0)
 		{
-			
 			
 			for(int j=0;j<popularJsonArray.length();j++)
 			{
@@ -61,20 +58,20 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Fi
 						{
 							if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-									solo.sleep(2500);
+									solo.sleep(TestConstants.SLEEP_TIME_2000);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 									solo.sleep(500);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
-									solo.sleep(500);
+									solo.sleep(TestConstants.SLEEP_TIME_500);
 									assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 									solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 									continue;
 								}
 							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(2500);
+								solo.sleep(TestConstants.SLEEP_TIME_2000);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
-								solo.sleep(500);
+								solo.sleep(TestConstants.SLEEP_TIME_500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 								
 								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
@@ -82,22 +79,22 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Fi
 								continue;
 								
 							}
-							}
+						}
 				
 				}			
 				else if(currElement.has("asset"))
 				{	
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-					solo.sleep(2500);
+					solo.sleep(TestConstants.SLEEP_TIME_2000);
 					assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-					solo.sleep(500);
+					solo.sleep(TestConstants.SLEEP_TIME_500);
 					solo.sendKey(KeyEvent.KEYCODE_BACK);
-					solo.sleep(500);
+					solo.sleep(TestConstants.SLEEP_TIME_500);
 					assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 					continue;
 				}
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 			}
 			
 		}	

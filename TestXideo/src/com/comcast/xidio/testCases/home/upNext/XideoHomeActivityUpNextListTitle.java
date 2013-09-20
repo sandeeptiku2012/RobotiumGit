@@ -31,18 +31,17 @@ public class XideoHomeActivityUpNextListTitle extends ActivityInstrumentationTes
 		super.setUp();
 	}
 
- public void testXideoHomeActivityUpNextListTitle()
-	{
-	 solo.waitForActivity(TestConstants.FIRST_RUN);
+	public void testXideoHomeActivityUpNextListTitle()	{
 		
+	 	solo.waitForActivity(TestConstants.FIRST_RUN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		String videoTitle = null;
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 
 		JSONArray upNextArray = GetCatagoryLists.getInstance().getUpNextList();
@@ -61,7 +60,7 @@ public class XideoHomeActivityUpNextListTitle extends ActivityInstrumentationTes
 				}
 				assertTrue(solo.waitForText(videoTitle));
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 	
 			}
 		}

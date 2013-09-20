@@ -33,19 +33,18 @@ public class XideoLoginActivityChangeNeg extends ActivityInstrumentationTestCase
 	public void testXideoLoginActivityChangeNeg()
 	{
 		assertTrue(solo.waitForActivity(TestConstants.FIRST_RUN));
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 	
 		if (!Build.MODEL.toLowerCase(Locale.US).contains("comcast")) {
 
 			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_username),"test_1215");
 			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_password),"Demo1111");
-			solo.sleep(500);
+			solo.sleep(TestConstants.SLEEP_TIME_500);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 			assertFalse(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
-
-			solo.sleep(1000);
+			solo.sleep(TestConstants.SLEEP_TIME_1000);
 		}
 
 	}

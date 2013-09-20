@@ -35,20 +35,17 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 	public void testXideoSubscriptionFeaturedApiTest() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(2000);
-		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME,TestConstants.PASSWORD);
 		JSONArray channels = null; 
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		JSONObject channelToCheck=null;
 		try
 		{
@@ -64,14 +61,14 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 							{
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 								solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
-								solo.sleep(1000);
+								solo.sleep(TestConstants.SLEEP_TIME_1000);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(1000);
+								solo.sleep(TestConstants.SLEEP_TIME_1000);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
 								solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-								solo.sleep(1000);
+								solo.sleep(TestConstants.SLEEP_TIME_1000);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);							
@@ -88,9 +85,8 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 			Log.e("Exception:", "Exception occured in testSubscrptionTitle test cases.", e);
 		}
 		
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		JSONObject response;
-		
 		if(loginResponse.has("response"))
 		try {
 				response=loginResponse.getJSONObject("response");
@@ -111,7 +107,7 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		boolean foundChannel = false;
 		try
 		{
@@ -136,6 +132,8 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 		assertTrue(foundChannel);
 				
 	}
+	
+	@Override
 	protected void tearDown() throws Exception {
 
 		solo.finishOpenedActivities();

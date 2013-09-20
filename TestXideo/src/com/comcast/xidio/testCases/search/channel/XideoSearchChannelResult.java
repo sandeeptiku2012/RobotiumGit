@@ -35,40 +35,37 @@ public class XideoSearchChannelResult extends ActivityInstrumentationTestCase2<F
 		super.setUp();
 	}
 
-	public void testXideoSearchChannelResult() {
+	public void testXideoSearchChannelResult() 
+	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(5000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_F);
 		solo.sendKey(KeyEvent.KEYCODE_O);
 		solo.sendKey(KeyEvent.KEYCODE_O);
 		solo.sendKey(KeyEvent.KEYCODE_D);
 
-		ArrayList<JSONObject> tempItems =JsonArrayToArrayList.getInstance().convert(GetChannelSearchList.getInstance().getChannelSearchList("food"));
-
-		solo.sleep(4000);
-
+		ArrayList<JSONObject> channelSearchArray =JsonArrayToArrayList.getInstance().convert(GetChannelSearchList.getInstance().getChannelSearchList("food"));
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		for (JSONObject currentObject : tempItems) {
+		for (JSONObject currentObject : channelSearchArray) {
 			try {
 				assertTrue(solo.searchText(currentObject.getString(TestConstants.TITLE).toString()));
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-				solo.sleep(200);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 			} catch (JSONException e) {
 				Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoSearchChannelResult " , e);
 			}

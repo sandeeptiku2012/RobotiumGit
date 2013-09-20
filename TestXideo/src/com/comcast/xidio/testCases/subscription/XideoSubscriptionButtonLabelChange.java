@@ -33,18 +33,14 @@ public class XideoSubscriptionButtonLabelChange extends ActivityInstrumentationT
 	public void testXideoSubscriptionButtonLabelChange() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(2000);
-		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		try
 		{
 			JSONArray featuredList=GetFeaturedList.getInstance().getFeaturedList();
@@ -59,23 +55,22 @@ public class XideoSubscriptionButtonLabelChange extends ActivityInstrumentationT
 							{
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 								solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
-								solo.sleep(1000);
+								solo.sleep(TestConstants.SLEEP_TIME_1000);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								if(solo.searchText(TestConstants.SUBSCRIBE)){
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(2000);
+								solo.sleep(TestConstants.SLEEP_TIME_2000);
 								assertTrue(solo.searchText(TestConstants.UNSUBSCRIBE));
 								}
 								else
 									if(solo.searchText(TestConstants.UNSUBSCRIBE)){
 										solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-										solo.sleep(2000);
+										solo.sleep(TestConstants.SLEEP_TIME_2000);
 										assertTrue(solo.searchText(TestConstants.SUBSCRIBE));
 										
 									}
-								solo.sleep(2000);
-								//assertTrue(solo.searchText(TestConstants.SUBSCRIBE));
+								solo.sleep(TestConstants.SLEEP_TIME_2000);
 								break;								
 							}
 					if(!currChoice.has("productGroup"))
@@ -90,6 +85,8 @@ public class XideoSubscriptionButtonLabelChange extends ActivityInstrumentationT
 		
 				
 	}
+	
+	@Override
 	protected void tearDown() throws Exception {
 
 		solo.finishOpenedActivities();

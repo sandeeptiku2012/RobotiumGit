@@ -38,41 +38,38 @@ public class XideoHomeActivityVideoPlayCheck extends ActivityInstrumentationTest
 		super.setUp();
 	}
 
-	public void testXideoHomeActivityVideoPlayCheck() {
+	public void testXideoHomeActivityVideoPlayCheck()
+	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(2000);
-
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 		solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		
 		VideoPlayerView vView = (VideoPlayerView) solo.getCurrentActivity().findViewById(R.id.video_player_view);
 		platformApi = vView.getPlatformAPI();
 		platformApi.addEventListener(platformEventListener);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 		
 		while (!flag)
 		{}
 		
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 	}
 	
 	@Override
@@ -88,11 +85,12 @@ public class XideoHomeActivityVideoPlayCheck extends ActivityInstrumentationTest
 		@Override
 		public void adComplete(long id) {
 			
-			solo.sleep(5000);
+			solo.sleep(TestConstants.SLEEP_TIME_5000);
 			before_videoTime=platformApi.getCurrentPosition();
 			before_playerStatus=platformApi.getPlayerStatus();
 			platformApi.pause();
-			solo.sleep(10000);
+			solo.sleep(TestConstants.SLEEP_TIME_5000);
+			solo.sleep(TestConstants.SLEEP_TIME_5000);
 			after_playerStatus=platformApi.getPlayerStatus();
 			after_videoTime=platformApi.getCurrentPosition();
 			if((after_playerStatus.name().contentEquals(before_playerStatus.name())) && before_videoTime!=after_videoTime)
@@ -101,19 +99,15 @@ public class XideoHomeActivityVideoPlayCheck extends ActivityInstrumentationTest
 				assertTrue(true);
 			before_playerStatus=platformApi.getPlayerStatus();
 			platformApi.play();
-			solo.sleep(500);
+			solo.sleep(TestConstants.SLEEP_TIME_500);
 			after_playerStatus=platformApi.getPlayerStatus();
-			solo.sleep(5000);
+			solo.sleep(TestConstants.SLEEP_TIME_5000);
 			if(platformApi.getCurrentPosition()!=after_videoTime && !platformApi.getPlayerStatus().name().contentEquals(before_playerStatus.name()))
 				assertTrue(true);
 			else
 				assertTrue(false);
 			
-			
 			flag=true;
-			
-			
-			
 			super.adComplete(id);
 		}
 

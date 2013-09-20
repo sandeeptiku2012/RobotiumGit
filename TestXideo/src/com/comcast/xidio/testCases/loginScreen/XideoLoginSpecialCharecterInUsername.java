@@ -34,7 +34,7 @@ public class XideoLoginSpecialCharecterInUsername extends ActivityInstrumentatio
 	{
 		
 		assertTrue(solo.waitForActivity(TestConstants.FIRST_RUN));
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		
 		if (!Build.MODEL.toLowerCase(Locale.US).contains("comcast")) {
 			
@@ -44,10 +44,10 @@ public class XideoLoginSpecialCharecterInUsername extends ActivityInstrumentatio
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-			solo.sleep(2000);
+			solo.sleep(TestConstants.SLEEP_TIME_2000);
 			assertTrue(solo.searchText("Error, check username/password and try again"));
 			
-			solo.sleep(1000);
+			solo.sleep(TestConstants.SLEEP_TIME_1000);
 		}
 
 	}

@@ -36,21 +36,18 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Firs
 	public void testXideoSubscriptionPage() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(2000);
-		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME,TestConstants.PASSWORD);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		JSONObject response;
 		JSONArray channels = null; 
 		if(loginResponse.has("response"))
@@ -69,10 +66,10 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Firs
 				Log.e("Exception:", "Exception occured in testSubscrptionDetails test case.", e);
 			}			
 		
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		
 		for(int i=0;i<channels.length();i++)
 		{
@@ -81,7 +78,7 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Firs
 			JSONObject currChannel;
 			try {
 					currChannel = channels.getJSONObject(i);
-					solo.sleep(500);
+					solo.sleep(TestConstants.SLEEP_TIME_500);
 					String currChannelId;
 					assertTrue(solo.searchText(currChannel.getString("title")));
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
@@ -89,7 +86,8 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Firs
 					JSONArray showContent=GetShowContent.getInstance().getShowContent(currChannelId);
 					if(showContent!=null)
 					for(int j=0;j<showContent.length();j++)
-					{solo.sleep(500);
+					{
+						solo.sleep(TestConstants.SLEEP_TIME_500);
 						try {
 								JSONObject show=showContent.getJSONObject(j);
 								assertTrue(solo.searchText(show.getString("title")));
@@ -110,6 +108,7 @@ public class XideoSubscriptionPage extends ActivityInstrumentationTestCase2<Firs
 		}
 		
 	}
+	@Override
 	protected void tearDown() throws Exception {
 
 		solo.finishOpenedActivities();

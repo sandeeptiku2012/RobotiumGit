@@ -39,7 +39,7 @@ public class XideoAuthenticationNegetiveTesting extends ActivityInstrumentationT
 
 			response=GetLoginResponse.getInstance().getLoginResponse("asas", TestConstants.PASSWORD);
 			
-			solo.sleep(2000);
+			solo.sleep(TestConstants.SLEEP_TIME_2000);
 			if(response==null)
 				assertTrue(false);
 			else{

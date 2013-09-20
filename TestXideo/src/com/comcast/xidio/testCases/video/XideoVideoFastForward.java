@@ -1,13 +1,8 @@
 package com.comcast.xidio.testCases.video;
 
-import java.util.concurrent.ExecutionException;
-
-import android.app.Instrumentation;
-import android.os.AsyncTask;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.KeyEvent;
 
-import com.comcast.playerplatform.primetime.android.enums.PlayerStatus;
 import com.comcast.playerplatform.primetime.android.events.AbstractPlayerPlatformVideoEventListener;
 import com.comcast.playerplatform.primetime.android.player.PlayerPlatformAPI;
 import com.comcast.xidio.core.common.GetCatagoryLists;
@@ -23,11 +18,9 @@ public class XideoVideoFastForward extends ActivityInstrumentationTestCase2<Firs
 	
 	
 	private Solo solo;
-	private boolean flag = false;
 	private long before_videoTime = 0;
 	private long after_videoTime = 0;
 	private PlayerPlatformAPI platformApi;
-	private int keyToPress=-1;
 	private Boolean adCompleted=false;
 	public XideoVideoFastForward() {
 		super(FirstRun.class);
@@ -41,46 +34,42 @@ public class XideoVideoFastForward extends ActivityInstrumentationTestCase2<Firs
 		super.setUp();
 	}
 
-	public void testXideoVideoForwardSeek() {
+	public void testXideoVideoForwardSeek() 
+	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(2000);
-
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 		solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		
 		VideoPlayerView vView = (VideoPlayerView) solo.getCurrentActivity().findViewById(R.id.video_player_view);
 		platformApi = vView.getPlatformAPI();
 		platformApi.addEventListener(platformEventListener);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 		
 		while(!adCompleted)
 		{}
 		
-		solo.sleep(5000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		before_videoTime=platformApi.getCurrentPosition();
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		after_videoTime=platformApi.getCurrentPosition();
 		
 		if(after_videoTime-before_videoTime>29000)
@@ -88,7 +77,7 @@ public class XideoVideoFastForward extends ActivityInstrumentationTestCase2<Firs
 		else
 			assertTrue(false);
 		
-		solo.sleep(5000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 	}
 	
 	@Override
@@ -105,7 +94,6 @@ public class XideoVideoFastForward extends ActivityInstrumentationTestCase2<Firs
 			super.adComplete(id);
 		}
 
-		
 
 	};
 

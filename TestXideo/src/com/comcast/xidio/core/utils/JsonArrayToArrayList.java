@@ -22,7 +22,6 @@ public class JsonArrayToArrayList
 		ArrayList<JSONObject> retItems = new ArrayList<JSONObject>();
 		if (jArray != null) {
 			for (int i = 0; i < jArray.length(); i++) {
-				JSONObject currentChannel = null;
 				try {
 					
 					retItems.add(jArray.getJSONObject(i));
@@ -31,9 +30,7 @@ public class JsonArrayToArrayList
 				{
 					Log.e(this.getClass().getCanonicalName(), "Failed Invoking convert Json array " , e);
 				}
-				// assertTrue(solo.waitForText(ChannelTitle));
-				// solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-				// solo.sleep(500);
+
 
 			}
 			return retItems;

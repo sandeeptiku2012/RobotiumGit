@@ -38,24 +38,19 @@ public class XideoSubscriptionUnsubscribeCheck extends ActivityInstrumentationTe
 		//passing through the first Run Activity
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		
 		//starting the test main Activity
-		solo.sleep(2000);
-		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		
 		JSONObject loginResponse=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME,TestConstants.PASSWORD);
 		JSONArray channels = null; 
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		JSONObject channelToCheck=null;
 		try
 		{
@@ -71,22 +66,21 @@ public class XideoSubscriptionUnsubscribeCheck extends ActivityInstrumentationTe
 							{
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 								solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
-								solo.sleep(1000);
+								solo.sleep(TestConstants.SLEEP_TIME_1000);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								if(solo.searchText(TestConstants.SUBSCRIBE)){
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(2000);
+								solo.sleep(TestConstants.SLEEP_TIME_2000);
 								assertTrue(solo.searchText(TestConstants.UNSUBSCRIBE));
-								solo.sleep(5000);
+								solo.sleep(TestConstants.SLEEP_TIME_5000);
 								}
 							
 									if(solo.searchText(TestConstants.UNSUBSCRIBE)){
 										solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-										solo.sleep(2000);
+										solo.sleep(TestConstants.SLEEP_TIME_2000);
 										assertTrue(solo.searchText(TestConstants.SUBSCRIBE));
-										solo.sleep(5000);
-										
+										solo.sleep(TestConstants.SLEEP_TIME_5000);
 									}
 								channelToCheck=currChoice;
 								break;								
@@ -101,13 +95,13 @@ public class XideoSubscriptionUnsubscribeCheck extends ActivityInstrumentationTe
 			Log.e("Exception:", "Exception occured in testSubscrptionTitle test cases.", e);
 		}
 		solo.sendKey(KeyEvent.KEYCODE_BACK);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		JSONObject response;
 		
 		if(loginResponse.has("response"))
@@ -129,7 +123,7 @@ public class XideoSubscriptionUnsubscribeCheck extends ActivityInstrumentationTe
 		JSONObject currChannel;		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		boolean foundChannel = false;
 		try
 		{
@@ -154,7 +148,7 @@ public class XideoSubscriptionUnsubscribeCheck extends ActivityInstrumentationTe
 		assertFalse(foundChannel);
 	}
 
-	
+	@Override
 	protected void tearDown() throws Exception {
 
 		solo.finishOpenedActivities();

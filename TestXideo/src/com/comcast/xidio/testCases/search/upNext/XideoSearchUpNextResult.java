@@ -33,39 +33,39 @@ public class XideoSearchUpNextResult extends ActivityInstrumentationTestCase2<Fi
 		super.setUp();
 	}
 
-	public void testXideoSearchUpNextResult() {
+	public void testXideoSearchUpNextResult()
+	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_A);
 		solo.sendKey(KeyEvent.KEYCODE_B);
-
 		solo.sendKey(KeyEvent.KEYCODE_R);
-		ArrayList<JSONObject> tempItems = FilterObject.getInstance().getFilteredObjectList(GetCatagoryLists.getInstance().getUpNextList(), "abr");
-		solo.sleep(2000);
+		
+		ArrayList<JSONObject> filteredUpNexArray = FilterObject.getInstance().getFilteredObjectList(GetCatagoryLists.getInstance().getUpNextList(), "abr");
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
-		if(tempItems!= null && tempItems.size()>0)
+		solo.sleep(TestConstants.SLEEP_TIME_500);
+		if(filteredUpNexArray!= null && filteredUpNexArray.size()>0)
 		{
-			for (JSONObject currentObject : tempItems) {
+			for (JSONObject currentObject : filteredUpNexArray) {
 				try {
 					assertTrue(solo.searchText(currentObject.getString(TestConstants.TITLE).toString()));
-					solo.sleep(200);
+					solo.sleep(TestConstants.SLEEP_TIME_500);
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 	
 				} catch (JSONException e) {
@@ -75,6 +75,7 @@ public class XideoSearchUpNextResult extends ActivityInstrumentationTestCase2<Fi
 		}
 
 	}
+	@Override
 	protected void tearDown() throws Exception {
 
 		solo.finishOpenedActivities();

@@ -35,21 +35,21 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 	{
 		
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(4000);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		
 		
 		String currElementTitle = null;
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
+		
 		try{
 		JSONArray featuredJsonArray = GetCatagoryLists.getInstance().getFeaturedList();
 		if(featuredJsonArray!=null && featuredJsonArray.length()>0)
@@ -64,26 +64,25 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 						{
 							if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SUB_SHOW"))
 								{   solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-									solo.sleep(500);
+									solo.sleep(TestConstants.SLEEP_TIME_500);
 									assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 									currElementTitle=currElement.getJSONObject("category").getString("title");
 									assertTrue(solo.searchText(currElementTitle.trim()));
-									solo.sleep(1500);
+									solo.sleep(TestConstants.SLEEP_TIME_2000);
 									solo.sendKey(KeyEvent.KEYCODE_BACK);
-									solo.sleep(500);
+									solo.sleep(TestConstants.SLEEP_TIME_500);
 									assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 									solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 									continue;
 								}
 							else if(currElement.getJSONObject("category").getString("level").trim().equalsIgnoreCase("SHOW")){
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-								solo.sleep(500);
+								solo.sleep(TestConstants.SLEEP_TIME_500);
 								assertTrue(solo.waitForActivity(TestConstants.DETAILS_ACTIVITY));
 								currElementTitle=currElement.getJSONObject("category").getString("title");
 								assertTrue(solo.searchText(currElementTitle.trim()));
-								solo.sleep(1500);
+								solo.sleep(TestConstants.SLEEP_TIME_2000);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
-								
 								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								continue;
@@ -95,23 +94,18 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 				else if(currElement.has("asset"))
 				{	
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-					solo.sleep(500);
+					solo.sleep(TestConstants.SLEEP_TIME_500);
 					assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
 					assertTrue(solo.searchText(currElement.getString("title").trim()));
-					solo.sleep(500);
+					solo.sleep(TestConstants.SLEEP_TIME_500);
 					solo.sendKey(KeyEvent.KEYCODE_BACK);
-					solo.sleep(1500);
+					solo.sleep(TestConstants.SLEEP_TIME_2000);
 					assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 					solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 					continue;
 				}
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 			}
-			
-			
-			
-			
-			
 			
 		}	
 

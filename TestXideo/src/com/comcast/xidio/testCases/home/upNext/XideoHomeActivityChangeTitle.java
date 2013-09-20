@@ -34,15 +34,14 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 	public void testXideoHomeActivityChangeTitle()
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		String Title = null;
-		solo.sleep(500);		
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
+		String title = null;
+		
 
 		JSONArray upNextArray = GetCatagoryLists.getInstance().getUpNextList();
 		if(upNextArray !=null && upNextArray.length()>0)
@@ -52,20 +51,19 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 				JSONObject currentChannel = null;
 				try {
 					currentChannel = upNextArray.getJSONObject(i);
-					Title = currentChannel.getString(TestConstants.TITLE);
+					title = currentChannel.getString(TestConstants.TITLE);
 	
 				} catch (Exception e)
 				{
 					Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset testHomeActivityChangeTitle " , e);
 				}
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);				
-				assertTrue(solo.searchText(Title));
-				solo.sleep(500);
+				assertTrue(solo.searchText(title));
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				solo.sendKey(KeyEvent.KEYCODE_BACK);
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-				solo.sleep(500);
-	
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 			}
 		}
 	}

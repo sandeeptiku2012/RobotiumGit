@@ -18,7 +18,6 @@ public class XideoVideoMultiRewind extends ActivityInstrumentationTestCase2<Firs
 	
 	
 	private Solo solo;
-	private boolean flag = false;
 	private long before_videoTime = 0;
 	private long after_videoTime = 0;
 	private PlayerPlatformAPI platformApi;
@@ -36,37 +35,33 @@ public class XideoVideoMultiRewind extends ActivityInstrumentationTestCase2<Firs
 		super.setUp();
 	}
 
-	public void testXideoVideoMultiRewind() {
+	public void testXideoVideoMultiRewind() 
+	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(2000);
-
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 		solo.waitForActivity(TestConstants.DETAILS_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		
 		VideoPlayerView vView = (VideoPlayerView) solo.getCurrentActivity().findViewById(R.id.video_player_view);
 		platformApi = vView.getPlatformAPI();
 		platformApi.addEventListener(platformEventListener);
-
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 		
 		while(!adComplete)
@@ -75,25 +70,25 @@ public class XideoVideoMultiRewind extends ActivityInstrumentationTestCase2<Firs
 		solo.sleep(25000);
 		before_videoTime=platformApi.getCurrentPosition();
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		after_videoTime=platformApi.getCurrentPosition();
-		solo.sleep(5000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		if(before_videoTime-after_videoTime>9000)
 			assertTrue(true);
 		else
 			assertTrue(false);
-		solo.sleep(8000);
-		
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		before_videoTime=platformApi.getCurrentPosition();
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		after_videoTime=platformApi.getCurrentPosition();
-		solo.sleep(5000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		if(before_videoTime-after_videoTime>9000)
 			assertTrue(true);
 		else
 			assertTrue(false);
-		solo.sleep(10000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 	}
 	
 	@Override
@@ -103,11 +98,7 @@ public class XideoVideoMultiRewind extends ActivityInstrumentationTestCase2<Firs
 	}
 	
 	private final AbstractPlayerPlatformVideoEventListener platformEventListener = new AbstractPlayerPlatformVideoEventListener() {
-
 		
-
-		
-
 		@Override
 		public void adComplete(long id) {
 			

@@ -30,31 +30,30 @@ public class XideoNavigationRightToLeft extends ActivityInstrumentationTestCase2
 	public void testXideoHomeActivityChangeTitle() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		assertTrue(solo.waitForText(TestConstants.SETTINGS));
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		assertTrue(solo.waitForText(TestConstants.SUBSCRIPTIONS));
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		assertTrue(solo.waitForText(TestConstants.HOME));
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(200);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		assertTrue(solo.waitForText(TestConstants.SEARCH));
 
 	}

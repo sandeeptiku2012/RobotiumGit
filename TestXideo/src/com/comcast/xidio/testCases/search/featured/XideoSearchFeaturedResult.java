@@ -19,7 +19,7 @@ import com.xfinity.xidio.core.XidioApplication;
 
 public class XideoSearchFeaturedResult extends ActivityInstrumentationTestCase2<FirstRun> {
 	private Solo solo;
-	private ArrayList<JSONObject> tempItems;
+	private ArrayList<JSONObject> filteredItems;
 
 
 	public XideoSearchFeaturedResult() {
@@ -35,38 +35,34 @@ public class XideoSearchFeaturedResult extends ActivityInstrumentationTestCase2<
 		super.setUp();
 	}
 
-	public void testXideoSearchFeaturedResult() {
+	public void testXideoSearchFeaturedResult() 
+	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_M);
 		solo.sendKey(KeyEvent.KEYCODE_A);
-
 		solo.sendKey(KeyEvent.KEYCODE_D);
 		solo.sendKey(KeyEvent.KEYCODE_O);
 		solo.sendKey(KeyEvent.KEYCODE_N);
 
-		tempItems = FilterObject.getInstance().getFilteredObjectList(GetCatagoryLists.getInstance().getFeaturedList(), "madon");
-
-		solo.sleep(4000);
-
+		filteredItems = FilterObject.getInstance().getFilteredObjectList(GetCatagoryLists.getInstance().getFeaturedList(), "madon");
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		for (JSONObject currentObject : tempItems) {
+		for (JSONObject currentObject : filteredItems) {
 			try {
 				assertTrue(solo.searchText(currentObject.getString(TestConstants.TITLE)	.toString()));
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);

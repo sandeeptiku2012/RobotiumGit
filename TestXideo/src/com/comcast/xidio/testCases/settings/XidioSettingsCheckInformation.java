@@ -34,35 +34,30 @@ public class XidioSettingsCheckInformation extends ActivityInstrumentationTestCa
 	public void testXidioSettingsCheckInformation() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		
-		
-		solo.sleep(4000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 		
 		assertTrue(solo.searchText(TestConstants.SETTINGS));
-		solo.sleep(5000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(5000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		String username=null;
 		try {
-			//JSONObject userInfo=new UserInformationAsynTask().execute(URLFactory.getUserDataUrl()).get();
 			username=GetUserData.getInstance().getUserData().getJSONObject("user").getString("userName");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,9 +84,10 @@ public class XidioSettingsCheckInformation extends ActivityInstrumentationTestCa
 		assertTrue(solo.searchText(ip_address));
 		assertTrue(solo.searchText(username));
 		
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		}
 	
+	@Override
 	protected void tearDown() throws Exception {
 
 		solo.finishOpenedActivities();

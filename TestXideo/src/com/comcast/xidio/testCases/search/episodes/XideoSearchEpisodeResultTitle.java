@@ -15,16 +15,16 @@ import com.comcast.xidio.core.common.GetSolo;
 import com.comcast.xidio.core.constant.TestConstants;
 import com.comcast.xidio.model.GetEpisodeSearchList;
 import com.jayway.android.robotium.solo.Solo;
-import com.xfinity.xidio.MainActivity;
+import com.xfinity.xidio.FirstRun;
 import com.xfinity.xidio.core.XidioApplication;
 
-public class XideoSearchEpisodeResultTitle extends ActivityInstrumentationTestCase2<MainActivity> {
+public class XideoSearchEpisodeResultTitle extends ActivityInstrumentationTestCase2<FirstRun> {
 	
 	private Solo solo;
 
 
 	public XideoSearchEpisodeResultTitle() {
-		super(MainActivity.class);
+		super(FirstRun.class);
 	}
 
 	@Override
@@ -38,39 +38,42 @@ public class XideoSearchEpisodeResultTitle extends ActivityInstrumentationTestCa
 
 	public void testXideoSearchEpisodeResultTitle() {
 		
-		solo.sleep(5000);
-		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(2000);
+		solo.waitForActivity(TestConstants.FIRST_RUN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
+		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
+		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-		solo.sleep(2000);
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		solo.sendKey(KeyEvent.KEYCODE_A);
 		solo.sendKey(KeyEvent.KEYCODE_B);
 		solo.sendKey(KeyEvent.KEYCODE_R);
 
-		ArrayList<JSONObject> tempItems = FilterObject.getInstance().getFilteredObjectList(GetEpisodeSearchList.getInstance().getEpisodeSearchList("abr"), "abr");
-
-		solo.sleep(4000);
+		ArrayList<JSONObject> channelSearchArray = FilterObject.getInstance().getFilteredObjectList(GetEpisodeSearchList.getInstance().getEpisodeSearchList("abr"), "abr");
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 
-		for (JSONObject currentObject : tempItems) {
+		for (JSONObject currentObject : channelSearchArray) {
 			try {
 				String channelTitle = currentObject.getString(TestConstants.TITLE);
-				solo.sleep(200);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 				assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-				solo.sleep(500);
-				
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				assertTrue(solo.searchText(channelTitle.toString()));
-				
-				solo.sleep(200);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				solo.sendKey(KeyEvent.KEYCODE_BACK);
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-				solo.sleep(200);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 			} catch (JSONException e) {
 				Log.e(this.getClass().getCanonicalName(), "Failed to complete the tset XideoSearchEpisodeResultTitle " , e);			}
 		}

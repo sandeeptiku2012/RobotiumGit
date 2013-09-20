@@ -30,40 +30,41 @@ public class XidioSettingsClearCacheButton extends ActivityInstrumentationTestCa
 	public void testXidioSettingsClearCacheButton() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME, TestConstants.PASSWORD);
 		
-		solo.sleep(4000);
+		solo.sleep(TestConstants.SLEEP_TIME_5000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 		
 		assertTrue(solo.searchText(TestConstants.SETTINGS));
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sleep(500);
+		solo.sleep(TestConstants.SLEEP_TIME_500);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		assertTrue(solo.searchText("CLEAR CACHE"));
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-		solo.sleep(1000);
+		solo.sleep(TestConstants.SLEEP_TIME_1000);
 		
 		File dir = getActivity().getExternalFilesDir(null);
 		if (dir != null && dir.isDirectory()) 
-				assertTrue(dir.list().length==0);		
+				assertTrue(dir.list().length==0);
 		
+		solo.sleep(TestConstants.SLEEP_TIME_2000);
 		
 	}
+
+	@Override
 	protected void tearDown() throws Exception {
 		solo.finishOpenedActivities();
 		super.tearDown();

@@ -32,15 +32,12 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Fi
 	public void testXideoHomeActivityChange() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
-		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);
-		solo.sleep(1000);
-		solo.sleep(500);
-		
+		solo.sleep(TestConstants.SLEEP_TIME_5000);		
 		JSONArray upNextArray = GetCatagoryLists.getInstance().getUpNextList();
 		if(upNextArray !=null && upNextArray.length()>0)
 		{
@@ -48,11 +45,11 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Fi
 			{
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 				assertTrue(solo.waitForActivity(TestConstants.VIDEOPLAYER_ACTIVITY));
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				solo.sendKey(KeyEvent.KEYCODE_BACK);
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 				solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-				solo.sleep(500);
+				solo.sleep(TestConstants.SLEEP_TIME_500);
 	
 			}
 		}

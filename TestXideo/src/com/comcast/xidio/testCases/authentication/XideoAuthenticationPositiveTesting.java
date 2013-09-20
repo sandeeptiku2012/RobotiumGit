@@ -38,19 +38,17 @@ public class XideoAuthenticationPositiveTesting extends ActivityInstrumentationT
 			response=GetLoginResponse.getInstance().getLoginResponse(TestConstants.USERNAME, TestConstants.PASSWORD);
 			
 
-			solo.sleep(5000);
+			solo.sleep(TestConstants.SLEEP_TIME_1000);
 			if(response==null)
 			{
 				assertTrue(false);
 			}
 			else{
-			//	JSONObject response = new JSONObject(response);
 				assertTrue(response.has("response"));
 				assertTrue(!response.isNull("response"));
 				assertTrue(response.getJSONObject("response").has("code"));
 				assertTrue(!response.getJSONObject("response").isNull("code"));
 				assertTrue(response.getJSONObject("response").getString("code").contentEquals("AUTHENTICATION_OK"));
-				//{"response":{"code":"AUTHENTICATION_FAILED","description":"Incorrect username or password","reference":"fpEys07eP278ZmCGKDJ2lz9T\/muOQV36s\/oFV"}}
 			}
 
 		} catch (Exception e) {
