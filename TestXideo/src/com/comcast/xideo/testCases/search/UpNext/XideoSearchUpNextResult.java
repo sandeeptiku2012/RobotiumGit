@@ -33,7 +33,7 @@ public class XideoSearchUpNextResult extends ActivityInstrumentationTestCase2<Fi
 		super.setUp();
 	}
 
-	public void testSearchUpNext() {
+	public void testXideoSearchUpNextResult() {
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);

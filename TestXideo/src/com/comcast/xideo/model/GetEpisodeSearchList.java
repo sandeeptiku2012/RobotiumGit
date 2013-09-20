@@ -7,7 +7,12 @@ import android.util.Log;
 
 import com.comcast.xideo.core.common.XideoAsynTask;
 import com.xfinity.xidio.core.URLFactory;
-
+/**
+ * Get List of episodes from search list.
+ * 
+ * @author Dillip Lenka
+ *
+ */
 public class GetEpisodeSearchList 
 {
 	private static GetEpisodeSearchList instance;

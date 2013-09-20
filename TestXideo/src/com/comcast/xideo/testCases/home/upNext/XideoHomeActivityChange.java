@@ -29,7 +29,7 @@ public class XideoHomeActivityChange extends ActivityInstrumentationTestCase2<Fi
 		super.setUp();
 	}
 
-	public void testHomeActivityChange() 
+	public void testXideoHomeActivityChange() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

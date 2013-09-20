@@ -7,23 +7,28 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-public class FilterObject {
+public class FilterObject
+{
 
 	private static FilterObject instance;
 
-	public static FilterObject getInstance() {
+	public static FilterObject getInstance() 
+	{
 		return (instance == null) ? new FilterObject() : instance;
 	}
 
-	public ArrayList<JSONObject> getFilteredObjectList(JSONArray jArray,String filterText) {
+	public ArrayList<JSONObject> getFilteredObjectList(JSONArray jArray,String filterText)
+	{
 		
-	ArrayList<JSONObject> retItems=new ArrayList<JSONObject>();
+		ArrayList<JSONObject> retItems=new ArrayList<JSONObject>();
 		if(jArray!=null)
-		{for (int i = 0; i < jArray.length(); i++) 
 		{
-			JSONObject currentChannel = null;
-			String ChannelTitle;
-			try {
+			for (int i = 0; i < jArray.length(); i++) 
+			{
+				JSONObject currentChannel = null;
+				String ChannelTitle;
+			try 
+			{
 				currentChannel = jArray.getJSONObject(i);
 				ChannelTitle = currentChannel.getString("title");
 				if(ChannelTitle.toLowerCase().contains(filterText.toLowerCase()))
@@ -37,8 +42,9 @@ public class FilterObject {
 			
 			
 			
+			}
+			return retItems;
 		}
-		return retItems;}
 		else 
 			return null;
 		

@@ -10,6 +10,8 @@ import java.util.List;
 
 import org.apache.http.conn.util.InetAddressUtils;
 
+import android.util.Log;
+
 public class NetworkUtil {
 
 
@@ -115,14 +117,17 @@ public class NetworkUtil {
                                 return sAddr;
                         } else {
                             if (!isIPv4) {
-                                int delim = sAddr.indexOf('%'); // drop ip6 port suffix
+                                int delim = sAddr.indexOf('%'); 
                                 return delim<0 ? sAddr : sAddr.substring(0, delim);
                             }
                         }
                     }
                 }
             }
-        } catch (Exception ex) { } // for now eat exceptions
+        } catch (Exception ex)
+        {
+         Log.e("Exception: ", "Exception occured get ip address.", ex);
+        } 
         return "";
     }
 

@@ -13,11 +13,11 @@ import com.comcast.xideo.core.constant.TestConstants;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 
-public class XIdeoLoginSpecialCharecterInPassword extends ActivityInstrumentationTestCase2<FirstRun>
+public class XideoLoginSpecialCharecterInUsername extends ActivityInstrumentationTestCase2<FirstRun>
 {
 	private Solo solo;
 
-	public XIdeoLoginSpecialCharecterInPassword() {
+	public XideoLoginSpecialCharecterInUsername() {
 		super(FirstRun.class);
 
 	}
@@ -30,7 +30,7 @@ public class XIdeoLoginSpecialCharecterInPassword extends ActivityInstrumentatio
 	}
 
 	@SuppressLint("DefaultLocale")
-	public void testXIdeoLoginSpecialCharecterInPassword()
+	public void testXideoLoginSpecialCharecterInUsername()
 	{
 		
 		assertTrue(solo.waitForActivity(TestConstants.FIRST_RUN));
@@ -38,8 +38,8 @@ public class XIdeoLoginSpecialCharecterInPassword extends ActivityInstrumentatio
 		
 		if (!Build.MODEL.toLowerCase(Locale.US).contains("comcast")) {
 			
-			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_username),"test_153");
-			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_password),"!#%**~@$!%&()_+=");
+			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_username),"!#%&*%#!@%^");
+			solo.enterText((EditText) solo.getCurrentActivity().findViewById(com.xfinity.xidio.R.id.first_run_password),"Demo_1111");
 			solo.sleep(500);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 			solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);

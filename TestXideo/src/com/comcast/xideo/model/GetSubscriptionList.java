@@ -9,7 +9,6 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -21,6 +20,7 @@ public class GetSubscriptionList
 {
 	private static GetSubscriptionList instance;
 	
+	
 	public static synchronized GetSubscriptionList getInstance() 
 	{
 		if (instance == null)
@@ -28,13 +28,13 @@ public class GetSubscriptionList
 		return instance;
 	}
 	
-	Context con;
 	
-	public JSONArray getSubscriptionList(String id,Context con) 
+	
+	public JSONArray getSubscriptionList(String id) 
 	{
 		
-		try {
-				this.con=con;		
+		try 
+		{
 				JSONObject tempSubscription =new SubscriptionAsynTask().execute(URLFactory.getSubscriptions(id)).get();
 				Log.v("Subscrotion response ", tempSubscription.toString());
 				return tempSubscription.has("categories")?(tempSubscription.getJSONObject("categories").has("category")?tempSubscription.getJSONObject("categories").getJSONArray("category"):null):null;

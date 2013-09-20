@@ -31,7 +31,7 @@ public class XideoHomeActivityUpNextListTitle extends ActivityInstrumentationTes
 		super.setUp();
 	}
 
- public void testHomeUpNextListTitle()
+ public void testXideoHomeActivityUpNextListTitle()
 	{
 	 solo.waitForActivity(TestConstants.FIRST_RUN);
 		

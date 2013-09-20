@@ -1,7 +1,5 @@
 package com.comcast.xideo.testCases.Video;
 
-import org.json.JSONArray;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -18,7 +16,7 @@ import com.xfinity.xidio.R;
 import com.xfinity.xidio.core.XidioApplication;
 import com.xfinity.xidio.views.VideoPlayerView;
 
-public class XideoHomeActivityMainVideoDurationCheck extends ActivityInstrumentationTestCase2<FirstRun> {
+public class XideoVideoDurationCheck extends ActivityInstrumentationTestCase2<FirstRun> {
 
 	private Solo solo;
 	private boolean endVideo = false;
@@ -26,7 +24,7 @@ public class XideoHomeActivityMainVideoDurationCheck extends ActivityInstrumenta
 	private long video_Start_Time = 0;
 	private long video_End_Time = 0;
 
-	public XideoHomeActivityMainVideoDurationCheck() {
+	public XideoVideoDurationCheck() {
 		super(FirstRun.class);
 	}
 
@@ -69,13 +67,13 @@ public class XideoHomeActivityMainVideoDurationCheck extends ActivityInstrumenta
 		platformApi.addEventListener(platformEventListener);
 		video_Duration=platformApi.getDuration();
 		Toast.makeText(solo.getCurrentActivity(), "Video Duration : "+video_Duration, Toast.LENGTH_SHORT).show();
-		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
+	//	solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);	
+	//	solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
 		
-		while (!endVideo) {}
+		//while (!endVideo) {}
 		
 
-		solo.sleep(2000);
+		solo.sleep(10000);
 	}
 
 	@Override

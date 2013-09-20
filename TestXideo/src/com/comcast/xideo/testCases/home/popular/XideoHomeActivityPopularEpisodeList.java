@@ -103,15 +103,14 @@ public class XideoHomeActivityPopularEpisodeList extends
 									continue;
 
 								} else {
-									// solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 									for (int p = 0; p < ShowContent.length(); p++) 
 									{
 										
 										
 										JSONObject currShow = ShowContent.getJSONObject(p);
-											if(currShow.getString("level").contentEquals("SHOW"))
+										if(currShow.getString("level").contentEquals("SHOW"))
 												break;
-											solo.sleep(1000);
+										solo.sleep(1000);
 										Log.v("currShow>>>>>>>>", currShow.toString());
 										JSONArray episodeListArray = GetEpisodesList.getInstance().getEpisodeList(currShow.getString("@id"));
 										String	showTitle = currShow.getString("title");		
@@ -127,20 +126,21 @@ public class XideoHomeActivityPopularEpisodeList extends
 											solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 
 										}
-										
+										solo.sleep(1000);
 										solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 
 										for (int k = 0; k < episodeListArray.length(); k++) {
-											solo.sleep(200);
-											JSONObject currentEpisode = episodeListArray.getJSONObject(k);
-											String episodeTitle = currentEpisode.getString("title");
-											
-											assertTrue(solo.searchText(episodeTitle));
-											solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
-
-										}
-										solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
-										solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
+												solo.sleep(200);
+												JSONObject currentEpisode = episodeListArray.getJSONObject(k);
+												String episodeTitle = currentEpisode.getString("title");
+												
+												assertTrue(solo.searchText(episodeTitle));
+												if(k+1!=episodeListArray.length())
+													solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
+												else
+													solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
+											}
+										
 										}
 										else
 										{
@@ -153,7 +153,7 @@ public class XideoHomeActivityPopularEpisodeList extends
 
 								solo.sleep(500);
 								solo.sendKey(KeyEvent.KEYCODE_BACK);
-
+								solo.sleep(1000);
 								assertTrue(solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
 								solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 								continue;
@@ -162,17 +162,6 @@ public class XideoHomeActivityPopularEpisodeList extends
 						}
 
 					} else if (currElement.has("asset")) {
-						/*
-						 * solo.sendKey(KeyEvent.KEYCODE_DPAD_CENTER);
-						 * solo.sleep(500);
-						 * assertTrue(solo.waitForActivity(TestConstants
-						 * .VIDEOPLAYER_ACTIVITY));
-						 * assertTrue(solo.searchText(currElement
-						 * .getString("title").trim())); solo.sleep(500);
-						 * solo.sendKey(KeyEvent.KEYCODE_BACK); solo.sleep(500);
-						 * assertTrue
-						 * (solo.waitForActivity(TestConstants.MAIN_ACTIVITY));
-						 */
 						solo.sendKey(KeyEvent.KEYCODE_DPAD_RIGHT);
 						continue;
 					}

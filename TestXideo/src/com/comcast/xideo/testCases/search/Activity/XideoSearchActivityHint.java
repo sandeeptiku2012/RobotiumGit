@@ -28,7 +28,7 @@ public class XideoSearchActivityHint extends ActivityInstrumentationTestCase2<Fi
 		super.setUp();
 	}
 
-	public void testSearchHint() 
+	public void testXideoSearchActivityHint() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

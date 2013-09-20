@@ -25,7 +25,7 @@ public class LabelCheck extends ActivityInstrumentationTestCase2<FirstRun>{
 		super.setUp();
 	}
 
-	public void testLabel() 
+	public void testLabelCheck() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

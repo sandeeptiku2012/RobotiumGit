@@ -9,8 +9,9 @@ import android.util.Log;
 
 import com.comcast.xideo.core.utils.RestServiceUtil;
 
-public class XideoAsynTask extends AsyncTask<String, Void, JSONObject> {
-	//private JSONObject jArrayElements;
+public class XideoAsynTask extends AsyncTask<String, Void, JSONObject>
+{
+	
 private	JSONObject jsonObj =null;
 	@Override
 	protected JSONObject doInBackground(String... params)

@@ -118,7 +118,7 @@ public class XideoSubscriptionUnsubscribeCheck extends ActivityInstrumentationTe
 			if(response.getString("code").equalsIgnoreCase("AUTHENTICATION_OK"))
 				{
 					String userId =response.getString("userId");
-					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId,getActivity().getApplicationContext());
+					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId);
 				}
 			} 
 			catch (JSONException e) 
@@ -128,7 +128,6 @@ public class XideoSubscriptionUnsubscribeCheck extends ActivityInstrumentationTe
 			
 		JSONObject currChannel;		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		//solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		solo.sleep(1000);
 		boolean foundChannel = false;

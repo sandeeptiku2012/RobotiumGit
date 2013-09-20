@@ -32,7 +32,7 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 		super.setUp();
 	}
 
-	public void testSubscrptionFeaturedApi() 
+	public void testXideoSubscriptionFeaturedApiTest() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
@@ -99,7 +99,7 @@ public class XideoSubscriptionFeaturedApiTest extends ActivityInstrumentationTes
 			if(response.getString("code").equalsIgnoreCase("AUTHENTICATION_OK"))
 				{
 					String userId =response.getString("userId");
-					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId,getActivity().getApplicationContext());
+					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId);
 				}
 			} 
 			catch (JSONException e) 

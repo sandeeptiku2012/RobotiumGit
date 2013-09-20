@@ -17,11 +17,11 @@ import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 import com.xfinity.xidio.core.XidioApplication;
 
-public class XideoSearchActivityNegativeSearch extends ActivityInstrumentationTestCase2<FirstRun>
+public class XideoSearchActivityNegetiveSearch extends ActivityInstrumentationTestCase2<FirstRun>
 {
 	private Solo solo;
 
-	public XideoSearchActivityNegativeSearch() {
+	public XideoSearchActivityNegetiveSearch() {
 		super(FirstRun.class);
 	}
 
@@ -34,7 +34,7 @@ public class XideoSearchActivityNegativeSearch extends ActivityInstrumentationTe
 		super.setUp();
 	}
 
-	public void testNegativeSearch() 
+	public void testXideoSearchActivityNegativeSearch() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

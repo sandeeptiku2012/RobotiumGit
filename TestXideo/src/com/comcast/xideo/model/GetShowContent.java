@@ -20,7 +20,8 @@ public class GetShowContent
 		return instance;
 	}
 
-	public JSONArray getShowContent(String showId) {
+	public JSONArray getShowContent(String showId) 
+	{
 		BaseObject showObj = new BaseObject();
 		showObj.setId(Long.parseLong(showId));
 		

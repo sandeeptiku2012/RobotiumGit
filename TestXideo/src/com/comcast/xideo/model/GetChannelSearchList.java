@@ -29,11 +29,11 @@ public class GetChannelSearchList
 			JSONObject temp=new XideoAsynTask().execute(URLFactory.SearchForChannelAndShow(filterText)).get();
 			
 			return temp.has("categories")?(temp.getJSONObject("categories").has("category")?temp.getJSONObject("categories").getJSONArray("category"):new JSONArray()):new JSONArray();
-		}
-		catch (Exception e)
-		{
-			Log.e("Exception occured in get episodes list from search criteria", e.getLocalizedMessage());			
-		}
+			}
+			catch (Exception e)
+			{
+				Log.e("Exception occured in get episodes list from search criteria", e.getLocalizedMessage());			
+			}
 		return null;
 
 	}

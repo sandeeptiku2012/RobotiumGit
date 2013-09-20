@@ -35,7 +35,7 @@ public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<F
 		super.setUp();
 	}
 
-	public void testSearchPopularResult() {
+	public void testXideoSearchPopularResult() {
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
@@ -62,7 +62,6 @@ public class XideoSearchPopularResult extends ActivityInstrumentationTestCase2<F
 
 		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
-		//solo.sendKey(KeyEvent.KEYCODE_DPAD_DOWN);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_LEFT);
 		for (JSONObject currentObject : tempItems) {
 			try {

@@ -6,25 +6,26 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.comcast.xideo.core.common.XideoAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 
-public class GetUserData {
+public class GetUserData
+{
 	private static GetUserData instance;
 
-	public static synchronized GetUserData getInstance() {
+	public static synchronized GetUserData getInstance() 
+	{
 		if (instance == null)
 			instance = new GetUserData();
 		return instance;
 	}
 
-	public JSONObject getUserData() {
+	public JSONObject getUserData()
+	{
 
 		try {
 			return new UserInformationAsynTask().execute(URLFactory.getUserDataUrl()).get();

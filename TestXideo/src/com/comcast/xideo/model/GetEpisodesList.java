@@ -9,7 +9,8 @@ import com.comcast.xideo.core.common.XideoAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 import com.xfinity.xidio.vimond.models.BaseObject;
 
-public class GetEpisodesList {
+public class GetEpisodesList 
+{
 	private static GetEpisodesList instance;
 
 	public static synchronized GetEpisodesList getInstance() {
@@ -44,7 +45,9 @@ public class GetEpisodesList {
 			return arrayToReturn;//temp.has("assets")?(temp.getJSONObject("assets").has("asset")?{temp.getJSONObject("assets").getJSONArray("asset")}:null):null;
 			}
 			catch(Exception e)
-			{return null;
+			{
+				Log.e("Exception :", "Exceptions occured in get episode list.", e);
+				return null;
 			}
 		} catch (Exception e) {
 			throw new Exception(e.getLocalizedMessage());

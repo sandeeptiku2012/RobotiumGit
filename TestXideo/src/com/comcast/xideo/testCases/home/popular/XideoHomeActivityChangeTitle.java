@@ -33,7 +33,7 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 	}
 	
 
-	public void testHomeActivityChangeTitle()
+	public void testXideoHomeActivityChangeTitle()
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

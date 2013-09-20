@@ -36,7 +36,7 @@ public class XideoSearchEpisodesResult extends ActivityInstrumentationTestCase2<
 		super.setUp();
 	}
 
-	public void testSearchEpisode() {
+	public void testXideoSearchEpisodesResult() {
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);

@@ -115,26 +115,6 @@ public class VideoPlayerListner extends VideoPlayerView implements OnPreparedLis
 	       }
 	   }
 
-	  /* public void mute() {
-	       this.setVolume(0);
-	   }
-
-	   public void unmute() {
-	       this.setVolume(100);
-	   }*/
-
-	   /**
-	    * Set the current volume of the video;
-	    * @param amount
-	    */
-	  /* public void setVolume(int amount) {
-	       final int max = 100;
-	       final double numerator = max - amount > 0 ? Math.log(max - amount) : 0;
-	       final float volume = (float) (1 - (numerator / Math.log(max)));
-
-	       this.videoPlayer.setVolume(volume, volume);
-	   }*/
-	 
 	   /**
 	    * Get the current volume of the video;
 	    * @return

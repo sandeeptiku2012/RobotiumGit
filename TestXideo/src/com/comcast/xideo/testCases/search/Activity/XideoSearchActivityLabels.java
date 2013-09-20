@@ -33,7 +33,7 @@ public class XideoSearchActivityLabels extends ActivityInstrumentationTestCase2<
 		super.setUp();
 	}
 
-	public void testSearchLabels() {
+	public void testXideoSearchActivityLabels() {
 
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

@@ -28,7 +28,7 @@ public class XideoSearchActivityText extends ActivityInstrumentationTestCase2<Fi
 		super.setUp();
 	}
 
-	public void testSearchText() 
+	public void testXideoSearchActivityText() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

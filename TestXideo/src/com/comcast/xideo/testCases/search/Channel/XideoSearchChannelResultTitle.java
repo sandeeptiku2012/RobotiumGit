@@ -34,7 +34,7 @@ public class XideoSearchChannelResultTitle extends	ActivityInstrumentationTestCa
 		super.setUp();
 	}
 
-	public void testSearchChannelResultTitle() {
+	public void testXideoSearchChannelResultTitle() {
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);

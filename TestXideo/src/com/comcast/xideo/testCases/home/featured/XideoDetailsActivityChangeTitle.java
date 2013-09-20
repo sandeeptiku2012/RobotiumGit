@@ -31,7 +31,7 @@ public class XideoDetailsActivityChangeTitle extends ActivityInstrumentationTest
 		super.setUp();
 	}
 
-	public void testDetailsActivityChangeTitle()
+	public void testXideoDetailsActivityChangeTitle()
 	{
 		
 		solo.waitForActivity(TestConstants.FIRST_RUN);

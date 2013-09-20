@@ -12,16 +12,19 @@ import com.xfinity.xidio.core.URLFactory;
  * @author Dillip Lenka
  *
  */
-public class GetFeaturedList {
+public class GetFeaturedList 
+{
 	private static GetFeaturedList instance;
 
-	public static synchronized GetFeaturedList getInstance() {
+	public static synchronized GetFeaturedList getInstance()
+	{
 		if (instance == null)
 			instance = new GetFeaturedList();
 		return instance;
 	}
 
-	public JSONArray getFeaturedList() {
+	public JSONArray getFeaturedList()
+	{
 		
 		try {
 			JSONObject temp=new XideoAsynTask().execute(URLFactory.getFeaturedContentURL()).get();

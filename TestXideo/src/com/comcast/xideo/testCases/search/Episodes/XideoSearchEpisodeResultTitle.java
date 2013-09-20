@@ -36,7 +36,7 @@ public class XideoSearchEpisodeResultTitle extends ActivityInstrumentationTestCa
 		super.setUp();
 	}
 
-	public void testSearchChannelTtitle() {
+	public void testXideoSearchEpisodeResultTitle() {
 		
 		solo.sleep(5000);
 		solo.waitForActivity(TestConstants.MAIN_ACTIVITY);

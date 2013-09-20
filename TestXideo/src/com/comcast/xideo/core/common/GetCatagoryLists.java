@@ -6,7 +6,8 @@ import com.comcast.xideo.model.GetFeaturedList;
 import com.comcast.xideo.model.GetPopularList;
 import com.comcast.xideo.model.GetUpNextList;
 
-public class GetCatagoryLists  {
+public class GetCatagoryLists  
+{
 	
 	public static GetCatagoryLists instance;
 	

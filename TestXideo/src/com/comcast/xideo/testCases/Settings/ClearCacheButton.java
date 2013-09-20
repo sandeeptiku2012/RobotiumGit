@@ -27,7 +27,7 @@ public class ClearCacheButton extends ActivityInstrumentationTestCase2<FirstRun>
 		super.setUp();
 	}
 
-	public void testClearCache() 
+	public void testClearCacheButton() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

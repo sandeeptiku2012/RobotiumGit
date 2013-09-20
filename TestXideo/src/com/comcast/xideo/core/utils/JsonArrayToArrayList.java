@@ -7,11 +7,13 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-public class JsonArrayToArrayList {
+public class JsonArrayToArrayList
+{
 
 	private static JsonArrayToArrayList instance;
 
-	public static JsonArrayToArrayList getInstance() {
+	public static JsonArrayToArrayList getInstance()
+	{
 		return (instance == null) ? new JsonArrayToArrayList() : instance;
 	}
 

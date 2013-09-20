@@ -30,7 +30,7 @@ public class XideoDetailsActivityChange extends ActivityInstrumentationTestCase2
 		super.setUp();
 	}
 
-	public void testDetailsActivityChange() 
+	public void testXideoDetailsActivityChange() 
 	{
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);

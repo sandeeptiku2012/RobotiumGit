@@ -17,7 +17,7 @@ import com.xfinity.xidio.R;
 import com.xfinity.xidio.core.XidioApplication;
 import com.xfinity.xidio.views.VideoPlayerView;
 
-public class XideoHomeActivityAdDurationCheck extends ActivityInstrumentationTestCase2<FirstRun> {
+public class XideoAdDurationCheck extends ActivityInstrumentationTestCase2<FirstRun> {
 	
 	
 	private Solo solo;
@@ -26,7 +26,7 @@ public class XideoHomeActivityAdDurationCheck extends ActivityInstrumentationTes
 	private long ad_Start_Time = 0;
 	private long ad_End_Time = 0;
 
-	public XideoHomeActivityAdDurationCheck() {
+	public XideoAdDurationCheck() {
 		super(FirstRun.class);
 	}
 

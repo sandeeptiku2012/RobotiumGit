@@ -106,7 +106,7 @@ public class XideoSubscriptionPopularUITest  extends ActivityInstrumentationTest
 			if(response.getString("code").equalsIgnoreCase("AUTHENTICATION_OK"))
 				{
 					String userId=response.getString("userId");
-					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId,getActivity().getApplicationContext());
+					channels=GetSubscriptionList.getInstance().getSubscriptionList(userId);
 				}
 			} 
 			catch (JSONException e)

@@ -32,7 +32,7 @@ public class XideoHomeActivityPopularTitle extends ActivityInstrumentationTestCa
 		super.setUp();
 	}
 	
-	public void testVerifyPopularTitle() 
+	public void testXideoHomeActivityPopularTitle() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
