@@ -27,20 +27,18 @@ public class FilterObject
 			{
 				JSONObject currentChannel = null;
 				String ChannelTitle;
-			try 
-			{
-				currentChannel = jArray.getJSONObject(i);
-				ChannelTitle = currentChannel.getString("title");
-				if(ChannelTitle.toLowerCase().contains(filterText.toLowerCase()))
-					retItems.add(currentChannel);
-				
-				
-			} catch (Exception e)
-			{
-				 Log.e(this.getClass().getCanonicalName(), "Failed Invoking getFilteredObjectList " , e);
-			}
-			
-			
+				try 
+				{
+					currentChannel = jArray.getJSONObject(i);
+					ChannelTitle = currentChannel.getString("title");
+					if(ChannelTitle.toLowerCase().contains(filterText.toLowerCase()))
+						retItems.add(currentChannel);
+					
+					
+				} catch (Exception e)
+				{
+					 Log.e(this.getClass().getCanonicalName(), "Failed Invoking getFilteredObjectList " , e);
+				}			
 			
 			}
 			return retItems;

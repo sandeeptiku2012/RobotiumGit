@@ -12,7 +12,8 @@ import org.apache.http.conn.util.InetAddressUtils;
 
 import android.util.Log;
 
-public class NetworkUtil {
+public class NetworkUtil
+{
 
 
     /**
@@ -35,8 +36,14 @@ public class NetworkUtil {
      * @param str
      * @return  array of NULL if error was found
      */
-    public static byte[] getUTF8Bytes(String str) {
-        try { return str.getBytes("UTF-8"); } catch (Exception ex) { return null; }
+    public static byte[] getUTF8Bytes(String str) 
+    {
+        try { 
+        	return str.getBytes("UTF-8"); 
+        	} catch (Exception ex)
+        	{ 
+        		return null;
+        	}
     }
 
     /**
@@ -45,7 +52,8 @@ public class NetworkUtil {
      * @return  
      * @throws java.io.IOException
      */
-    public static String loadFileAsString(String filename) throws java.io.IOException {
+    public static String loadFileAsString(String filename) throws java.io.IOException
+    {
         final int BUFLEN=1024;
         BufferedInputStream is = new BufferedInputStream(new FileInputStream(filename), BUFLEN);
         try {
@@ -53,7 +61,8 @@ public class NetworkUtil {
             byte[] bytes = new byte[BUFLEN];
             boolean isUTF8=false;
             int read,count=0;           
-            while((read=is.read(bytes)) != -1) {
+            while((read=is.read(bytes)) != -1) 
+            {
                 if (count==0 && bytes[0]==(byte)0xEF && bytes[1]==(byte)0xBB && bytes[2]==(byte)0xBF ) {
                     isUTF8=true;
                     baos.write(bytes, 3, read-3); // drop UTF8 bom marker
@@ -64,7 +73,13 @@ public class NetworkUtil {
             }
             return isUTF8 ? new String(baos.toByteArray(), "UTF-8") : new String(baos.toByteArray());
         } finally {
-            try{ is.close(); } catch(Exception ex){} 
+            try
+            { 
+            	is.close();
+            } 
+            catch(Exception ex){
+            	Log.e("Exception:", "Exception occured file close", ex);
+            } 
         }
     }
 
@@ -73,11 +88,14 @@ public class NetworkUtil {
      * @param interfaceName eth0, wlan0 or NULL=use first interface 
      * @return  mac address or empty string
      */
-    public static String getMACAddress(String interfaceName) {
+    public static String getMACAddress(String interfaceName)
+    {
         try {
             List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
-            for (NetworkInterface intf : interfaces) {
-                if (interfaceName != null) {
+            for (NetworkInterface intf : interfaces)
+            {
+                if (interfaceName != null)
+                {
                     if (!intf.getName().equalsIgnoreCase(interfaceName)) continue;
                 }
                 byte[] mac = intf.getHardwareAddress();
@@ -88,31 +106,31 @@ public class NetworkUtil {
                 if (buf.length()>0) buf.deleteCharAt(buf.length()-1);
                 return buf.toString();
             }
-        } catch (Exception ex) { } // for now eat exceptions
+        } catch (Exception ex) { } 
         return "";
-        /*try {
-            // this is so Linux hack
-            return loadFileAsString("/sys/class/net/" +interfaceName + "/address").toUpperCase().trim();
-        } catch (IOException ex) {
-            return null;
-        }*/
+        
     }
 
     /**
-     * Get IP address from first non-localhost interface
+     * Get IP address from first non-local host interface
      * @param ipv4  true=return ipv4, false=return ipv6
      * @return  address or empty string
      */
-    public static String getIPAddress(boolean useIPv4) {
+    public static String getIPAddress(boolean useIPv4) 
+    {
         try {
             List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
-            for (NetworkInterface intf : interfaces) {
+            for (NetworkInterface intf : interfaces)
+            {
                 List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
-                for (InetAddress addr : addrs) {
-                    if (!addr.isLoopbackAddress()) {
+                for (InetAddress addr : addrs)
+                {
+                    if (!addr.isLoopbackAddress())
+                    {
                         String sAddr = addr.getHostAddress().toUpperCase();
                         boolean isIPv4 = InetAddressUtils.isIPv4Address(sAddr); 
-                        if (useIPv4) {
+                        if (useIPv4)
+                        {
                             if (isIPv4) 
                                 return sAddr;
                         } else {

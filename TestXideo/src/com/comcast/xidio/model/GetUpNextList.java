@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-import com.comcast.xidio.core.common.XideoAsynTask;
+import com.comcast.xidio.core.common.XidioAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 
 public class GetUpNextList
@@ -23,7 +23,7 @@ public class GetUpNextList
 	{
 		
 		try {
-				JSONObject temp=new XideoAsynTask().execute(URLFactory.getUpNextUrl(userId, sessionId)).get();
+				JSONObject temp=new XidioAsynTask().execute(URLFactory.getUpNextUrl(userId, sessionId)).get();
 				return temp.has("items")?temp.getJSONArray("items"):null;
 			} 
 			catch (Exception e)

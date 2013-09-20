@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-import com.comcast.xidio.core.common.XideoAsynTask;
+import com.comcast.xidio.core.common.XidioAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 /**
  * Get list of channels from search text.
@@ -26,7 +26,7 @@ public class GetChannelSearchList
 	{
 	
 		try {
-			JSONObject temp=new XideoAsynTask().execute(URLFactory.SearchForChannelAndShow(filterText)).get();
+			JSONObject temp=new XidioAsynTask().execute(URLFactory.SearchForChannelAndShow(filterText)).get();
 			
 			return temp.has("categories")?(temp.getJSONObject("categories").has("category")?temp.getJSONObject("categories").getJSONArray("category"):new JSONArray()):new JSONArray();
 			}

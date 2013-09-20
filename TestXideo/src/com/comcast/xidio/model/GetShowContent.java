@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-import com.comcast.xidio.core.common.XideoAsynTask;
+import com.comcast.xidio.core.common.XidioAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 import com.xfinity.xidio.vimond.models.BaseObject;
 
@@ -27,7 +27,7 @@ public class GetShowContent
 		
 			
 			try{
-				JSONObject temp=new XideoAsynTask()
+				JSONObject temp=new XidioAsynTask()
 				.execute(URLFactory.getShowContentURL(showObj)).get();
 		
 		

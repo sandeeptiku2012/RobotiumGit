@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-import com.comcast.xidio.core.common.XideoAsynTask;
+import com.comcast.xidio.core.common.XidioAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 /**
  * Get List of episodes from search list.
@@ -26,7 +26,7 @@ public class GetEpisodeSearchList
 	
 		try 
 		{
-			JSONObject temp=new XideoAsynTask().execute(URLFactory.SearchForEpisode(filterText)).get();
+			JSONObject temp=new XidioAsynTask().execute(URLFactory.SearchForEpisode(filterText)).get();
 			return temp.has("assets")?(temp.getJSONObject("assets").has("asset")?temp.getJSONObject("assets").getJSONArray("asset"):new JSONArray()):new JSONArray();
 			
 		} catch (Exception e)

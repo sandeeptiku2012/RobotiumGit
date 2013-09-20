@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-import com.comcast.xidio.core.common.XideoAsynTask;
+import com.comcast.xidio.core.common.XidioAsynTask;
 import com.xfinity.xidio.core.URLFactory;
 import com.xfinity.xidio.vimond.models.BaseObject;
 
@@ -26,7 +26,7 @@ public class GetEpisodesList
 		try {
 			String episodeUrl = URLFactory.getEpisodeContentURL(showObj);
 			Log.v("episodeUrl will be ", episodeUrl);
-			JSONObject temp=new XideoAsynTask().execute(episodeUrl).get();
+			JSONObject temp=new XidioAsynTask().execute(episodeUrl).get();
 			JSONArray arrayToReturn = null;
 			try{
 			if(temp.has("assets"))
