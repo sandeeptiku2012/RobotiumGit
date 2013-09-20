@@ -9,11 +9,11 @@ import com.comcast.xidio.model.GetLoginResponse;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 
-public class LabelCheck extends ActivityInstrumentationTestCase2<FirstRun>{
+public class XidioSettingsLabelCheck extends ActivityInstrumentationTestCase2<FirstRun>{
 
 	private Solo solo;	
 	
-	public LabelCheck() {
+	public XidioSettingsLabelCheck() {
 		super(FirstRun.class);
 	}
 
@@ -25,7 +25,7 @@ public class LabelCheck extends ActivityInstrumentationTestCase2<FirstRun>{
 		super.setUp();
 	}
 
-	public void testLabelCheck() 
+	public void testXidioSettingsLabelCheck() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

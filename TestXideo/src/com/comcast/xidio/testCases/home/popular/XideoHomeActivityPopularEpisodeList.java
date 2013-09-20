@@ -33,7 +33,7 @@ public class XideoHomeActivityPopularEpisodeList extends
 		super.setUp();
 	}
 
-	public void testHomePopularEpisode() 
+	public void testXideoHomeActivityPopularEpisodeList() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

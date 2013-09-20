@@ -28,7 +28,7 @@ public class XideoLoginActivityChangePos extends ActivityInstrumentationTestCase
 		super.setUp();
 	}
 
-	public void testXXideoLoginActivityChangePos() 
+	public void testXideoLoginActivityChangePos() 
 	{
 	
 		assertTrue(solo.waitForActivity(TestConstants.FIRST_RUN));

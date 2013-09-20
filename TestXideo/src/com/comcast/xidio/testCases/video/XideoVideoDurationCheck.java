@@ -38,7 +38,7 @@ public class XideoVideoDurationCheck extends ActivityInstrumentationTestCase2<Fi
 		super.setUp();
 	}
 
-	public void testMainVideoDuration() {
+	public void testXideoVideoDurationCheck() {
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);

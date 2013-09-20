@@ -38,7 +38,7 @@ public class XideoHomeActivityVideoPauseCheck extends ActivityInstrumentationTes
 		super.setUp();
 	}
 
-	public void testAdDuration() {
+	public void testXideoHomeActivityVideoPauseCheck() {
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);

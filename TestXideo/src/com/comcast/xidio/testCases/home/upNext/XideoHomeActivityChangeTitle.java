@@ -31,7 +31,7 @@ public class XideoHomeActivityChangeTitle extends ActivityInstrumentationTestCas
 		super.setUp();
 	}
 
-	public void testHomeActivityChangeTitle()
+	public void testXideoHomeActivityChangeTitle()
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

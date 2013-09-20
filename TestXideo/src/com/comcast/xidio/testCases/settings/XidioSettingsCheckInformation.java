@@ -15,11 +15,11 @@ import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 import com.xfinity.xidio.MainActivity;
 
-public class CheckInformation extends ActivityInstrumentationTestCase2<FirstRun>{
+public class XidioSettingsCheckInformation extends ActivityInstrumentationTestCase2<FirstRun>{
 
 	private Solo solo;	
 	
-	public CheckInformation() {
+	public XidioSettingsCheckInformation() {
 		super(FirstRun.class);
 	}
 
@@ -31,7 +31,7 @@ public class CheckInformation extends ActivityInstrumentationTestCase2<FirstRun>
 		super.setUp();
 	}
 
-	public void testCheckInformation() 
+	public void testXidioSettingsCheckInformation() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

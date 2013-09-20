@@ -38,7 +38,7 @@ public class XideoAdDurationCheck extends ActivityInstrumentationTestCase2<First
 		super.setUp();
 	}
 
-	public void testAdDuration() {
+	public void testXideoAdDurationCheck() {
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 
 		solo.sendKey(KeyEvent.KEYCODE_DPAD_UP);

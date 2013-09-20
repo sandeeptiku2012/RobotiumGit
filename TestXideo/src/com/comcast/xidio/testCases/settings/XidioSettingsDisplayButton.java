@@ -9,11 +9,11 @@ import com.comcast.xidio.model.GetLoginResponse;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 
-public class DisplayButton extends ActivityInstrumentationTestCase2<FirstRun>{
+public class XidioSettingsDisplayButton extends ActivityInstrumentationTestCase2<FirstRun>{
 
 	private Solo solo;	
 	
-	public DisplayButton() {
+	public XidioSettingsDisplayButton() {
 		super(FirstRun.class);
 	}
 
@@ -25,7 +25,7 @@ public class DisplayButton extends ActivityInstrumentationTestCase2<FirstRun>{
 		super.setUp();
 	}
 
-	public void testDisplayButton() 
+	public void testXidioSettingsDisplayButton() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

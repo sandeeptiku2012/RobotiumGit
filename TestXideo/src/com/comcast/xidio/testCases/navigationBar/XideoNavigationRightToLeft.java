@@ -27,7 +27,7 @@ public class XideoNavigationRightToLeft extends ActivityInstrumentationTestCase2
 		super.setUp();
 	}
 
-	public void testNavigationRightToLeft() 
+	public void testXideoHomeActivityChangeTitle() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

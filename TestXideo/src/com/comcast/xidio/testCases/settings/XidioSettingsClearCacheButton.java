@@ -11,11 +11,11 @@ import com.comcast.xidio.model.GetLoginResponse;
 import com.jayway.android.robotium.solo.Solo;
 import com.xfinity.xidio.FirstRun;
 
-public class ClearCacheButton extends ActivityInstrumentationTestCase2<FirstRun>{
+public class XidioSettingsClearCacheButton extends ActivityInstrumentationTestCase2<FirstRun>{
 
 	private Solo solo;	
 	
-	public ClearCacheButton() {
+	public XidioSettingsClearCacheButton() {
 		super(FirstRun.class);
 	}
 
@@ -27,7 +27,7 @@ public class ClearCacheButton extends ActivityInstrumentationTestCase2<FirstRun>
 		super.setUp();
 	}
 
-	public void testClearCacheButton() 
+	public void testXidioSettingsClearCacheButton() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		

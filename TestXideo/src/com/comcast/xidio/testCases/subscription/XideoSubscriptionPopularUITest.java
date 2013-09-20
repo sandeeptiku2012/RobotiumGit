@@ -33,7 +33,7 @@ public class XideoSubscriptionPopularUITest  extends ActivityInstrumentationTest
 		super.setUp();
 	}
 
-	public void testSubscrptionPopularUI() 
+	public void testXideoSubscriptionPopularUITest() 
 	{
 		solo.waitForActivity(TestConstants.FIRST_RUN);
 		
