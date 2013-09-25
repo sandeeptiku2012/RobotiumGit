@@ -1,13 +1,3 @@
 # cache for current jar dependency. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
-1376988179000 421882 96b8f3f56a61922d33b0aa9df28183627dda22f9 /Users/ankitvyaseng85/git/RobotiumGit/Xideo/libs/android-binding-v0.6-preview.jar
-1376988179000 421882 96b8f3f56a61922d33b0aa9df28183627dda22f9 /Users/ankitvyaseng85/git/RobotiumGit/xideo-ui-libv1/libs/android-binding-v0.6-preview.jar
-1376988183000 487010 28586dc97c525501329d9a242fc3402041e3572d /Users/ankitvyaseng85/git/RobotiumGit/Xideo/libs/guice-3.0-no_aop.jar
-1376988183000 487010 28586dc97c525501329d9a242fc3402041e3572d /Users/ankitvyaseng85/git/RobotiumGit/xideo-ui-libv1/libs/guice-3.0-no_aop.jar
-1376988175000 2497 084d20f92c8b789b7319721ec811cc232cb76606 /Users/ankitvyaseng85/git/RobotiumGit/xideo-ui-libv1/libs/javax.inject.jar
-1376988180000 2497 084d20f92c8b789b7319721ec811cc232cb76606 /Users/ankitvyaseng85/git/RobotiumGit/Xideo/libs/javax.inject.jar
-1376988179000 393154 307c1cc532eabbf1d135b43e5c983c9da700449d /Users/ankitvyaseng85/git/RobotiumGit/Xideo/libs/android-support-v4.jar
-1376988183000 393154 307c1cc532eabbf1d135b43e5c983c9da700449d /Users/ankitvyaseng85/git/RobotiumGit/xideo-ui-libv1/libs/android-support-v4.jar
-1376988181000 18910 ca71dea7c3da8abbabe07e037b6f1a7c8974982d /Users/ankitvyaseng85/git/RobotiumGit/Xideo/libs/otto-1.3.3.jar
-1376988178000 18910 ca71dea7c3da8abbabe07e037b6f1a7c8974982d /Users/ankitvyaseng85/git/RobotiumGit/xideo-ui-libv1/libs/otto-1.3.3.jar
